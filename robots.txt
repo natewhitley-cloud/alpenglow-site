@@ -1,0 +1,6 @@
+# Every crawler is welcome, including search engines and AI assistants
+# (GPTBot, PerplexityBot, ClaudeBot, Google-Extended).
+User-agent: *
+Allow: /
+
+Sitemap: https://alpenglowsoftware.com/sitemap.xml
