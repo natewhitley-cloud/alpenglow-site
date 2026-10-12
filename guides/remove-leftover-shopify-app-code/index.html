@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to remove leftover code from uninstalled Shopify apps (2026) · Alpenglow Software</title>
+  <meta name="description" content="Uninstalling a Shopify app doesn't always remove its code. Where leftover app code hides in your theme, how to remove it safely, how to tell if it slows your store, and what the March 1, 2027 script tag deadline means.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="How to remove leftover code from uninstalled Shopify apps">
+  <meta property="og:description" content="Where leftover app code hides in your Shopify theme, how to remove it safely, and what the March 1, 2027 script tag deadline means.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to remove leftover code from uninstalled Shopify apps",
+        "datePublished": "2026-10-12",
+        "dateModified": "2026-10-12",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does uninstalling a Shopify app remove its code from my theme?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It depends on how the app was added. App blocks and app embeds from a theme app extension stop showing on your store when you uninstall the app. Code that an older app wrote into your theme files, or that you pasted in yourself while setting the app up, stays in your theme until you remove it." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can leftover app code slow down my Shopify store?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. A leftover script or stylesheet tag still makes the browser request that file on every page view, even though the app is gone. If the app's server no longer answers, the request can fail slowly or throw errors in the browser console. Leftover CSS and snippets add weight even when nothing breaks." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it safe to delete an app's snippet file from my theme?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Only after you remove every line that loads it. If a render or include tag still points to a snippet you deleted, the theme shows a Liquid error where that snippet used to be. Search the whole theme for the snippet's name, remove those lines first, then delete the file, and do it on a duplicate theme." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to Shopify script tags on March 1, 2027?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify stops adding script tags to online store pages on March 1, 2027. Since October 1, 2026, apps can't create or update them. Any app that still loads its storefront code through a script tag stops working on your store on that date unless its developer moves it to an app embed or a web pixel." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to remove an uninstalled app's script tags myself?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Usually not. Script tags belong to the app that created them, and Shopify removes them when you uninstall that app. The leftovers you remove yourself are the code that was written into your theme files." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    code { font-size:14px; overflow-wrap:anywhere; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
+  <h1>How to find and remove leftover code from uninstalled Shopify apps</h1>
+  <p class="muted">Updated October 12, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> uninstalling an app doesn't always remove its code. Modern apps add themselves through app blocks and app embeds, which stop showing when you uninstall. Older apps, and setup steps where you pasted code yourself, leave code in your theme files. To remove it: duplicate your theme, search the code for the app's name and its web address, remove each line that loads the app's code before you delete any of its files, preview the copy, then publish it.</p>
+  </div>
+
+  <h2>Why some apps leave code behind</h2>
+  <p>There are two ways an app can put code on your storefront, and they behave very differently when you uninstall:</p>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>How the app was added</th><th>What happens when you uninstall</th></tr></thead>
+    <tbody>
+      <tr><td><strong>App blocks and app embeds</strong> (a theme app extension). You switch them on in the theme editor under App embeds or add them as blocks.</td><td>They stop showing on your store. Shopify cleans up their settings the next time the page is saved in the theme editor. A reference can stay in the theme's files, but it no longer loads anything.</td></tr>
+      <tr><td><strong>Code written into your theme files</strong>, by an older app or by you following its setup instructions.</td><td>It stays. The app loses access to your store at the moment you uninstall, so it can't clean up after itself, and Shopify doesn't know which lines it added.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Since September 2021, new apps in the Shopify App Store must use theme app extensions instead of editing theme files. So the stores with the most leftovers are usually older stores, stores that have tried many apps, and stores that were moved from another platform and had apps installed "just in case." Review widgets, popups, currency converters, upsell tools and page builders installed years ago are common sources.</p>
+
+  <h2>Where leftover app code hides</h2>
+  <ul>
+    <li><strong><code>layout/theme.liquid</code>:</strong> the most common spot. Look for <code>&lt;script&gt;</code> and <code>&lt;link&gt;</code> tags in the <code>&lt;head&gt;</code> and just before <code>&lt;/body&gt;</code> that point to an app's domain, and for <code>{% render %}</code> or <code>{% include %}</code> lines that load an app's snippet.</li>
+    <li><strong>The <code>snippets</code> folder:</strong> files named after the app (for example <code>appname-widget.liquid</code>).</li>
+    <li><strong>Sections and templates:</strong> product, cart and collection sections where a review widget, badge or upsell block was pasted in.</li>
+    <li><strong>Custom Liquid sections:</strong> code pasted into a Custom Liquid section in the theme editor doesn't appear as its own file, so a search of the snippets folder misses it. Check the section list in the theme editor too.</li>
+    <li><strong>The <code>assets</code> folder:</strong> JavaScript and CSS files the app uploaded.</li>
+    <li><strong>SEO tags and structured data:</strong> old review and SEO apps sometimes added their own product schema (JSON-LD) or meta tags. Leftover schema can show Google and AI shopping tools an old price or rating that no longer matches your store.</li>
+    <li><strong><code>checkout.liquid</code>:</strong> on stores that had it, apps often added tracking or upsell code there. Shopify has retired <code>checkout.liquid</code>, so that code no longer runs, but it's still clutter.</li>
+  </ul>
+
+  <h2>Step by step: removing it safely</h2>
+  <ol>
+    <li><strong>Duplicate your live theme.</strong> In your admin, go to Online Store → Themes, open the menu (…) on your current theme and choose Duplicate. Make every change on the copy. If anything breaks, your live store is untouched.</li>
+    <li><strong>List the apps you've removed.</strong> Your memory and old app invoices help. For each one, note its name and the web domain it loaded from (you'll see it in the leftover code itself, for example <code>cdn.appname.com</code>).</li>
+    <li><strong>Search the copy's code.</strong> Open the copy's code editor (… → Edit code) and search the theme for each app's name and domain. Work through every match.</li>
+    <li><strong>Remove the line that loads the code before you delete the file.</strong> If <code>theme.liquid</code> says <code>{% render 'appname-widget' %}</code>, delete that line first, search for any other place that renders the same snippet, and only then delete <code>snippets/appname-widget.liquid</code>. A <code>render</code> line pointing to a missing snippet shows a Liquid error on your storefront.</li>
+    <li><strong>Check Custom Liquid sections</strong> in the theme editor for pasted app code.</li>
+    <li><strong>Preview the copy</strong> on your homepage, a product page, a collection and the cart. Look for blank spaces, Liquid errors or anything that looks wrong.</li>
+    <li><strong>Publish the copy</strong> and keep the old theme for a few weeks in case you need to compare.</li>
+  </ol>
+  <p>Not sure whether a line belongs to an app you still use? Leave it. Removing live app code breaks that app. And if the app's developer is still around, ask them: they know exactly what they added.</p>
+
+  <h2>How to tell if it's slowing your store</h2>
+  <ul>
+    <li><strong>Browser developer tools:</strong> open your store in Chrome, press F12, open the Network tab and reload. Requests to domains of apps you no longer use, especially ones that fail or take long, are leftovers costing you load time.</li>
+    <li><strong>The browser console:</strong> errors mentioning an old app's name or domain usually mean its code is still loading but its service is gone.</li>
+    <li><strong>Google PageSpeed Insights:</strong> the sections on third parties and on unused JavaScript list scripts by domain. A domain you don't recognize as one of your current apps is worth searching for in your theme.</li>
+  </ul>
+  <p>Speed scores move a few points between runs, so compare several tests before and after rather than one.</p>
+
+  <h2>Script tags and the March 1, 2027 deadline</h2>
+  <p>Script tags are a separate, older way for apps to load code on your storefront. Shopify adds them to your pages for the app; they don't appear in your theme files, so a search of your code won't find them.</p>
+  <ul>
+    <li><strong>For apps you've uninstalled:</strong> script tags belong to the app that created them, and Shopify removes them when you uninstall that app. You usually don't need to do anything.</li>
+    <li><strong>For apps you still use, there's a deadline:</strong> since October 1, 2026 apps can't create or update script tags, and on March 1, 2027 Shopify stops adding them to online store pages. Any app that still relies on a script tag stops working on your storefront that day unless its developer moves it to an app embed (which you switch on in the theme editor) or a web pixel.</li>
+    <li><strong>How to check:</strong> open your homepage, view the page source, and search for <code>asyncLoad</code>. The list of addresses next to it (<code>var urls = [...]</code>) is the script tags Shopify loads for your apps. For each one, ask the app's developer whether they've moved to an app embed, and switch the embed on once they have.</li>
+  </ul>
+
+  <h2>Where GhostCode fits</h2>
+  <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=leftover-app-code">GhostCode</a>, a Shopify app that does the search above for you. It scans your theme against signatures for 100+ apps, shows each leftover with the app it came from, the file, the line and the code, and groups findings by what they cost you: speed, what Google and AI tools see, and tracking that still runs. It also lists apps on your store that still depend on script tags before the 2027 deadline, and flags scripts from known malicious domains. GhostCode only reads your theme. It never edits it, so you stay in control of every change. Free and paid plans available.</p>
+
+  <h2>Common questions</h2>
+  <h3>Does uninstalling a Shopify app remove its code from my theme?</h3>
+  <p>It depends on how the app was added. App blocks and app embeds from a theme app extension stop showing on your store when you uninstall the app. Code that an older app wrote into your theme files, or that you pasted in yourself while setting the app up, stays in your theme until you remove it.</p>
+  <h3>Can leftover app code slow down my store?</h3>
+  <p>Yes. A leftover script or stylesheet tag still makes the browser request that file on every page view, even though the app is gone. If the app's server no longer answers, the request can fail slowly or throw errors in the browser console. Leftover CSS and snippets add weight even when nothing breaks.</p>
+  <h3>Is it safe to delete an app's snippet file?</h3>
+  <p>Only after you remove every line that loads it. If a <code>render</code> or <code>include</code> tag still points to a snippet you deleted, the theme shows a Liquid error where that snippet used to be. Search the whole theme for the snippet's name, remove those lines first, then delete the file, and do it on a duplicate theme.</p>
+  <h3>What happens to script tags on March 1, 2027?</h3>
+  <p>Shopify stops adding script tags to online store pages. Since October 1, 2026, apps can't create or update them. Any app that still loads its storefront code through a script tag stops working on your store on that date unless its developer moves it to an app embed or a web pixel.</p>
+  <h3>Do I need to remove an uninstalled app's script tags myself?</h3>
+  <p>Usually not. Script tags belong to the app that created them, and Shopify removes them when you uninstall that app. The leftovers you remove yourself are the code that was written into your theme files.</p>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://shopify.dev/docs/apps/build/online-store">Shopify developer docs: Apps in the online store</a></li>
+    <li><a href="https://shopify.dev/changelog/theme-app-extension-requirement-all-new-apps">Shopify changelog: theme app extension requirement for new apps</a></li>
+    <li><a href="https://shopify.dev/changelog/online-store-script-tags-deprecation">Shopify changelog: online store script tags deprecation</a></li>
+    <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation">Shopify developer docs: Script tag deprecation</a></li>
+    <li><a href="https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag">Shopify developer docs: ScriptTag (removed when the app that created it is uninstalled)</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+</body>
+</html>
