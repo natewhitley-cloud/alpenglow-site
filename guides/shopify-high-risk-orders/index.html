@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify high risk order: what to do before you fulfill · Alpenglow Software</title>
+  <meta name="description" content="Shopify flagged an order as high or medium risk of fraud. How to read the fraud analysis, when to cancel or fulfill, how to contact the buyer, and what evidence wins a fraud chargeback.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-high-risk-orders/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Shopify high risk order: what to do before you fulfill">
+  <meta property="og:description" content="How to read Shopify's fraud analysis, when to cancel or fulfill, and what evidence wins a fraud chargeback.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-high-risk-orders/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Shopify high risk order: what to do before you fulfill",
+        "datePublished": "2026-10-11",
+        "dateModified": "2026-10-11",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-high-risk-orders/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Shopify cancel high risk orders automatically?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify's fraud analysis flags the order and recommends an action, but it does not cancel the order for you. Until you act, a high risk order can be fulfilled like any other." }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I fulfill a medium risk order on Shopify?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify's recommendation for medium risk is to confirm with the customer before fulfilling. Check which indicators failed, ask the buyer to confirm the order details, and fulfill only if the answers fit. If you can't absorb the loss of the goods plus a chargeback fee, don't ship until you're satisfied." }
+          },
+          {
+            "@type": "Question",
+            "name": "What evidence wins a fraudulent chargeback on Shopify?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Evidence that the real cardholder placed the order: matching AVS and CVV results, device and IP data consistent with the customer's earlier orders, 3D Secure authentication, earlier successful orders from the same customer, email or address, delivery confirmation to the verified address, and messages where the customer acknowledged the order." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long do I have to respond to a Shopify chargeback?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Usually 7 to 21 days. With Shopify Payments, your response is submitted on the due date even if you add no evidence, so add yours before then." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which orders get a Shopify fraud analysis?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Online credit card orders that Shopify can verify. Test orders, free orders, gift card purchases, point of sale orders, B2B orders and subscription renewals are excluded." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
+  <h1>Shopify flagged an order as high risk. What to do before you fulfill.</h1>
+  <p class="muted">Updated October 11, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> don't fulfill it yet. Shopify flags the order but doesn't cancel it. Open the fraud analysis on the order, see which checks failed, and ask the buyer to confirm the details. Fulfill only if the answers fit; otherwise cancel and refund. Either way, write down what you checked and why you decided. If the order turns into a chargeback, that record is your evidence.</p>
+  </div>
+
+  <h2>What the flag means</h2>
+  <p>For eligible online credit card orders, Shopify's fraud analysis rates the risk that the order ends in a chargeback because of fraud, and recommends an action:</p>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Risk level</th><th>Shopify's recommendation</th></tr></thead>
+    <tbody>
+      <tr><td>Low</td><td>You can fulfill this order.</td></tr>
+      <tr><td>Medium</td><td>Confirm with the customer before fulfilling.</td></tr>
+      <tr><td>High</td><td>Consider canceling this order.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Two things merchants often miss:</p>
+  <ul>
+    <li><strong>Nothing happens automatically.</strong> A high risk order sits in your admin like any other order, and an automatic fulfillment or 3PL integration can ship it.</li>
+    <li><strong>The recommendation follows the overall assessment,</strong> not any single indicator. One failed check doesn't make an order fraud, and all checks passing doesn't make it safe.</li>
+  </ul>
+  <p>Test orders, free orders, gift card purchases, point of sale orders, B2B orders and subscription renewals aren't analyzed.</p>
+
+  <h2>How to read the indicators</h2>
+  <p>Open the order and look at the fraud analysis section. The indicators you'll see include:</p>
+  <ul>
+    <li><strong>Address verification (AVS):</strong> whether the billing address matches what the card issuer has on file.</li>
+    <li><strong>Card security code (CVV):</strong> whether the code entered was correct.</li>
+    <li><strong>Location:</strong> whether the buyer's location fits the payment method and addresses.</li>
+    <li><strong>IP address and network:</strong> where the order was placed from, and whether the device or network looks unusual.</li>
+    <li><strong>Payment attempts:</strong> several cards tried before one went through.</li>
+  </ul>
+  <p>Read them together. A billing address mismatch plus a far-away IP plus several card attempts is a very different order from a returning customer whose IP location simply couldn't be found.</p>
+
+  <h2>Step by step: deciding on a flagged order</h2>
+  <ol>
+    <li><strong>Stop it from shipping.</strong> If you use automatic fulfillment or a 3PL, hold the order first so nothing ships while you look.</li>
+    <li><strong>Read which checks failed</strong> and note them.</li>
+    <li><strong>Look at the buyer's history.</strong> Earlier orders from the same email or address that were delivered without disputes are a good sign. A brand-new account placing a large first order to a different shipping address is not.</li>
+    <li><strong>Contact the buyer</strong> on medium risk orders, and on high risk ones you'd like to save. Ask them to confirm the order details from their side, using the email on the order. A real customer usually answers quickly; a fraudster usually doesn't.</li>
+    <li><strong>Decide.</strong> Fulfill if the answers fit. Cancel and refund if they don't, or if you get no answer and can't afford the loss.</li>
+    <li><strong>Record the decision:</strong> what you checked, what the buyer said, and why you decided. Keep it with the order.</li>
+  </ol>
+
+  <h2>If it becomes a chargeback anyway</h2>
+  <p>You usually have 7 to 21 days to respond. With Shopify Payments, your response is submitted on the due date even if you added nothing, and in the US there's a $15 chargeback fee. For a fraudulent (unauthorized) dispute, you win by showing the real cardholder placed the order. Shopify recommends:</p>
+  <ul>
+    <li>AVS and CVV results showing the billing address and security code matched.</li>
+    <li>Device and IP data consistent with the customer's earlier orders.</li>
+    <li>3D Secure authentication, if the customer completed it.</li>
+    <li>Earlier successful orders from the same customer, email or shipping address.</li>
+    <li>Delivery confirmation to the customer's verified address.</li>
+    <li>Messages where the customer acknowledged the order.</li>
+  </ul>
+  <p>Most of this is easy to collect on the day you decide and hard to rebuild a month later. That's the real value of step 6.</p>
+
+  <h2>Preventing repeats</h2>
+  <ul>
+    <li><strong>Manual payment capture</strong> lets you check an order before you take the money.</li>
+    <li><strong>Shopify Flow</strong> can hold high risk orders for review, or capture payment automatically for low risk ones.</li>
+    <li><strong>A consistent review routine</strong> matters more than any single rule: same checks, same order, same record, every time.</li>
+  </ul>
+
+  <h2>Where FraudPilot fits</h2>
+  <p>We make <a href="https://apps.shopify.com/fraud-triage-cockpit">FraudPilot</a>, a Shopify app built around the routine above. On every plan, it puts the orders Shopify flags as medium or high risk in one queue and shows why each was flagged. The paid plan adds the decision itself: approve, cancel or tag in one click, each logged with a timestamp next to the buyer's history and your earlier decisions on them, and a CSV export of the log for chargeback responses. Tag adds a <code>fraudpilot-review</code> tag to the order in Shopify, so a Flow or 3PL rule can hold it; approve and cancel are recorded only, so you still cancel the order in Shopify yourself. FraudPilot doesn't block checkouts or cancel orders for you; you make every call. Free and paid plans available.</p>
+
+  <h2>Common questions</h2>
+  <h3>Does Shopify cancel high risk orders automatically?</h3>
+  <p>No. Shopify's fraud analysis flags the order and recommends an action, but it does not cancel the order for you. Until you act, a high risk order can be fulfilled like any other.</p>
+  <h3>Should I fulfill a medium risk order?</h3>
+  <p>Shopify's recommendation for medium risk is to confirm with the customer before fulfilling. Check which indicators failed, ask the buyer to confirm the order details, and fulfill only if the answers fit. If you can't absorb the loss of the goods plus a chargeback fee, don't ship until you're satisfied.</p>
+  <h3>What evidence wins a fraudulent chargeback?</h3>
+  <p>Evidence that the real cardholder placed the order: matching AVS and CVV results, device and IP data consistent with earlier orders, 3D Secure authentication, earlier successful orders from the same customer, delivery confirmation to the verified address, and messages where the customer acknowledged the order.</p>
+  <h3>How long do I have to respond to a chargeback?</h3>
+  <p>Usually 7 to 21 days. With Shopify Payments, your response is submitted on the due date even if you add no evidence, so add yours before then.</p>
+  <h3>Which orders get a fraud analysis?</h3>
+  <p>Online credit card orders that Shopify can verify. Test orders, free orders, gift card purchases, point of sale orders, B2B orders and subscription renewals are excluded.</p>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/protecting-orders/fraud-analysis">Shopify Help Center: Reviewing orders with fraud analysis</a></li>
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/protecting-orders">Shopify Help Center: Protecting orders</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/chargebacks/chargeback-process">Shopify Help Center: Responding to chargebacks and inquiries</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+</body>
+</html>
