@@ -93,12 +93,12 @@
   <table>
     <thead><tr><th>How the app was added</th><th>What happens when you uninstall</th></tr></thead>
     <tbody>
-      <tr><td><strong>App blocks and app embeds</strong> (a theme app extension). You switch them on in the theme editor under App embeds or add them as blocks.</td><td>They stop showing on your store. Shopify cleans up their settings the next time the page is saved in the theme editor. A reference can stay in the theme's files, but it no longer loads anything.</td></tr>
+      <tr><td><strong>App blocks and app embeds</strong> (a theme app extension). You switch them on in the theme editor under App embeds or add them as blocks.</td><td>Removed for you. Shopify's developer docs say an app's blocks are automatically and entirely removed from your theme when you uninstall it.</td></tr>
       <tr><td><strong>Code written into your theme files</strong>, by an older app or by you following its setup instructions.</td><td>It stays. The app loses access to your store at the moment you uninstall, so it can't clean up after itself, and Shopify doesn't know which lines it added.</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Since September 2021, new apps in the Shopify App Store must use theme app extensions instead of editing theme files. So the stores with the most leftovers are usually older stores, stores that have tried many apps, and stores that were moved from another platform and had apps installed "just in case." Review widgets, popups, currency converters, upsell tools and page builders installed years ago are common sources.</p>
+  <p>Shopify introduced theme app extensions in 2021, and new apps in the Shopify App Store that work with your theme must use them instead of editing theme files. So the stores with the most leftovers are usually older stores, stores that have tried many apps, and stores that were moved from another platform and had apps installed "just in case." Review widgets, popups, currency converters, upsell tools and page builders installed years ago are common sources.</p>
 
   <h2>Where leftover app code hides</h2>
   <ul>
@@ -162,7 +162,8 @@
   <h2>Sources</h2>
   <ul class="muted">
     <li><a href="https://shopify.dev/docs/apps/build/online-store">Shopify developer docs: Apps in the online store</a></li>
-    <li><a href="https://shopify.dev/changelog/theme-app-extension-requirement-all-new-apps">Shopify changelog: theme app extension requirement for new apps</a></li>
+    <li><a href="https://shopify.dev/docs/apps/build/online-store">Shopify developer docs: apps in the online store (theme app extension requirement)</a></li>
+    <li><a href="https://shopify.dev/docs/apps/build/online-store/theme-app-extensions/ux">Shopify developer docs: what happens to app blocks on uninstall</a></li>
     <li><a href="https://shopify.dev/changelog/online-store-script-tags-deprecation">Shopify changelog: online store script tags deprecation</a></li>
     <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation">Shopify developer docs: Script tag deprecation</a></li>
     <li><a href="https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag">Shopify developer docs: ScriptTag (removed when the app that created it is uninstalled)</a></li>

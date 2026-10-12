@@ -81,11 +81,11 @@
   DRAFT (bead gc-t855). Source map for review, checked 2026-10-12.
   INCIDENT (everything in "What happened in October 2026" comes from this one write-up and nothing else):
      https://romanzipp.com/blog/shopify-hit-with-phishing-attack (Roman Zipp, published 2026-10-10)
-     Used from it: shopper noticed a checkout page on a different address; code traced to hulkcode.js, described as served from Shopify's CDN and authored by HulkApps;
+     Used from it: shopper noticed a checkout page on a different address; code traced to an installed app's own script file, served from Shopify's CDN (the write-up names the file and the developer; this page deliberately does not);
      that script requested data from the developer's server and the response contained custom JavaScript that was then run; the injected code redirected checkout once and
      set a session storage flag; fake page collected details then forwarded to the real checkout; origin "unclear" (four possibilities listed); author knew of two affected stores;
      Shopify escalated and the redirect stopped on the named store the same day; that store confirmed it removed the app; author's advice = private window checkout test and
-     changing the HulkApps password / 2FA. NOT used: store name, attacker domains, anything from Reddit.
+     changing the password / 2FA on the account with the app developer. NOT used: app or developer name, store name, attacker domains, anything from Reddit.
   SHOPIFY FACTS:
   1. Settings > Apps; Installed / Uninstalled tabs; App history; uninstall steps; "Some apps add code to your online store theme that isn't automatically removed"; Settings > Apps > Get support:
      https://help.shopify.com/en/manual/apps/uninstalling-apps
@@ -108,8 +108,12 @@
      https://help.shopify.com/en/manual/privacy-and-security/account-security/account-security-best-practices
   8. Support channels; third-party app support comes from the developer:
      https://help.shopify.com/en/manual/your-account/contact-shopify-support
-  NOT doc-verified (flagged in the hand-off): that Shop Pay's pages are on shop.app; no current Shopify page found that states "checkout always stays on your primary domain"
-  (the 2022 changelog post that said so now returns 404); the payment provider / legal advice step is general practice, not Shopify documentation.
+  CHECKOUT DOMAIN (checked 2026-10-12):
+     Checkout is on the store's own domain: "their entire shopping experience, from homepage to checkout, will take place on your domain", free for all merchants, automatic:
+     https://www.shopify.com/blog/introducing-checkout-on-your-own-domain (2017-07-14)
+     shop.app is Shop Pay's domain: "Previously, buyers using Shop Pay would see the page rendered on shop.app" (now returned to the merchant's domain after purchase):
+     https://changelog.shopify.com/posts/shop-pay-now-redirects-to-the-post-purchase-page-on-merchant-s-domain (2023-10-16)
+  NOT doc-verified: the exact address shown during the Shop Pay sign-in step today (worded as "can show"); the payment provider / legal advice step is general practice, not Shopify documentation.
 -->
 <main>
   <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
@@ -122,7 +126,7 @@
   <p class="muted">One step on this list, searching your theme for leftover app code, can be automated. <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=compromised-app-checklist&amp;utm_content=top">GhostCode</a> does that part. It does not test your checkout and it can't see code that an installed app loads while a page is running, so it is not a substitute for the steps below.</p>
 
   <h2>What happened in October 2026</h2>
-  <p>According to <a href="https://romanzipp.com/blog/shopify-hit-with-phishing-attack" rel="nofollow">a developer's write-up published 2026-10-10</a>, a shopper clicked Checkout on a Shopify store and landed on a page that looked like Shopify's checkout but sat on a different web address. The author traced it to a script file named <code>hulkcode.js</code>, which he says is delivered from Shopify's CDN and appears to be authored by the app developer HulkApps. He reports that when a page loaded, this script requested data from the developer's server, that the response included custom JavaScript, and that this JavaScript ran in the shopper's browser and redirected the checkout click to a fake checkout page. The fake page collected what the shopper typed and then passed them on to the real checkout.</p>
+  <p>According to <a href="https://romanzipp.com/blog/shopify-hit-with-phishing-attack" rel="nofollow">a developer's write-up published 2026-10-10</a>, a shopper clicked Checkout on a Shopify store and landed on a page that looked like Shopify's checkout but sat on a different web address. The author traced it to a script file belonging to an app installed on the store, delivered from Shopify's CDN. He reports that when a page loaded, this script requested data from the developer's server, that the response included custom JavaScript, and that this JavaScript ran in the shopper's browser and redirected the checkout click to a fake checkout page. The fake page collected what the shopper typed and then passed them on to the real checkout.</p>
   <p>Three details from the write-up matter for the checklist below:</p>
   <ul>
     <li><strong>The code was not in the store's theme.</strong> As described, it arrived from the app developer's server each time a page loaded.</li>
@@ -140,10 +144,10 @@
   <ol>
     <li>Open a new private or incognito window. This matters: by the write-up's account the redirect happened once per visitor, so a browser that has already been through your checkout may not show it.</li>
     <li>Go to your store, add any product to the cart and click Checkout.</li>
-    <li>Read the address bar before you type anything. It should show your store's own domain: the one customers normally see, or your <code>myshopify.com</code> address. You can see every domain connected to your store under Settings → Domains.</li>
+    <li>Read the address bar before you type anything. It should show your store's own domain: the one customers normally see, or your <code>myshopify.com</code> address. Shopify runs checkout on your own domain for every store. You can see every domain connected to your store under Settings → Domains.</li>
     <li>Repeat on a phone, again in a fresh private window. Then repeat with each checkout button you offer, including the cart drawer and any Buy now button on the product page.</li>
   </ol>
-  <p>If you offer Shop Pay, a step that asks the shopper to sign in or enter a code from Shop is part of how Shop Pay works. That step is on Shop's own site (<code>shop.app</code>) and returns the shopper to your checkout.</p>
+  <p>If you offer Shop Pay, a step that asks the shopper to sign in or enter a code from Shop is part of how Shop Pay works. That step can show Shop's own address (<code>shop.app</code>) and then returns the shopper to your checkout.</p>
   <p>Stop if the address is anything else, especially a lookalike with a misspelled word or an unfamiliar ending. Don't enter real card details. Take a screenshot showing the full address and go to step 3.</p>
 
   <h3>3. Uninstall the app if you can't trust it right now</h3>
@@ -208,6 +212,7 @@
     <li><a href="https://help.shopify.com/en/manual/apps/managing-apps">Shopify Help Center: Managing apps (activity, permissions and privacy)</a></li>
     <li><a href="https://help.shopify.com/en/manual/domains/domain-type/change-primary-domain">Shopify Help Center: Primary domain</a></li>
     <li><a href="https://help.shopify.com/en/manual/payments/shop-pay/shop-pay">Shopify Help Center: Shop Pay</a></li>
+    <li><a href="https://www.shopify.com/blog/introducing-checkout-on-your-own-domain">Shopify: checkout on your own domain</a></li>
     <li><a href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes/edit-code/edit-theme-code">Shopify Help Center: Edit theme code</a></li>
     <li><a href="https://help.shopify.com/en/manual/promoting-marketing/pixels/custom-pixels/manage">Shopify Help Center: Manage your custom pixels</a></li>
     <li><a href="https://help.shopify.com/en/manual/privacy-and-security/account-security/account-security-best-practices">Shopify Help Center: Account security best practices</a></li>
