@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to remove leftover code from uninstalled Shopify apps (2026) · Alpenglow Software</title>
-  <meta name="description" content="Uninstalling a Shopify app doesn't always remove its code. Where leftover app code hides in your theme, how to remove it safely, how to tell if it slows your store, and what the March 1, 2027 script tag deadline means.">
+  <meta name="description" content="Where leftover app code hides in your Shopify theme, how to remove it safely, how to tell if it slows your store, and what the March 1, 2027 script tag deadline means.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
@@ -29,11 +29,6 @@
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does uninstalling a Shopify app remove its code from my theme?",
-            "acceptedAnswer": { "@type": "Answer", "text": "It depends on how the app was added. App blocks and app embeds from a theme app extension stop showing on your store when you uninstall the app. Code that an older app wrote into your theme files, or that you pasted in yourself while setting the app up, stays in your theme until you remove it." }
-          },
           {
             "@type": "Question",
             "name": "Can leftover app code slow down my Shopify store?",
@@ -83,7 +78,7 @@
   <p class="muted">Updated October 12, 2026</p>
 
   <div class="answer">
-    <p><strong>Short answer:</strong> uninstalling an app doesn't always remove its code. Modern apps add themselves through app blocks and app embeds, which stop showing when you uninstall. Older apps, and setup steps where you pasted code yourself, leave code in your theme files. To remove it: duplicate your theme, search the code for the app's name and its web address, remove each line that loads the app's code before you delete any of its files, preview the copy, then publish it.</p>
+    <p><strong>Short answer:</strong> uninstalling an app doesn't always remove its code. Modern apps add themselves through app blocks and app embeds, which stop loading when you uninstall. Older apps, and setup steps where you pasted code yourself, leave code in your theme files. To remove it: duplicate your theme, search the code for the app's name and its web address, remove each line that loads the app's code before you delete any of its files, preview the copy, then publish it.</p>
   </div>
   <p class="muted">Prefer an automatic check? <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=leftover-app-code&amp;utm_content=top">GhostCode</a> scans your theme for leftover app code and shows which app each piece came from. It only reads your theme; the first scan is free.</p>
 
@@ -93,7 +88,7 @@
   <table>
     <thead><tr><th>How the app was added</th><th>What happens when you uninstall</th></tr></thead>
     <tbody>
-      <tr><td><strong>App blocks and app embeds</strong> (a theme app extension). You switch them on in the theme editor under App embeds or add them as blocks.</td><td>Removed for you. Shopify's developer docs say an app's blocks are automatically and entirely removed from your theme when you uninstall it.</td></tr>
+      <tr><td><strong>App blocks and app embeds</strong> (a theme app extension). You switch them on in the theme editor under App embeds or add them as blocks.</td><td>They stop loading. Shopify's developer docs say an app's blocks are automatically removed from your theme when you uninstall it. An entry for the app's embed can stay in the theme's settings file (<code>config/settings_data.json</code>). With the app gone it should load nothing.</td></tr>
       <tr><td><strong>Code written into your theme files</strong>, by an older app or by you following its setup instructions.</td><td>It stays. The app loses access to your store at the moment you uninstall, so it can't clean up after itself, and Shopify doesn't know which lines it added.</td></tr>
     </tbody>
   </table>
@@ -144,8 +139,7 @@
 
   <h2>Common questions</h2>
   <h3>Does uninstalling a Shopify app remove its code from my theme?</h3>
-  <p>It depends on how the app was added. App blocks and app embeds from a theme app extension stop showing on your store when you uninstall the app. Code that an older app wrote into your theme files, or that you pasted in yourself while setting the app up, stays in your theme until you remove it.</p>
-  <p>Full answer: <a href="/guides/does-uninstalling-shopify-app-remove-code/">what uninstalling a Shopify app removes and what it leaves behind</a>.</p>
+  <p>Not always. App blocks and app embeds stop loading, and code written into your theme files stays. Full answer: <a href="/guides/does-uninstalling-shopify-app-remove-code/">what uninstalling a Shopify app removes and what it leaves behind</a>.</p>
   <h3>Can leftover app code slow down my store?</h3>
   <p>Yes. A leftover script or stylesheet tag still makes the browser request that file on every page view, even though the app is gone. If the app's server no longer answers, the request can fail slowly or throw errors in the browser console. Leftover CSS and snippets add weight even when nothing breaks.</p>
   <h3>Is it safe to delete an app's snippet file?</h3>
@@ -161,10 +155,9 @@
 
   <h2>Sources</h2>
   <ul class="muted">
-    <li><a href="https://shopify.dev/docs/apps/build/online-store">Shopify developer docs: Apps in the online store</a></li>
-    <li><a href="https://shopify.dev/docs/apps/build/online-store">Shopify developer docs: apps in the online store (theme app extension requirement)</a></li>
+    <li><a href="https://shopify.dev/docs/apps/build/online-store">Shopify developer docs: Apps in the online store (theme app extension requirement)</a></li>
     <li><a href="https://shopify.dev/docs/apps/build/online-store/theme-app-extensions/ux">Shopify developer docs: what happens to app blocks on uninstall</a></li>
-    <li><a href="https://shopify.dev/changelog/online-store-script-tags-deprecation">Shopify changelog: online store script tags deprecation</a></li>
+    <li><a href="https://shopify.dev/changelog/posts/online-store-script-tags-deprecation">Shopify changelog: online store script tags deprecation</a></li>
     <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation">Shopify developer docs: Script tag deprecation</a></li>
     <li><a href="https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag">Shopify developer docs: ScriptTag (removed when the app that created it is uninstalled)</a></li>
   </ul>

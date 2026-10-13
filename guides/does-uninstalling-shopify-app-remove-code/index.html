@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Does uninstalling a Shopify app remove its code from your theme? · Alpenglow Software</title>
-  <meta name="description" content="Not always. App blocks, app embeds and script tags are removed when you uninstall a Shopify app. Code written into your theme files stays. What is removed, what is left behind, and how to check by hand.">
+  <meta name="description" content="Not always. App blocks, app embeds and script tags stop loading when you uninstall a Shopify app. Code written into your theme files stays. What is removed, what is left behind, and how to check by hand.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/does-uninstalling-shopify-app-remove-code/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
@@ -32,7 +32,7 @@
           {
             "@type": "Question",
             "name": "Are app blocks and app embeds removed when I uninstall a Shopify app?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Shopify's developer documentation says that when a merchant uninstalls an app, the blocks associated with the app are automatically and entirely removed from online store themes. App blocks and app embeds are the parts of an app you add or switch on in the theme editor." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, they stop loading. Shopify's developer documentation says that when a merchant uninstalls an app, the blocks associated with the app are automatically removed from online store themes. An entry for the app's embed can remain in the theme's settings file. With the app gone it should load nothing. App blocks and app embeds are the parts of an app you add or switch on in the theme editor." }
           },
           {
             "@type": "Question",
@@ -42,7 +42,7 @@
           {
             "@type": "Question",
             "name": "What happens to an app's metafields after I uninstall it?",
-            "acceptedAnswer": { "@type": "Answer", "text": "For metafields the app owns, Shopify deletes the definitions when the app is uninstalled and keeps the values for a while before a background cleanup removes them. Shopify does not say how long that takes. Metafields do not run code on your storefront." }
+            "acceptedAnswer": { "@type": "Answer", "text": "For metafields the app owns, Shopify removes the definitions (some straight away, some in a later cleanup) and keeps the values for a while before a background cleanup removes them. Shopify does not say how long that takes. Data an app stored outside its own reserved area is not covered by this and may stay. Metafields do not run code on your storefront." }
           },
           {
             "@type": "Question",
@@ -77,40 +77,13 @@
   </style>
 </head>
 <body>
-<!--
-  DRAFT (bead gc-t855). Source map for review, checked 2026-10-12. Each platform claim on this page and the doc that supports it:
-  1. App blocks / embeds removed on uninstall: "When merchants uninstall apps, blocks associated with the apps are automatically and entirely removed from online store themes."
-     https://shopify.dev/docs/apps/build/online-store/theme-app-extensions/ux (section "Uninstalling apps")
-  2. Theme app extensions don't edit theme code; every new App Store app that integrates with a theme must use them:
-     https://shopify.dev/docs/apps/build/online-store
-  3. "Some apps add code to your online store theme that isn't automatically removed when you uninstall the app." + review the listing / contact the developer first; Settings > Apps > menu > Uninstall; Uninstalled tab; billing and external charges:
-     https://help.shopify.com/en/manual/apps/uninstalling-apps
-  4. Developers must give removal instructions if uninstalling leaves code behind:
-     https://shopify.dev/docs/apps/build/online-store (section "Requirements")
-  5. Script tags scoped to the creating app and "automatically removed" on uninstall:
-     https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag
-     Script tags not in theme code ("loads JavaScript on a storefront without any changes to theme code"), no create/update after 2026-10-01, stop running 2027-03-01:
-     https://shopify.dev/changelog/posts/online-store-script-tags-deprecation
-     https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation
-  6. App-owned metafield definitions deleted on uninstall, values retained temporarily, async cleanup, no guaranteed timing:
-     https://shopify.dev/docs/apps/build/metafields/definitions (section "App uninstall and reinstall")
-  7. Uninstall ends the app's token access:
-     https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens ("Token revocation")
-  8. Code editor: Online Store > ... > Edit code; search button in left sidebar searches all theme files; deleted files can't be recovered; duplicate first:
-     https://help.shopify.com/en/manual/online-store/themes/customizing-themes/edit-code/edit-theme-code
-  9. App embeds in theme editor (Online Store > Edit theme > App embeds icon); apps that add code directly to theme; Custom Liquid:
-     https://help.shopify.com/en/manual/online-store/themes/theme-structure/extend/apps
-  10. Custom pixels: Settings > Customer events > Custom pixels:
-     https://help.shopify.com/en/manual/promoting-marketing/pixels/custom-pixels/manage
-  NOT doc-verified (flagged in the hand-off): merchant-owned metafields staying after uninstall; custom pixels staying after uninstall; unpublished themes keeping edits.
--->
 <main>
   <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
   <h1>Does uninstalling a Shopify app remove its code from your theme?</h1>
   <p class="muted">Updated October 12, 2026</p>
 
   <div class="answer">
-    <p><strong>Short answer:</strong> not always. It depends on how the app put its code on your store. App blocks, app embeds and script tags are removed for you when you uninstall. Code that an app wrote into your theme files, or that you pasted in while setting the app up, is not removed. It stays in your theme until you take it out. Shopify's own Help Center says the same: some apps add code to your theme that isn't automatically removed when you uninstall the app.</p>
+    <p><strong>Short answer:</strong> not always. It depends on how the app put its code on your store. App blocks, app embeds and script tags stop loading when you uninstall. Code that an app wrote into your theme files, or that you pasted in while setting the app up, is not removed. It stays in your theme until you take it out. Shopify's own Help Center says the same: some apps add code to your theme that isn't automatically removed when you uninstall the app.</p>
   </div>
   <p class="muted">Want the check done for you? <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=uninstall-removes-code&amp;utm_content=top">GhostCode</a> scans your theme for code left by uninstalled apps. It only reads your theme; the first scan is free.</p>
 
@@ -119,12 +92,12 @@
   <table>
     <thead><tr><th>What the app added</th><th>When you uninstall</th></tr></thead>
     <tbody>
-      <tr><td><strong>App blocks and app embeds.</strong> The parts you add or switch on in the theme editor. These come from a theme app extension, which never edits your theme's code.</td><td><strong>Removed for you.</strong> Shopify's developer docs say the app's blocks are automatically and entirely removed from your themes.</td></tr>
+      <tr><td><strong>App blocks and app embeds.</strong> The parts you add or switch on in the theme editor. These come from a theme app extension, which never edits your theme's code.</td><td><strong>Stop loading.</strong> Shopify's developer docs say the app's blocks are automatically removed from your themes. You may still find an entry for the app's embed (a line starting <code>shopify://apps/</code>) in <code>config/settings_data.json</code>. We have seen one stay behind after an uninstall. With the app gone it should load nothing, and it is safe to leave.</td></tr>
       <tr><td><strong>Script tags.</strong> An older way for an app to load JavaScript on your storefront without touching theme files.</td><td><strong>Removed for you.</strong> Script tags belong to the app that created them and Shopify removes them when that app is uninstalled.</td></tr>
       <tr><td><strong>The app's access to your store.</strong></td><td><strong>Ends.</strong> The app can no longer read or change anything through Shopify. This is also why it can't tidy up its own theme code afterwards.</td></tr>
       <tr><td><strong>Code the app wrote into your theme files.</strong> Common with older apps: lines in <code>theme.liquid</code>, files in <code>snippets</code> and <code>assets</code>, edits to product or cart sections.</td><td><strong>Stays.</strong> Shopify doesn't track which lines an app added, so nothing removes them.</td></tr>
       <tr><td><strong>Code you pasted in yourself</strong> by following the app's setup instructions, in theme files or in a Custom Liquid section.</td><td><strong>Stays.</strong> It is part of your theme now.</td></tr>
-      <tr><td><strong>Metafields the app owns.</strong> Extra data the app stored on your products, orders or store.</td><td><strong>Cleaned up later.</strong> Shopify deletes the app's metafield definitions at uninstall and keeps the values for a while before a background cleanup removes them. Shopify doesn't say how long. Metafields don't run code.</td></tr>
+      <tr><td><strong>Metafields the app owns.</strong> Extra data the app stored on your products, orders or store.</td><td><strong>Cleaned up later.</strong> Shopify removes the app's metafield definitions (some straight away, some in a later cleanup) and keeps the values for a while before a background cleanup removes them. Shopify doesn't say how long. Data an app stored outside its own reserved area is not covered by this and may stay. Metafields don't run code.</td></tr>
       <tr><td><strong>Charges billed outside Shopify.</strong></td><td><strong>Not cancelled.</strong> Uninstalling stops future recurring charges on your Shopify bill, but a subscription you pay the developer directly keeps running until you cancel it with them.</td></tr>
     </tbody>
   </table>
@@ -138,7 +111,7 @@
 
   <h2>How to check by hand</h2>
   <ol>
-    <li><strong>List what you have uninstalled.</strong> In your Shopify admin, go to Settings → Apps and open the <strong>Uninstalled</strong> tab. It shows the apps that were removed from your store, and each app's page has a history of installs and uninstalls.</li>
+    <li><strong>List what you have uninstalled.</strong> In your Shopify admin, go to Settings → Apps and open the <strong>Uninstalled</strong> tab. It shows apps that were uninstalled from your store (Shopify describes these as recently uninstalled, so very old ones may be missing), and each app's page has a history of installs and uninstalls.</li>
     <li><strong>Search your theme code.</strong> Go to Online Store, open the menu (…) on your theme and choose <strong>Edit code</strong>. Use the search button in the left sidebar, which searches every file in the theme, and look for each uninstalled app's name and its web address (for example <code>appname.com</code>). Matches in <code>layout/theme.liquid</code>, <code>snippets</code>, <code>sections</code> and <code>assets</code> are the usual finds.</li>
     <li><strong>Look in the theme editor.</strong> Open your theme with <strong>Edit theme</strong> and check for Custom Liquid sections holding pasted app code. While you are there, open <strong>App embeds</strong> to see which embeds are switched on.</li>
     <li><strong>Check Customer events.</strong> Go to Settings → Customer events → Custom pixels. A custom pixel is code that you or someone working on your store added, so it is not tied to the app's install. Check whether any of them belong to a service you no longer use.</li>
@@ -156,15 +129,15 @@
   </ul>
 
   <h2>Where GhostCode fits</h2>
-  <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=uninstall-removes-code&amp;utm_content=middle">GhostCode</a>, a Shopify app that does the theme code search for you. It scans your theme files against signatures for 100+ apps and shows each leftover with the app it came from, the file and the line. GhostCode only reads your theme. It never edits it, so every change stays in your hands. It does not look at custom pixels or at charges billed outside Shopify, so those two checks are still yours. Free and paid plans available.</p>
+  <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=uninstall-removes-code&amp;utm_content=middle">GhostCode</a>, a Shopify app that does the theme code search for you. It scans your theme files against signatures for 100+ apps and shows each leftover with the app it came from, the file and the line. The free plan shows a few findings in full and counts for the rest. GhostCode only reads your theme. It never edits it, so every change stays in your hands. It does not look at custom pixels or at charges billed outside Shopify, so those two checks are still yours. Free and paid plans available.</p>
 
   <h2>Common questions</h2>
   <h3>Are app blocks and app embeds removed when I uninstall a Shopify app?</h3>
-  <p>Yes. Shopify's developer documentation says that when a merchant uninstalls an app, the blocks associated with the app are automatically and entirely removed from online store themes. App blocks and app embeds are the parts of an app you add or switch on in the theme editor.</p>
+  <p>Yes, they stop loading. Shopify's developer documentation says that when a merchant uninstalls an app, the blocks associated with the app are automatically removed from online store themes. An entry for the app's embed can remain in the theme's settings file. With the app gone it should load nothing. App blocks and app embeds are the parts of an app you add or switch on in the theme editor.</p>
   <h3>Does Shopify remove an app's script tags when I uninstall it?</h3>
   <p>Yes. Script tags are scoped to the app that created them, and Shopify removes all of an app's script tags automatically when the app is uninstalled. Script tags are also being retired: Shopify stops adding them to storefronts on March 1, 2027.</p>
   <h3>What happens to an app's metafields after I uninstall it?</h3>
-  <p>For metafields the app owns, Shopify deletes the definitions when the app is uninstalled and keeps the values for a while before a background cleanup removes them. Shopify does not say how long that takes. Metafields do not run code on your storefront.</p>
+  <p>For metafields the app owns, Shopify removes the definitions (some straight away, some in a later cleanup) and keeps the values for a while before a background cleanup removes them. Shopify does not say how long that takes. Data an app stored outside its own reserved area is not covered by this and may stay. Metafields do not run code on your storefront.</p>
   <h3>Should I check for an app's code before or after I uninstall it?</h3>
   <p>Before, if you can. Shopify's Help Center recommends reviewing the app's App Store listing or contacting the developer before you uninstall, to find out whether extra removal steps are needed. If you already uninstalled, search your theme code for the app's name and web address.</p>
   <h3>Does an uninstalled app still have access to my store?</h3>

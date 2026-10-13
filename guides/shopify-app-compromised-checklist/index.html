@@ -32,22 +32,22 @@
           {
             "@type": "Question",
             "name": "How do I test whether my Shopify checkout is being redirected?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Open a new private or incognito window, add a product to the cart, click Checkout, and read the address bar before you type anything. The address should be on your store's own domain. Do it once on a desktop browser and once on a phone, each time in a fresh private window." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Open a new private or incognito window, add a product to the cart, click Checkout, and read the address bar before you type anything. The address should be on a domain listed under Settings → Domains in your admin (Shop Pay, PayPal and similar buttons open their own sites). Do it once on a desktop browser and once on a phone, each time in a fresh private window." }
           },
           {
             "@type": "Question",
             "name": "Does uninstalling a compromised Shopify app fix the problem?",
-            "acceptedAnswer": { "@type": "Answer", "text": "It ends the app's access to your store, and Shopify removes the app's blocks, embeds and script tags. It does not remove code the app wrote into your theme files, and it does not undo anything that already happened. After uninstalling, repeat the checkout test and search your theme for leftover code." }
+            "acceptedAnswer": { "@type": "Answer", "text": "It ends the app's access to your store, and the app's blocks, embeds and script tags stop loading. It does not remove code the app wrote into your theme files, and it does not undo anything that already happened. After uninstalling, repeat the checkout test and search your theme for leftover code." }
           },
           {
             "@type": "Question",
             "name": "Would a theme code scan detect a compromised app?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Not if the harmful code is delivered by the installed app while the page loads, which is what a developer's write-up described in the October 2026 checkout redirect incident. That code is never stored in your theme files, so a theme scan cannot see it. A theme scan finds code that sits in your theme. The checkout test is the check that catches a redirect." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Not if the harmful code is delivered by the installed app while the page loads, which is what an independent write-up described in the October 2026 checkout redirect incident. That code is never stored in your theme files, so a theme scan cannot see it. A theme scan finds code that sits in your theme. The checkout test is the check that catches a redirect. A clean test is not proof either: code like this can be switched on for only some visitors or some of the time, so repeat it over a few days." }
           },
           {
             "@type": "Question",
             "name": "Do I need to change my Shopify password after an app is compromised?",
-            "acceptedAnswer": { "@type": "Answer", "text": "A compromised app does not mean your Shopify login was exposed. Change the password for any account you hold with the app's developer first. Change your Shopify password and set up two-step authentication again if you see sign-ins, staff accounts or settings changes you don't recognize." }
+            "acceptedAnswer": { "@type": "Answer", "text": "A compromised app does not mean your Shopify login was exposed. Change the password for any account you hold with the app's developer first. If you see sign-ins, staff accounts or settings changes you don't recognize, change your Shopify password and turn on two-step authentication (or reset it if it was bypassed)." }
           },
           {
             "@type": "Question",
@@ -77,81 +77,43 @@
   </style>
 </head>
 <body>
-<!--
-  DRAFT (bead gc-t855). Source map for review, checked 2026-10-12.
-  INCIDENT (everything in "What happened in October 2026" comes from this one write-up and nothing else):
-     https://romanzipp.com/blog/shopify-hit-with-phishing-attack (Roman Zipp, published 2026-10-10)
-     Used from it: shopper noticed a checkout page on a different address; code traced to an installed app's own script file, served from Shopify's CDN (the write-up names the file and the developer; this page deliberately does not);
-     that script requested data from the developer's server and the response contained custom JavaScript that was then run; the injected code redirected checkout once and
-     set a session storage flag; fake page collected details then forwarded to the real checkout; origin "unclear" (four possibilities listed); author knew of two affected stores;
-     Shopify escalated and the redirect stopped on the named store the same day; that store confirmed it removed the app; author's advice = private window checkout test and
-     changing the password / 2FA on the account with the app developer. NOT used: app or developer name, store name, attacker domains, anything from Reddit.
-  SHOPIFY FACTS:
-  1. Settings > Apps; Installed / Uninstalled tabs; App history; uninstall steps; "Some apps add code to your online store theme that isn't automatically removed"; Settings > Apps > Get support:
-     https://help.shopify.com/en/manual/apps/uninstalling-apps
-  2. App about page: "Activity and permissions" section, "Privacy" section, Extensions / Functions / Pixels cards:
-     https://help.shopify.com/en/manual/apps/managing-apps
-  3. Primary domain = "the domain name that's displayed in the address bar for your online store"; Settings > Domains:
-     https://help.shopify.com/en/manual/domains/domain-type/change-primary-domain
-     Checkout is Shopify-hosted, URL "might look something like {shop}.myshopify.com/123456/checkouts...":
-     https://shopify.dev/docs/storefronts/headless/hydrogen/migrate
-     Shop Pay "redirects the customer to verify their information before they return to checkout":
-     https://help.shopify.com/en/manual/payments/shop-pay/shop-pay
-  4. Uninstall removes app blocks: https://shopify.dev/docs/apps/build/online-store/theme-app-extensions/ux
-     Uninstall removes script tags: https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag
-     Uninstall ends token access: https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens
-  5. Code editor search, Timeline (one file at a time, finite history, no assets, can't recover deleted files):
-     https://help.shopify.com/en/manual/online-store/themes/customizing-themes/edit-code/edit-theme-code
-  6. Custom pixels: Settings > Customer events > Custom pixels:
-     https://help.shopify.com/en/manual/promoting-marketing/pixels/custom-pixels/manage
-  7. Compromised account steps (email + Shopify password, two-step authentication, login activity, staff permissions, activity log, store settings, Apps and Custom apps, contact Support immediately):
-     https://help.shopify.com/en/manual/privacy-and-security/account-security/account-security-best-practices
-  8. Support channels; third-party app support comes from the developer:
-     https://help.shopify.com/en/manual/your-account/contact-shopify-support
-  CHECKOUT DOMAIN (checked 2026-10-12):
-     Checkout is on the store's own domain: "their entire shopping experience, from homepage to checkout, will take place on your domain", free for all merchants, automatic:
-     https://www.shopify.com/blog/introducing-checkout-on-your-own-domain (2017-07-14)
-     shop.app is Shop Pay's domain: "Previously, buyers using Shop Pay would see the page rendered on shop.app" (now returned to the merchant's domain after purchase):
-     https://changelog.shopify.com/posts/shop-pay-now-redirects-to-the-post-purchase-page-on-merchant-s-domain (2023-10-16)
-  NOT doc-verified: the exact address shown during the Shop Pay sign-in step today (worded as "can show"); the payment provider / legal advice step is general practice, not Shopify documentation.
--->
 <main>
   <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
   <h1>What to check on your store after a Shopify app is reported compromised</h1>
   <p class="muted">Updated October 12, 2026</p>
 
   <div class="answer">
-    <p><strong>Short answer:</strong> first find out whether the app is, or ever was, on your store. If it is, test your checkout in a private browser window on a desktop and on a phone, and confirm the address bar stays on your own store's domain. Then uninstall the app if you can't trust it, review what your other apps can access, search your theme for code the app left behind, change the passwords that matter, and tell the app's developer and Shopify Support what you found.</p>
+    <p><strong>Short answer:</strong> first find out whether the app is, or ever was, on your store. If it is, test your checkout in a private browser window on a desktop and on a phone, and confirm the address bar stays on a domain that belongs to your store. Then uninstall the app if you can't trust it, review what your other apps can access, search your theme for code the app left behind, change the passwords that matter, and tell the app's developer and Shopify Support what you found.</p>
   </div>
   <p class="muted">One step on this list, searching your theme for leftover app code, can be automated. <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=compromised-app-checklist&amp;utm_content=top">GhostCode</a> does that part. It does not test your checkout and it can't see code that an installed app loads while a page is running, so it is not a substitute for the steps below.</p>
 
   <h2>What happened in October 2026</h2>
-  <p>According to <a href="https://romanzipp.com/blog/shopify-hit-with-phishing-attack" rel="nofollow">a developer's write-up published 2026-10-10</a>, a shopper clicked Checkout on a Shopify store and landed on a page that looked like Shopify's checkout but sat on a different web address. The author traced it to a script file belonging to an app installed on the store, delivered from Shopify's CDN. He reports that when a page loaded, this script requested data from the developer's server, that the response included custom JavaScript, and that this JavaScript ran in the shopper's browser and redirected the checkout click to a fake checkout page. The fake page collected what the shopper typed and then passed them on to the real checkout.</p>
+  <p>According to <a href="https://romanzipp.com/blog/shopify-hit-with-phishing-attack" rel="nofollow">a write-up published 2026-10-10</a> by a software engineer who ran into it while shopping, he clicked Checkout on a Shopify store and landed on a page that looked like Shopify's checkout but sat on a different web address. The author traced it to a script file belonging to an app installed on the store, delivered from Shopify's CDN. He reports that when a page loaded, this script requested data from the developer's server, that the response included custom JavaScript, and that this JavaScript ran in the shopper's browser and redirected the checkout click to a fake checkout page. The fake page collected what the shopper typed and then passed them on to the real checkout.</p>
   <p>Three details from the write-up matter for the checklist below:</p>
   <ul>
     <li><strong>The code was not in the store's theme.</strong> As described, it arrived from the app developer's server each time a page loaded.</li>
-    <li><strong>It acted once per visitor.</strong> The write-up says the script recorded in the browser's session storage that a shopper had already been redirected, and did not try again.</li>
+    <li><strong>It acted once per browser session.</strong> The write-up says the script recorded in the browser's session storage that a shopper had already been redirected, and did not try again.</li>
     <li><strong>The cause was not established.</strong> The author says it was unclear how the code got there and lists several possibilities, from a compromised merchant account at the developer to a compromise of the developer itself. He knew of two affected stores at the time of writing.</li>
   </ul>
-  <p>The write-up also reports that Shopify escalated the issue the same day, that the redirect stopped on the store where it was first seen, and that the store confirmed it had removed the app. We have not verified the write-up's findings ourselves, and we don't know the developer's account of what happened.</p>
+  <p>The write-up also reports that Shopify escalated the issue the same day, that the redirect stopped on the store where the author saw it, and that the store confirmed it had removed the app. We have not verified the write-up's findings ourselves, and we don't know the developer's account of what happened.</p>
 
   <h2>The checklist</h2>
 
   <h3>1. Find out whether the app is on your store</h3>
-  <p>In your Shopify admin, go to Settings → Apps. The <strong>Installed</strong> tab lists what is on your store now and the <strong>Uninstalled</strong> tab lists what has been removed. Click an app's name to see its history of installs and uninstalls. Check for other apps from the same developer as well. If the app was never on your store, the report doesn't apply to you, though steps 2 and 4 are worth doing a few times a year anyway.</p>
+  <p>In your Shopify admin, go to Settings → Apps. The <strong>Installed</strong> tab lists what is on your store now and the <strong>Uninstalled</strong> tab lists what has been removed. Click an app's name to see its history of installs and uninstalls. Check for other apps from the same developer as well. If the app is in neither tab, it is probably not on your store. Shopify describes the list as covering recently uninstalled apps, so an app removed long ago may not appear. Old app invoices and step 5 are the backstop. Steps 2 and 4 are worth doing a few times a year anyway.</p>
 
   <h3>2. Test your checkout the way a new shopper would</h3>
   <ol>
-    <li>Open a new private or incognito window. This matters: by the write-up's account the redirect happened once per visitor, so a browser that has already been through your checkout may not show it.</li>
-    <li>Go to your store, add any product to the cart and click Checkout.</li>
-    <li>Read the address bar before you type anything. It should show your store's own domain: the one customers normally see, or your <code>myshopify.com</code> address. Shopify runs checkout on your own domain for every store. You can see every domain connected to your store under Settings → Domains.</li>
-    <li>Repeat on a phone, again in a fresh private window. Then repeat with each checkout button you offer, including the cart drawer and any Buy now button on the product page.</li>
+    <li>Open a new private or incognito window. This matters: by the write-up's account the redirect happened once per browser session, so a browser that has already been through your checkout may not show it.</li>
+    <li>Go to your store, add any product to the cart and click the ordinary Checkout button.</li>
+    <li>Read the address bar before you type anything. After you click the ordinary Checkout button, the address should start with a domain listed under Settings → Domains in your admin: your main domain, a subdomain of it such as <code>checkout.yourstore.com</code>, a country domain if you sell in several markets, or your <code>myshopify.com</code> address.</li>
+    <li>Repeat on a phone, again in a fresh private window. Test the ordinary Checkout button on the cart page and in the cart drawer. Express buttons such as Shop Pay or PayPal open their own sites, so an address that is not yours is expected there.</li>
   </ol>
-  <p>If you offer Shop Pay, a step that asks the shopper to sign in or enter a code from Shop is part of how Shop Pay works. That step can show Shop's own address (<code>shop.app</code>) and then returns the shopper to your checkout.</p>
-  <p>Stop if the address is anything else, especially a lookalike with a misspelled word or an unfamiliar ending. Don't enter real card details. Take a screenshot showing the full address and go to step 3.</p>
+  <p>Some addresses that are not yours are still normal. A Shop Pay button, or a shopper already signed in to Shop, can open a page on Shop's own address (<code>shop.app</code> or <code>shop.com</code>). A PayPal, Amazon Pay or similar button opens that company's own site, and a bank's card verification page can appear after you press Pay. If you require customers to sign in before checkout, the sign-in page can be on <code>shopify.com</code>. If you use a third-party checkout app or a headless storefront, confirm your normal checkout address with whoever set it up.</p>
+  <p>Stop if you clicked the ordinary Checkout button and the page asking for contact, shipping or card details is on none of these, especially a lookalike with a misspelled word or an unfamiliar ending. Don't enter real card details. Take a screenshot showing the full address and go to step 3.</p>
 
   <h3>3. Uninstall the app if you can't trust it right now</h3>
-  <p>Go to Settings → Apps, open the menu next to the app and choose Uninstall. Uninstalling ends the app's access to your store, and Shopify removes the app's blocks, embeds and script tags from your storefront. Before you do it, export any data you need from the app, because some app data can't be recovered afterwards. If the app charges you outside Shopify, cancel that with the developer too.</p>
+  <p>Go to Settings → Apps, open the menu next to the app and choose Uninstall. Uninstalling ends the app's access to your store, and the app's blocks, embeds and script tags stop loading on your storefront. Before you do it, export any data you need from the app, because some app data can't be recovered afterwards. If the app charges you outside Shopify, cancel that with the developer too.</p>
   <p>Then run the checkout test from step 2 again, in a new private window.</p>
 
   <h3>4. Review what your other apps can access</h3>
@@ -169,41 +131,47 @@
   <ul>
     <li><strong>Your account with the app's developer</strong>, if you have a separate login there. Change the password and turn on two-step sign-in if they offer it. The write-up's author gives the same advice.</li>
     <li><strong>Keys you gave the app for other services</strong>, such as an email platform or an ads account. Create new keys in those services and delete the old ones.</li>
-    <li><strong>Your Shopify login, only if there are signs it was accessed:</strong> sign-ins you don't recognize, new staff accounts, or settings that changed. In that case Shopify's guidance is to change the password on your email account and your Shopify account, set up two-step authentication again, review staff permissions and your store's activity log, check your Checkout, Domains and Notifications settings, and look over your Shopify financial accounts for activity you don't recognize.</li>
+    <li><strong>Your Shopify login, only if there are signs it was accessed:</strong> sign-ins you don't recognize, new staff accounts, or settings that changed. In that case Shopify's guidance is to change the password on your email account and your Shopify account, turn on two-step authentication (or reset it if it was bypassed), review staff permissions and your store's activity log, check your Checkout, Domains and Notifications settings, and look over your Shopify financial accounts for activity you don't recognize.</li>
   </ul>
   <p>You don't need to do anything about the app's own access to Shopify. Uninstalling the app ended it.</p>
 
   <h3>8. Tell the right people</h3>
   <ul>
     <li><strong>The app's developer.</strong> Use the support contact on the app's App Store listing. Say what you saw and when.</li>
-    <li><strong>Shopify Support.</strong> Start a chat from <a href="https://help.shopify.com/">help.shopify.com</a>. Give the app's name, your screenshots and the address shoppers were sent to. Shopify normally sends questions about a third-party app to its developer, but a redirected checkout is still worth reporting: in the incident above the author reports that Shopify acted the same day. If you think your Shopify account itself was accessed, Shopify says to contact Support immediately.</li>
+    <li><strong>Shopify Support.</strong> Start a chat from <a href="https://help.shopify.com/">help.shopify.com</a>. Give the app's name, your screenshots and the address shoppers were sent to. Shopify normally sends questions about a third-party app to its developer, but a redirected checkout is still worth reporting: in the incident above the author reports the redirect stopped on that store within hours of his report to Shopify. If you think your Shopify account itself was accessed, Shopify says to contact Support immediately.</li>
     <li><strong>Your payment provider and an adviser, if shoppers may have typed card details into a fake page.</strong> Depending on where you and your customers are, you may have a duty to notify customers or a regulator. This guide can't tell you whether you do. Ask someone qualified before you decide.</li>
   </ul>
 
   <h2>What a theme scan can and can't tell you here</h2>
   <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=compromised-app-checklist&amp;utm_content=middle">GhostCode</a>, a Shopify app that scans your theme files, so it is worth being exact about its limits.</p>
   <ul>
-    <li><strong>It would not have detected the incident described above.</strong> By the write-up's account the code was fetched by the installed app while the page loaded and was never stored in the theme. A scan of theme files has nothing to find. The checkout test in step 2 is the check that catches a redirect.</li>
+    <li><strong>It would not have detected the incident described above.</strong> By the write-up's account the code was fetched by the installed app while the page loaded and was never stored in the theme. A scan of theme files has nothing to find. The checkout test in step 2 is the check that catches a redirect. A clean test is not proof either: code like this can be switched on for only some visitors or some of the time, so repeat it over a few days.</li>
     <li><strong>It does not test your checkout</strong> or watch your live storefront for redirects.</li>
-    <li><strong>What it does do</strong> is step 5: it scans your theme for code left by uninstalled apps, using signatures for 100+ apps, and shows the app, the file and the line. It also flags theme code that refers to a short list of web addresses known from public reports to have served malicious scripts. That list is small and specific. A clean result does not mean your store is safe.</li>
+    <li><strong>What it does do</strong> is step 5: it scans your theme for code left by uninstalled apps, using signatures for 100+ apps, and shows the app, the file and the line. The free plan shows a few findings in full and counts for the rest. It also flags theme code that refers to a short list of web addresses tied to malicious scripts or fake checkout pages in public reports. That list is small and specific. A clean result does not mean your store is safe.</li>
   </ul>
   <p>GhostCode only reads your theme and never edits it. Free and paid plans available.</p>
 
   <h2>Common questions</h2>
   <h3>How do I test whether my Shopify checkout is being redirected?</h3>
-  <p>Open a new private or incognito window, add a product to the cart, click Checkout, and read the address bar before you type anything. The address should be on your store's own domain. Do it once on a desktop browser and once on a phone, each time in a fresh private window.</p>
+  <p>Open a new private or incognito window, add a product to the cart, click Checkout, and read the address bar before you type anything. The address should be on a domain listed under Settings → Domains in your admin (Shop Pay, PayPal and similar buttons open their own sites). Do it once on a desktop browser and once on a phone, each time in a fresh private window.</p>
   <h3>Does uninstalling a compromised Shopify app fix the problem?</h3>
-  <p>It ends the app's access to your store, and Shopify removes the app's blocks, embeds and script tags. It does not remove code the app wrote into your theme files, and it does not undo anything that already happened. After uninstalling, repeat the checkout test and search your theme for leftover code.</p>
+  <p>It ends the app's access to your store, and the app's blocks, embeds and script tags stop loading. It does not remove code the app wrote into your theme files, and it does not undo anything that already happened. After uninstalling, repeat the checkout test and search your theme for leftover code.</p>
   <h3>Would a theme code scan detect a compromised app?</h3>
-  <p>Not if the harmful code is delivered by the installed app while the page loads, which is what a developer's write-up described in the October 2026 checkout redirect incident. That code is never stored in your theme files, so a theme scan cannot see it. A theme scan finds code that sits in your theme. The checkout test is the check that catches a redirect.</p>
+  <p>Not if the harmful code is delivered by the installed app while the page loads, which is what an independent write-up described in the October 2026 checkout redirect incident. That code is never stored in your theme files, so a theme scan cannot see it. A theme scan finds code that sits in your theme. The checkout test is the check that catches a redirect. A clean test is not proof either: code like this can be switched on for only some visitors or some of the time, so repeat it over a few days.</p>
   <h3>Do I need to change my Shopify password after an app is compromised?</h3>
-  <p>A compromised app does not mean your Shopify login was exposed. Change the password for any account you hold with the app's developer first. Change your Shopify password and set up two-step authentication again if you see sign-ins, staff accounts or settings changes you don't recognize.</p>
+  <p>A compromised app does not mean your Shopify login was exposed. Change the password for any account you hold with the app's developer first. If you see sign-ins, staff accounts or settings changes you don't recognize, change your Shopify password and turn on two-step authentication (or reset it if it was bypassed).</p>
   <h3>Who do I contact if I think an app on my store is compromised?</h3>
   <p>Contact the app's developer and Shopify Support, and tell both exactly what you saw, with screenshots and the web address shoppers were sent to. If you think your Shopify account itself was accessed, Shopify's guidance is to contact Shopify Support immediately.</p>
 
   <div class="answer">
     <p><strong>For step 5 only:</strong> <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=compromised-app-checklist&amp;utm_content=bottom">install GhostCode from the Shopify App Store</a> to scan your theme for leftover app code. The first scan is free and it never edits your theme. Do the checkout test yourself first.</p>
   </div>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/does-uninstalling-shopify-app-remove-code/">Does uninstalling a Shopify app remove its code from your theme?</a></li>
+    <li><a href="/guides/remove-leftover-shopify-app-code/">How to find and remove leftover code from uninstalled Shopify apps</a></li>
+  </ul>
 
   <h2>Sources</h2>
   <ul class="muted">
