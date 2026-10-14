@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card testing attack on a Shopify store: what to do · Alpenglow Software</title>
+  <meta name="description" content="Bots are testing stolen cards on your Shopify checkout. How to recognize a card-testing attack, the settings to change right now, what depends on Shopify Payments, and what you can&#x27;t undo.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-card-testing-attack/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Card testing attack on a Shopify store: what to do">
+  <meta property="og:description" content="How to recognize a card-testing attack on a Shopify store, the settings to change right now, and what depends on your plan.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-card-testing-attack/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Card testing attack on a Shopify store: what to do",
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "author": {
+        "@type": "Organization",
+        "name": "Alpenglow Software LLC",
+        "url": "https://alpenglowsoftware.com/"
+      },
+      "publisher": {
+        "@id": "https://alpenglowsoftware.com/#org"
+      },
+      "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-card-testing-attack/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is card testing on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Card testing is fraud where someone uses automated scripts to check whether stolen card details are valid, using your store's checkout to do it. It shows up as many small payment attempts close together, a surge of declined transactions and sometimes a few completed orders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I delete fake abandoned checkouts in Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Shopify doesn't let you delete an abandoned checkout. Abandoned checkouts older than three months are removed from the admin automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does canceling a card-testing order stop a chargeback?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always. Shopify says canceling or voiding a high risk order lowers your risk, but it doesn't stop the cardholder's bank from filing a chargeback. Cancel anyway, and never ship it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does hCaptcha stop card testing at checkout?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shopify's hCaptcha setting covers contact, newsletter and comment forms and the legacy customer account pages. Checkout isn't listed among the forms it covers. Bot protection for checkout is a separate feature, available on Shopify Plus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need Shopify Payments to protect my store from card testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some protections need it and some don't. Shopify's built-in card testing protection, the AVS and CVV decline settings and Fraud Control checkout rules are for stores using Shopify Payments. Manual payment capture and Shopify Flow work with other providers too."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
+  <h1>Your Shopify store is being used for card testing. What to do.</h1>
+  <p class="muted">Updated October 13, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> don't ship anything from the burst, and stop taking money automatically. Cancel the high risk orders, switch payment capture to manual, and tighten the card checks your payment provider offers. Then keep the fake sign-ups out of your marketing emails. You can't delete the fake abandoned checkouts; Shopify removes them after three months.</p>
+  </div>
+
+  <h2>What card testing is</h2>
+  <p>Shopify describes card testing (also called carding or card enumeration) as fraud where someone uses automated scripts to test whether stolen card details are valid. Your checkout is the test bench: the script tries card after card, usually on a cheap item, and notes which ones go through.</p>
+  <p>The damage comes in three forms. Declined attempts pile up, which Shopify says can raise your decline rate for real customers even after the attack ends. A few attempts succeed and become orders. And the real cardholders later dispute those charges, so each one can become a chargeback that counts toward your chargeback rate whether you win or lose.</p>
+
+  <h2>How to tell it's happening</h2>
+  <ul>
+    <li><strong>Many small payment attempts close together,</strong> often for the same low-priced product.</li>
+    <li><strong>A surge of declined transactions,</strong> sometimes with a few placed orders mixed in.</li>
+    <li><strong>A jump in abandoned checkouts</strong> with repeated or odd customer details.</li>
+    <li><strong>Many new customer profiles</strong> with strangely formatted names.</li>
+  </ul>
+  <p>The abandoned checkout list understates an attack. Since June 2026 Shopify leaves out checkout attempts it identifies as card testing or bot activity, but it also says not all automated activity is filtered out. So a quiet list doesn't prove the attack has stopped, and a noisy one means some of it got through the filter.</p>
+
+  <h2>What to do right now</h2>
+  <ol>
+    <li><strong>Hold fulfillment.</strong> If you use automatic fulfillment or a 3PL, stop orders from the burst shipping while you look.</li>
+    <li><strong>Cancel the high risk orders.</strong> Use the fraud analysis on each order. Shopify notes that canceling or voiding lowers your risk but doesn't stop the cardholder's bank from filing a chargeback.</li>
+    <li><strong>Switch to manual payment capture.</strong> Go to <strong>Settings &gt; Payments</strong>, find <strong>Payment capture method</strong>, and choose <strong>Manually</strong>. Orders are then authorized but not charged until you capture them. With Shopify Payments you have 7 days to capture; with other providers the period depends on the provider.</li>
+    <li><strong>Tighten card checks, if you use Shopify Payments.</strong> In <strong>Settings &gt; Payments &gt; Shopify Payments &gt; Manage</strong>, the <strong>Fraud prevention</strong> section lets you decline charges that fail the CVV or address (AVS) check. Shopify warns that turning on AVS declines may increase failed transactions for real customers, and the filters only apply where the card's bank supports the check.</li>
+    <li><strong>Block the repeat offenders.</strong> Shopify's Fraud Control app can block specific email addresses, IP addresses or billing details at checkout. Its checkout rules need Shopify Payments.</li>
+    <li><strong>Automate the routine part.</strong> Shopify Flow can flag, hold or cancel orders that match a high risk pattern.</li>
+    <li><strong>Confirm hCaptcha is on.</strong> Go to <strong>Online Store &gt; Preferences &gt; Spam protection</strong>. It is on by default and covers contact, newsletter and comment forms and the legacy customer account pages. Shopify's description doesn't list checkout among the forms it covers.</li>
+    <li><strong>On Shopify Plus, turn on bot protection for checkout.</strong> It is only available on that plan.</li>
+  </ol>
+
+  <h2>Keep the fake sign-ups out of your email</h2>
+  <p>Card-testing scripts fill in email addresses, and those addresses can end up receiving your marketing. Two settings limit that:</p>
+  <ul>
+    <li><strong>Marketing double opt-in.</strong> Go to <strong>Settings &gt; Notifications &gt; Customer notifications</strong> and turn on <strong>Customer marketing confirmation</strong>. New subscribers must then click a link in a confirmation email. It doesn't apply to people who subscribed before you turned it on.</li>
+    <li><strong>Who gets abandoned checkout emails.</strong> In <strong>Apps &gt; Messaging &gt; Automations</strong>, open <strong>Abandoned checkout emails by Shopify</strong>, choose <strong>Edit settings</strong> and check <strong>Send to</strong>. Sending only to people who subscribed keeps recovery emails away from addresses a script typed in.</li>
+  </ul>
+
+  <h2>What depends on your plan and payment provider</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Protection</th><th>Who can use it</th></tr></thead>
+    <tbody>
+      <tr><td>Manual payment capture</td><td>Any store. The authorization period depends on the payment provider.</td></tr>
+      <tr><td>hCaptcha on forms and account pages</td><td>Any store. On by default.</td></tr>
+      <tr><td>Shopify Flow</td><td>Basic, Grow, Advanced and Shopify Plus.</td></tr>
+      <tr><td>Fraud risk level on each order</td><td>Stores using Shopify Payments, or on the Grow plan or higher.</td></tr>
+      <tr><td>Built-in card testing protection</td><td>Stores using Shopify Payments.</td></tr>
+      <tr><td>AVS and CVV decline settings</td><td>Stores using Shopify Payments.</td></tr>
+      <tr><td>Fraud Control checkout rules</td><td>Stores using Shopify Payments.</td></tr>
+      <tr><td>Bot protection for checkout</td><td>Shopify Plus.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>If you use another payment provider, ask them what they offer for card testing. Most of the blocking happens on their side.</p>
+
+  <h2>What you can't do</h2>
+  <ul>
+    <li><strong>Delete the fake abandoned checkouts.</strong> Shopify doesn't let you delete an abandoned checkout. They are removed automatically once they are older than three months.</li>
+    <li><strong>Undo the authorization holds.</strong> A real cardholder may see a pending charge on their statement for up to 30 days after an authorization, even if you canceled the order. The timing depends on their bank.</li>
+  </ul>
+
+  <h2>After the attack</h2>
+  <ul>
+    <li><strong>Watch for chargebacks</strong> on any order from the burst that was captured. Check <strong>Orders</strong> in your admin for open chargebacks and inquiries.</li>
+    <li><strong>Keep manual capture on</strong> until a few quiet days have passed.</li>
+    <li><strong>Note what the attack looked like:</strong> the product it targeted, the email pattern, the hours it ran. The next one usually looks the same.</li>
+  </ul>
+
+  <h2>Where FraudPilot fits</h2>
+  <p>We make <a href="https://apps.shopify.com/fraud-triage-cockpit?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=card-testing-attack">FraudPilot</a>, a Shopify app for reviewing the orders Shopify flags as risky. On every plan, it checks your store's abandoned checkouts every 15 minutes and shows an alert in the app when they jump well above your usual rate, for one product or across the store, so you hear about a possible card-testing run early. It reads only the time, the total and the first product name of each checkout, and no customer details. It is a warning, not a shield: FraudPilot doesn't block checkouts or cancel orders, the alert appears in the app and is not emailed, and it can only count the abandoned checkouts Shopify records, which leaves out the attempts Shopify already filtered. The orders that do get through and are flagged show up in its review queue with the reasons each was flagged. Free and paid plans available.</p>
+
+  <h2>Common questions</h2>
+  <h3>What is card testing on Shopify?</h3>
+  <p>Card testing is fraud where someone uses automated scripts to check whether stolen card details are valid, using your store's checkout to do it. It shows up as many small payment attempts close together, a surge of declined transactions and sometimes a few completed orders.</p>
+  <h3>Can I delete fake abandoned checkouts in Shopify?</h3>
+  <p>No. Shopify doesn't let you delete an abandoned checkout. Abandoned checkouts older than three months are removed from the admin automatically.</p>
+  <h3>Does canceling a card-testing order stop a chargeback?</h3>
+  <p>Not always. Shopify says canceling or voiding a high risk order lowers your risk, but it doesn't stop the cardholder's bank from filing a chargeback. Cancel anyway, and never ship it.</p>
+  <h3>Does hCaptcha stop card testing at checkout?</h3>
+  <p>Shopify's hCaptcha setting covers contact, newsletter and comment forms and the legacy customer account pages. Checkout isn't listed among the forms it covers. Bot protection for checkout is a separate feature, available on Shopify Plus.</p>
+  <h3>Do I need Shopify Payments to protect my store from card testing?</h3>
+  <p>Some protections need it and some don't. Shopify's built-in card testing protection, the AVS and CVV decline settings and Fraud Control checkout rules are for stores using Shopify Payments. Manual payment capture and Shopify Flow work with other providers too.</p>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/payments/fraud-prevention/preventing-fraud">Shopify Help Center: Preventing fraud</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/payment-authorization">Shopify Help Center: Payment authorization and capture</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/shopify-payments/configuring-shopify-payments">Shopify Help Center: Configuring Shopify Payments</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/fraud-prevention/fraud-control-app">Shopify Help Center: Fraud Control app</a></li>
+    <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/identifying-bot-activity">Shopify Help Center: Identifying bot activity</a></li>
+    <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/dealing-with-bots">Shopify Help Center: Reducing bot impact on your store</a></li>
+    <li><a href="https://help.shopify.com/en/manual/online-store/setting-up/preferences">Shopify Help Center: Online Store preferences (hCaptcha)</a></li>
+    <li><a href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/abandoned-checkouts">Shopify Help Center: Abandoned checkouts</a></li>
+    <li><a href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/customer-contact-information">Shopify Help Center: Collecting customer contact information (double opt-in)</a></li>
+    <li><a href="https://changelog.shopify.com/posts/reduced-bot-noise-in-abandoned-checkouts">Shopify Changelog: Reduced bot noise in abandoned checkouts</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+</body>
+</html>

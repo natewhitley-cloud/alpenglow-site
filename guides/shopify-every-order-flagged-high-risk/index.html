@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why is every order on my Shopify store flagged medium or high risk? · Alpenglow Software</title>
+  <meta name="description" content="Shopify flags every order on your store as medium or high risk of fraud. How the risk level is decided, how to compare the orders to find the cause, and what to check with your payment provider.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-every-order-flagged-high-risk/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Why is every order on my Shopify store flagged medium or high risk?">
+  <meta property="og:description" content="How Shopify decides the risk level, how to find what your flagged orders share, and what to check with your payment provider.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-every-order-flagged-high-risk/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Why is every order on my Shopify store flagged medium or high risk?",
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "author": {
+        "@type": "Organization",
+        "name": "Alpenglow Software LLC",
+        "url": "https://alpenglowsoftware.com/"
+      },
+      "publisher": {
+        "@id": "https://alpenglowsoftware.com/#org"
+      },
+      "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-every-order-flagged-high-risk/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Shopify flag more orders on a new store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shopify's documentation doesn't list store age as a factor. Its fraud recommendations come from machine learning trained on transactions across all Shopify stores, applied to the details of each order. If every order on a new store is flagged, look at what the orders have in common."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the fraud analysis say AVS or CVV is unavailable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the check wasn't performed or reported for that card. Not all banks support AVS and CVV checks, address verification is commonly supported for cards issued in the United States, Canada and the United Kingdom, and a third-party payment provider may not pass the results to Shopify. Unavailable means missing evidence, not a failed check."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why don't I see a low, medium or high risk level on my orders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fraud recommendations are available to stores using Shopify Payments or on the Grow plan or higher. On the Basic plan with another payment provider you can see fraud indicators without an overall level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is something wrong with my store settings if every order is medium risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually not. The level comes from each order's details. The one setup issue worth checking is your payment provider: whether address and security code checks are switched on and reported back to Shopify."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I ship orders that are all flagged medium risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not until you know why. Shopify's recommendation for medium risk is to confirm with the customer before fulfilling. Compare the orders, contact the buyers, and use manual payment capture so you can cancel without charging the card."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
+  <h1>Every order on your Shopify store is flagged medium or high risk. Why, and what to do.</h1>
+  <p class="muted">Updated October 13, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> it is rarely a store setting. Shopify rates each order from the details of that order, using a model trained on transactions across all Shopify stores. If every order is flagged, the orders have something in common. Put them side by side and compare the same lines in each fraud analysis: what they share tells you whether it is your payment setup, where your buyers are, or actual fraud. Don't ship the flagged ones until you know.</p>
+  </div>
+
+  <h2>How Shopify decides the risk level</h2>
+  <p>Shopify's fraud recommendations are powered by machine learning trained on historical transactions across all Shopify stores. The fraud analysis on an order also lists indicators, such as whether the card passed the address (AVS) check, whether the security code (CVV) was correct, whether the buyer's location matches the payment method, whether the device or network looks unusual, and whether more than one card was tried.</p>
+  <p>Two points matter here:</p>
+  <ul>
+    <li><strong>The level is not a count of failed checks.</strong> Shopify says individual indicators, and how many there are, don't determine the overall risk.</li>
+    <li><strong>Shopify's documentation doesn't list the age of your store as a factor.</strong> A new store isn't flagged for being new. It is flagged because of the orders it is getting.</li>
+  </ul>
+
+  <h2>Check that you're reading a risk level at all</h2>
+  <p>The low, medium or high recommendation is available to stores that use Shopify Payments, or that are on the Grow plan or higher. Fraud indicators are available on the Basic plan or higher. If you are on Basic with another payment provider, you may see indicators with no overall level. With a third-party provider, Shopify also says to check with the provider about fraud analysis limitations.</p>
+
+  <h2>Compare the orders side by side</h2>
+  <p>Open the fraud analysis on each flagged order and write down the same lines for each. Then look for what repeats.</p>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>What the orders share</th><th>What it points to</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>The address (AVS) or security code (CVV) check didn't pass, or shows as unavailable, on every order</td><td>The card checks aren't confirming the buyer. That can be the cards, or what your payment provider checks and reports.</td><td>Ask your payment provider whether AVS and CVV checks are switched on and reported back. See the next section.</td></tr>
+      <tr><td>The buyer's IP is far from the addresses, the billing and shipping countries differ, or the connection is a proxy</td><td>A location mismatch. Common with real gift orders and travelers, and common with fraud.</td><td>Contact the buyer before shipping. Shopify suggests calling the phone number on the order.</td></tr>
+      <tr><td>Several cards tried on one order, or many small orders close together with similar details</td><td>Card testing: a script trying stolen cards on your checkout.</td><td>Don't ship. See our <a href="/guides/shopify-card-testing-attack/">card testing guide</a>.</td></tr>
+      <tr><td>Different names and billing addresses, one shipping address</td><td>Shopify says this can be a sign of fraudulent orders.</td><td>Review each one and contact the buyers before shipping.</td></tr>
+      <tr><td>Nothing in common, and each order fails in its own way</td><td>The simplest reading is that the label is right about each of them.</td><td>Follow Shopify's recommendation on each order.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>If the card checks never pass</h2>
+  <p>This is the cause most often mistaken for a store setting.</p>
+  <ul>
+    <li><strong>Not every bank supports the checks.</strong> Shopify notes that not all banks support AVS and CVV checks. Stripe's documentation says address verification is commonly supported for cards issued in the United States, Canada and the United Kingdom, and that an "unavailable" result means the card issuer won't check the data provided. If your buyers pay with cards from elsewhere, the address check may be unavailable on most of your orders.</li>
+    <li><strong>Your payment provider decides what is checked and reported.</strong> If you use a third-party provider, ask them two things: are AVS and CVV checks turned on, and are the results passed back to Shopify?</li>
+    <li><strong>With Shopify Payments,</strong> the settings are in <strong>Settings &gt; Payments &gt; Shopify Payments &gt; Manage</strong>, in the <strong>Fraud prevention</strong> section. Declining on AVS is off by default, and Shopify warns that turning it on may increase failed transactions.</li>
+  </ul>
+  <p>An unavailable check is missing evidence, not a failed one. It doesn't make the order fraud, but it does mean you have less to go on, and less to show the bank if the order is disputed later.</p>
+
+  <h2>What to do with the orders you already have</h2>
+  <ol>
+    <li><strong>Don't fulfill a flagged order until you know why it was flagged.</strong> Shopify's recommendation for medium risk is to confirm with the customer first, and for high risk to consider canceling.</li>
+    <li><strong>Switch to manual payment capture</strong> while you work it out: <strong>Settings &gt; Payments &gt; Payment capture method &gt; Manually</strong>. Orders are authorized but not charged until you capture them.</li>
+    <li><strong>Contact the buyer.</strong> Call the phone number on the order and ask a simple question about what they bought. A number that doesn't work is a bad sign. A good answer isn't proof, but no answer is a reason to cancel.</li>
+    <li><strong>If you dropship, decide before you pay your supplier.</strong> If the cardholder disputes the charge later, you lose the product cost, the sale and a chargeback fee.</li>
+    <li><strong>For orders you already shipped,</strong> keep the tracking, the delivery confirmation and any messages with the buyer. That is your evidence if a chargeback arrives.</li>
+  </ol>
+  <p>For the full routine on a single flagged order, see <a href="/guides/shopify-high-risk-orders/">what to do with a Shopify high risk order</a>.</p>
+
+  <h2>Where FraudPilot fits</h2>
+  <p>We make <a href="https://apps.shopify.com/fraud-triage-cockpit?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=every-order-flagged">FraudPilot</a>, a Shopify app for reviewing the orders Shopify flags as risky. On every plan, it lists the orders Shopify flags as medium or high risk in one queue with the reasons each was flagged, which makes the side-by-side comparison above quicker, and it lets you look up the risk details of any order from the last 60 days. The paid plan adds the AVS and CVV results and payment details on each order, one-click decisions and a log of them you can export. FraudPilot shows you what Shopify reported; it doesn't change how Shopify rates your orders, block checkouts or cancel orders for you. Free and paid plans available.</p>
+
+  <h2>Common questions</h2>
+  <h3>Does Shopify flag more orders on a new store?</h3>
+  <p>Shopify's documentation doesn't list store age as a factor. Its fraud recommendations come from machine learning trained on transactions across all Shopify stores, applied to the details of each order. If every order on a new store is flagged, look at what the orders have in common.</p>
+  <h3>Why does the fraud analysis say AVS or CVV is unavailable?</h3>
+  <p>Because the check wasn't performed or reported for that card. Not all banks support AVS and CVV checks, address verification is commonly supported for cards issued in the United States, Canada and the United Kingdom, and a third-party payment provider may not pass the results to Shopify. Unavailable means missing evidence, not a failed check.</p>
+  <h3>Why don't I see a low, medium or high risk level on my orders?</h3>
+  <p>Fraud recommendations are available to stores using Shopify Payments or on the Grow plan or higher. On the Basic plan with another payment provider you can see fraud indicators without an overall level.</p>
+  <h3>Is something wrong with my store settings if every order is medium risk?</h3>
+  <p>Usually not. The level comes from each order's details. The one setup issue worth checking is your payment provider: whether address and security code checks are switched on and reported back to Shopify.</p>
+  <h3>Should I ship orders that are all flagged medium risk?</h3>
+  <p>Not until you know why. Shopify's recommendation for medium risk is to confirm with the customer before fulfilling. Compare the orders, contact the buyers, and use manual payment capture so you can cancel without charging the card.</p>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/protecting-orders/fraud-analysis">Shopify Help Center: Reviewing orders with fraud analysis</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/fraud-prevention/preventing-fraud">Shopify Help Center: Preventing fraud</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/shopify-payments/configuring-shopify-payments">Shopify Help Center: Configuring Shopify Payments</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/payment-authorization">Shopify Help Center: Payment authorization and capture</a></li>
+    <li><a href="https://docs.stripe.com/disputes/prevention/verification">Stripe Docs: Card verification checks</a></li>
+    <li><a href="https://docs.stripe.com/radar/rules/reference">Stripe Docs: Radar rules reference</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+</body>
+</html>
