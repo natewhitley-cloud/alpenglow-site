@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify bot traffic: why sessions spiked and conversion rate dropped · Alpenglow Software</title>
+  <meta name="description" content="Sessions jumped, orders didn't, and your Shopify conversion rate dropped. How to tell if bots are the cause and what Shopify and GA4 already filter.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-bot-traffic/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Shopify bot traffic: why sessions spiked and conversion rate dropped">
+  <meta property="og:description" content="How to tell if bots are inflating your Shopify sessions, what Shopify and GA4 already filter, and how to read your conversion rate without them.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-bot-traffic/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Shopify bot traffic: why sessions spiked and conversion rate dropped",
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-19",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-bot-traffic/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Shopify filter bot traffic out of analytics?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Partly. Since October 7, 2025, Shopify filters the bot sessions it identifies out of session-related reports by default. The filter applies only to sessions metrics, can't reclassify older sessions, and Shopify says some sophisticated automated traffic might not be classified right away." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why did my Shopify conversion rate drop when sales didn't?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify calculates conversion rate as the percentage of sessions that resulted in a sale. If extra sessions arrive that never buy, such as bots, the rate falls even though your orders and sales stay the same." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does GA4 remove bot traffic?",
+            "acceptedAnswer": { "@type": "Answer", "text": "GA4 automatically excludes traffic from known bots and spiders, using Google research and the IAB's International Spiders and Bots List. You can't turn this off or see how much was excluded, and newer bots that aren't on those lists aren't covered by it." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I remove bot traffic from my past Shopify reports?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify's bot classification applies only to sessions from October 7, 2025 onward, and GA4's data filters only apply going forward. For older periods, compare sessions against orders to judge how much of a spike was real." }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I block AI bots like ChatGPT from my Shopify store?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Think before you do. AI assistants such as ChatGPT can send real shoppers and real orders, and Shopify shows orders from AI channels with channel or referrer attribution. OpenAI also runs different crawlers for search, model training and user-initiated actions, and robots.txt rules may not apply to the user-initiated ones. Decide crawler by crawler rather than blocking all AI traffic." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
+  <h1>Shopify bot traffic: why sessions spiked and conversion rate dropped</h1>
+  <p class="muted">Updated October 19, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> if sessions jumped and orders didn't, bots are a likely cause. Shopify already filters the bot sessions it identifies out of its session reports, but not all of them, and not data from before October 7, 2025. Open the Sessions by location, Sessions by referrer and Sessions by device reports over 30 to 90 days, filter to human and bot traffic, and look for a spike from one place, one device type or a city that hosts cloud data centers. Then judge your conversion rate against orders, not sessions alone.</p>
+  </div>
+
+  <h2>Why bots lower your conversion rate</h2>
+  <p>Shopify defines conversion rate as the percentage of online store sessions that resulted in a sale. Bots add sessions and never buy, so the same number of converting sessions gets divided by a bigger total. In Shopify's words, when your session count changes, your conversion rate can change too, "even when your orders or sales haven't changed."</p>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Example</th><th>Sessions</th><th>Converting sessions</th><th>Conversion rate</th></tr></thead>
+    <tbody>
+      <tr><td>Before the bots</td><td>10,000</td><td>200</td><td>2.0%</td></tr>
+      <tr><td>With 4,000 bot sessions</td><td>14,000</td><td>200</td><td>1.4%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Nothing about your store got worse. The denominator did. The same inflation shows up anywhere sessions are the base: ad return per session, email sign-up rates, and A/B tests that compare conversion rates.</p>
+
+  <h2>What Shopify and GA4 already filter</h2>
+  <ul>
+    <li><strong>Shopify shields stores from the majority of automated traffic.</strong> Every request to a Shopify store passes through Cloudflare, with a web application firewall and DDoS protection. Extra checkout bot protection during sales is only on Shopify Plus. hCaptcha protects contact, newsletter and blog comment forms and legacy customer account pages, not page views.</li>
+    <li><strong>Shopify filters identified bots out of session reports.</strong> Once the update reaches your store, sessions Shopify classifies as bots are left out of session-related reports by default, for sessions from October 7, 2025 onward. It applies only to sessions metrics, can't reclassify older sessions, and Shopify notes that some sophisticated automated traffic might not be classified right away.</li>
+    <li><strong>GA4 excludes known bots.</strong> Traffic from bots on Google's list and the IAB's International Spiders and Bots List is excluded automatically. You can't see how much was excluded, and newer bots that aren't on those lists aren't covered by it. GA4's internal traffic filter is for your own IP addresses, not bots, and data filters don't change data that's already processed.</li>
+  </ul>
+  <p>So some bot traffic still reaches your reports, especially newer or better-disguised bots, and older periods were never filtered at all.</p>
+
+  <h2>Step by step: checking a traffic spike</h2>
+  <ol>
+    <li><strong>Pick a long enough window.</strong> Shopify recommends looking at 30 to 90 days rather than a few days, so a normal busy weekend doesn't look like an attack.</li>
+    <li><strong>Open Sessions by location.</strong> It shows the countries, regions and cities your visitors come from. A sudden block of sessions from one country you don't ship to, or from cities that host big cloud data centers, such as Ashburn, Virginia or Los Angeles, California, when the volume doesn't match your real customers, is a common sign. Shopify names large volumes from Google Cloud or Amazon Web Services data center locations as a signal.</li>
+    <li><strong>Filter to human and bot traffic.</strong> Shopify's session reports let you filter by human and bot traffic, so you can see how much Shopify already caught and how much of the spike it counted as human.</li>
+    <li><strong>Open Sessions by referrer and Sessions by landing page.</strong> A spike that's all direct traffic, or all from one unfamiliar referrer, is worth a closer look. Shopify also lists a flood of landing page URLs from marketing integrations such as Facebook or Instagram as a bot sign, so don't assume ad traffic is real just because a campaign is running.</li>
+    <li><strong>Check the device mix.</strong> Shopify also lists a spike in sessions from one device type as a sign of bot activity.</li>
+    <li><strong>Line it up against orders.</strong> If sessions rose and orders, add to carts and checkouts stayed flat over the same days, the extra sessions weren't shoppers. If orders rose too, it was probably real demand.</li>
+    <li><strong>Check paid traffic separately.</strong> If you run ads, compare the spike dates with your campaign reports. Bot clicks on ads cost money, not just analytics accuracy, so that's the part worth acting on first.</li>
+  </ol>
+
+  <h2>What you can do about it</h2>
+  <ul>
+    <li><strong>Read your numbers with the filter on.</strong> Use Shopify's human traffic view for conversion rate decisions, and treat older periods with care.</li>
+    <li><strong>Don't chase every bot.</strong> Shopify already shields your store from the majority of automated traffic, and blocking good bots can hurt you. Search engine crawlers and AI assistants find your products for shoppers.</li>
+    <li><strong>Use robots.txt for crawlers that respect it.</strong> Shopify lets you customize robots.txt with a <code>robots.txt.liquid</code> template. robots.txt is a request, not a block: crawlers that ignore it, and some user-initiated AI visits, aren't stopped by it. Save a copy of your current robots.txt before you change it.</li>
+    <li><strong>Exclude bot IPs from ad platforms where you can.</strong> If the spike is on paid traffic, IP exclusions in your ad platform cut repeat clicks from the same addresses.</li>
+  </ul>
+
+  <h2>AI agents are not the same as bad bots</h2>
+  <p>Some automated visitors are worth keeping. For eligible stores, Shopify's agentic storefronts let customers discover and buy your products in AI channels such as ChatGPT, Google AI Mode and Gemini, Microsoft Copilot and Meta, and orders from those channels show in your admin with channel or referrer attribution. OpenAI documents separate crawlers for ChatGPT search, for model training, and for actions a ChatGPT user starts, and robots.txt rules may not apply to the user-initiated ones. Before you block "AI bots", decide which of these you actually want to keep out.</p>
+
+  <h2>Where ClearSignal fits</h2>
+  <p>We make <a href="https://apps.shopify.com/bot-analytics-cleanup?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-bot-traffic">ClearSignal: Bot &amp; AI Traffic</a>, a Shopify app that measures bot and AI agent traffic with its own detection, as a second opinion next to Shopify's. On every plan, it sorts your sessions into human, good agent, bad bot and unclassified, shows a conversion rate with bad bots and agents taken out, breaks bot traffic down by country, and estimates how much of the ad spend you enter is going to bots. Paid plans add excluding countries you don't sell to from its dashboards and a count of AI-referred orders. The top plan adds a breakdown by assistant, AI-referred revenue in dollars, and a list of bot IP addresses to upload to Google Ads or Microsoft Ads yourself. ClearSignal doesn't block visitors, doesn't change Shopify's own reports, and only counts traffic from the day you turn on its app embed. Free and paid plans available.</p>
+
+  <h2>Common questions</h2>
+  <h3>Does Shopify filter bot traffic out of analytics?</h3>
+  <p>Partly. Since October 7, 2025, Shopify filters the bot sessions it identifies out of session-related reports by default. The filter applies only to sessions metrics, can't reclassify older sessions, and Shopify says some sophisticated automated traffic might not be classified right away.</p>
+  <h3>Why did my Shopify conversion rate drop when sales didn't?</h3>
+  <p>Shopify calculates conversion rate as the percentage of sessions that resulted in a sale. If extra sessions arrive that never buy, such as bots, the rate falls even though your orders and sales stay the same.</p>
+  <h3>Does GA4 remove bot traffic?</h3>
+  <p>GA4 automatically excludes traffic from known bots and spiders, using Google research and the IAB's International Spiders and Bots List. You can't turn this off or see how much was excluded, and newer bots that aren't on those lists aren't covered by it.</p>
+  <h3>Can I remove bot traffic from my past Shopify reports?</h3>
+  <p>No. Shopify's bot classification applies only to sessions from October 7, 2025 onward, and GA4's data filters only apply going forward. For older periods, compare sessions against orders to judge how much of a spike was real.</p>
+  <h3>Should I block AI bots like ChatGPT from my Shopify store?</h3>
+  <p>Think before you do. AI assistants such as ChatGPT can send real shoppers and real orders, and Shopify shows orders from AI channels with channel or referrer attribution. OpenAI also runs different crawlers for search, model training and user-initiated actions, and robots.txt rules may not apply to the user-initiated ones. Decide crawler by crawler rather than blocking all AI traffic.</p>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/bot-filtering">Shopify Help Center: Bot filtering</a></li>
+    <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/identifying-bot-activity">Shopify Help Center: Identifying bot activity</a></li>
+    <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/dealing-with-bots">Shopify Help Center: Dealing with bots</a></li>
+    <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/discrepancies/session-measurement-update">Shopify Help Center: Session measurement update</a></li>
+    <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/analytics-fields">Shopify Help Center: Analytics fields</a></li>
+    <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/default-reports/acquisition-reports">Shopify Help Center: Acquisition reports</a></li>
+    <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/default-reports/behaviour-reports">Shopify Help Center: Behaviour reports</a></li>
+    <li><a href="https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts">Shopify Help Center: Agentic storefronts</a></li>
+    <li><a href="https://shopify.dev/docs/storefronts/themes/architecture/templates/robots-txt-liquid">Shopify.dev: robots.txt.liquid</a></li>
+    <li><a href="https://shopify.dev/docs/storefronts/themes/trust-security/captcha">Shopify.dev: hCaptcha</a></li>
+    <li><a href="https://support.google.com/analytics/answer/9888366">Google Analytics Help: Known bot-traffic exclusion</a></li>
+    <li><a href="https://support.google.com/analytics/answer/10108813">Google Analytics Help: Data filters</a></li>
+    <li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">Google Search Central: Introduction to robots.txt</a></li>
+    <li><a href="https://developers.openai.com/api/docs/bots">OpenAI: Overview of OpenAI crawlers</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+</body>
+</html>
