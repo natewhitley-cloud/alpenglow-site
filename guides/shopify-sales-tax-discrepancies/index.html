@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify sales tax doesn't match: finding tax discrepancies before you file · Alpenglow Software</title>
+  <meta name="description" content="Shopify sales tax not matching what you'll file? Check custom-amount refunds, tax-exempt sales, unregistered states and partial refunds.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-sales-tax-discrepancies/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Shopify sales tax doesn't match: finding tax discrepancies before you file">
+  <meta property="og:description" content="Custom-amount refunds, tax-exempt sales, unregistered states and partial refunds: where Shopify sales tax discrepancies come from and how to check each one.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-sales-tax-discrepancies/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Shopify sales tax doesn't match: finding tax discrepancies before you file",
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-19",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-sales-tax-discrepancies/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why didn't Shopify refund the tax on a refund?",
+            "acceptedAnswer": { "@type": "Answer", "text": "If you entered a custom refund amount that isn't tied to a specific line item, Shopify doesn't refund the tax, and that tax stays in the United States sales tax report. When you refund a line item, Shopify refunds the tax associated with that line item." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why was a tax-exempt customer charged tax on Shopify?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Check two things. The customer's tax setting must be Don't collect tax, or Collect tax unless exemptions apply with the right exemptions selected. And the customer has to check out with the same email address as the one on their customer account; otherwise the exemption doesn't apply." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Shopify collect sales tax in states where I'm not registered?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify collects US sales tax for the states that have a registration in your tax settings. If you don't have a registration for a state, taxes won't be collected there. A registration added by mistake, or left in place after you stopped being registered, means tax is still collected for that state." }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is responsible for filing my Shopify sales tax returns?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify's Help Center says it's your responsibility to determine where you need to charge and remit taxes, and recommends a tax professional to make sure you file and remit correctly. Shopify's United States sales tax report summarizes the sales and taxes on your US orders." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do tax-exempt sales show in Shopify's United States sales tax report?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, in the jurisdiction view: it has a Total exempt/non-taxable item sales column, and the detailed transaction report shows an Exempt amount for each line. Shopify notes that the report's Net sales doesn't include tax-exempt customers or products that are exempt from sales tax." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">Alpenglow Software</a> · Guides</p>
+  <h1>Your Shopify sales tax doesn't match. Where the discrepancy usually comes from.</h1>
+  <p class="muted">Updated October 19, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> four common sources of gaps between the tax Shopify collected and the tax you expect to file are refunds entered as a custom amount (Shopify keeps the tax), tax-exempt sales, tax collected for a state you aren't registered in, and partial refunds where the tax that went back doesn't match the items refunded. Check each one in Shopify's United States sales tax report before you file, and correct what you can, such as refunding tax charged to an exempt customer, before the period is filed.</p>
+  </div>
+
+  <h2>Where Shopify's tax numbers come from</h2>
+  <p>Shopify's United States sales tax report summarizes the sales and taxes on your orders shipped to US addresses. It's available to US stores that use Shopify Tax with USD as the store currency; if your store doesn't meet those requirements, or you need data from before July 1, 2024, use the Taxes finance report instead. You can read it at three levels: by state, by jurisdiction, or by transaction. On screen it shows up to 1,000 rows, so export a CSV for a busy month.</p>
+  <p>It's a summary of what was collected, not a check of whether it was right. Shopify's Help Center puts the tax decisions on you: it's your responsibility to determine where you need to charge and remit taxes, and it recommends a tax professional to make sure you file and remit correctly.</p>
+  <p>So the report can be accurate about what happened and still not match what you owe. The four causes below are common places that happens.</p>
+
+  <h2>Four common causes</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Cause</th><th>What Shopify does</th><th>What to check</th></tr></thead>
+    <tbody>
+      <tr><td>Refund entered as a custom amount</td><td>The tax isn't refunded and stays in the United States sales tax report.</td><td>Refunds with no line items or shipping selected.</td></tr>
+      <tr><td>Tax-exempt sales</td><td>Exempt customers aren't charged tax, if their exemption applies at checkout.</td><td>Exempt customers who were charged tax, and exempt sales your filing treats as taxable.</td></tr>
+      <tr><td>A state you aren't registered in</td><td>Tax is collected for every state with a registration in your tax settings.</td><td>Tax collected for a state where you hold no permit.</td></tr>
+      <tr><td>Partial refunds</td><td>Refunding a line item refunds only the tax associated with that item.</td><td>Orders where the tax refunded doesn't match the tax on the refunded items and shipping.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Refunds entered as a custom amount</h3>
+  <p>When you refund a line item, Shopify refunds the tax associated with that item and lowers the tax in the report. When you enter a custom refund amount that isn't tied to a specific line item, Shopify doesn't refund the tax, and it stays in the United States sales tax report. The customer got money back, but the report still shows the full tax as collected.</p>
+  <p>That isn't always wrong: a goodwill credit after a delivery problem may not change the tax you owe. But a refund that was really for returned items, entered as a custom amount, leaves you reporting tax on a sale that partly didn't happen. Refund items as items when you can.</p>
+
+  <h3>Tax-exempt sales</h3>
+  <p>In Shopify you set a customer's tax status to one of three options: Collect tax, Don't collect tax, or Collect tax unless exemptions apply (then you pick the exemptions). Two details to check:</p>
+  <ul>
+    <li><strong>The checkout email has to match.</strong> Tax-exempt customers need to check out using the same email address as the one on their customer account. A buyer who checks out under a different email is charged tax like anyone else.</li>
+    <li><strong>Exemptions win over overrides.</strong> A customer exemption always takes precedence over tax overrides, so an override won't put tax back on an exempt customer's order.</li>
+  </ul>
+  <p>For B2B, you can set the same three options on company locations, on plans that support Shopify B2B.</p>
+  <p>Then check how exempt sales reach your return. Shopify notes that the report's Net sales doesn't include tax-exempt customers or products that are exempt from sales tax. The jurisdiction view has a Total exempt/non-taxable item sales column, and the detailed transaction report shows an Exempt amount for each line. If you use tax filing software, confirm it treats the same orders as exempt; a sale it files as taxable is tax you report but never collected.</p>
+
+  <h3>Tax collected for a state you aren't registered in</h3>
+  <p>Shopify collects US sales tax for the states that have a registration in Settings &gt; Taxes and duties &gt; United States. If you don't have a registration for a state, taxes won't be collected there. The reverse is the risk: a registration added by mistake, or left in place after you closed a permit, keeps collecting tax for a state you may have no account to remit it through. Compare the states in your tax settings with the permits you actually hold.</p>
+
+  <h3>Partial refunds</h3>
+  <p>On a partial refund, the tax that goes back should match the items and shipping you refunded. Look for orders where the order's tax went down by more than those items carried, which leaves the report showing less tax than the sales you kept were charged.</p>
+
+  <h2>Step by step: checking a period before you file</h2>
+  <ol>
+    <li><strong>Pick the filing period</strong> and open the United States sales tax report for it (or the Taxes finance report if your store doesn't have it).</li>
+    <li><strong>Compare states with your permits.</strong> For any state where tax was collected but you hold no permit, decide with your accountant whether you should register there or stop collecting. Tax already collected for that state may still need to be remitted or refunded to customers.</li>
+    <li><strong>List refunds in the period</strong> and find the ones entered as a custom amount (a refund that doesn't list any items or shipping). Decide for each whether the tax should have gone back.</li>
+    <li><strong>Check partial refunds</strong> for tax refunded beyond what the refunded items and shipping carried.</li>
+    <li><strong>Check exempt sales:</strong> exempt customers charged tax (refund the tax, or fix the exemption), and exempt sales your filing might treat as taxable.</li>
+    <li><strong>Write down what you found and changed,</strong> by order. If a period is already filed, take that list to your accountant; whether to amend is their call.</li>
+  </ol>
+
+  <h2>Where TaxDelta fits</h2>
+  <p>We make <a href="https://apps.shopify.com/tax-integrity-monitor?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-sales-tax-discrepancies">TaxDelta</a>, a Shopify app that runs several of these checks on your orders. It looks for orders where the tax refunded is more than you'd expect on the refunded items and shipping, refunds entered without line items or shipping (their tax impact can't be worked out from the order), and, once you tell it which states you're registered in, tax collected for any other state. It also looks at exempt US orders, including any still charged tax, so you can confirm your tax filing software files them as exempt. What you see for each check depends on your plan.</p>
+  <p>TaxDelta only reads your orders: it doesn't change your tax settings, issue refunds or file anything, and it reads orders, not customer records, so it can't see an exempt customer who checked out under a different email. Free and paid plans available. See the <a href="https://apps.shopify.com/tax-integrity-monitor?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-sales-tax-discrepancies&amp;utm_content=bottom">TaxDelta listing on the Shopify App Store</a> for features and plans.</p>
+
+  <h2>Common questions</h2>
+  <h3>Why didn't Shopify refund the tax on a refund?</h3>
+  <p>If you entered a custom refund amount that isn't tied to a specific line item, Shopify doesn't refund the tax, and that tax stays in the United States sales tax report. When you refund a line item, Shopify refunds the tax associated with that line item.</p>
+  <h3>Why was a tax-exempt customer charged tax?</h3>
+  <p>Check two things. The customer's tax setting must be Don't collect tax, or Collect tax unless exemptions apply with the right exemptions selected. And the customer has to check out with the same email address as the one on their customer account; otherwise the exemption doesn't apply.</p>
+  <h3>Does Shopify collect sales tax in states where I'm not registered?</h3>
+  <p>Shopify collects US sales tax for the states that have a registration in your tax settings. If you don't have a registration for a state, taxes won't be collected there. A registration added by mistake, or left in place after you stopped being registered, means tax is still collected for that state.</p>
+  <h3>Who is responsible for filing my sales tax returns?</h3>
+  <p>Shopify's Help Center says it's your responsibility to determine where you need to charge and remit taxes, and recommends a tax professional to make sure you file and remit correctly. Shopify's United States sales tax report summarizes the sales and taxes on your US orders.</p>
+  <h3>Do tax-exempt sales show in the United States sales tax report?</h3>
+  <p>Yes, in the jurisdiction view: it has a Total exempt/non-taxable item sales column, and the detailed transaction report shows an Exempt amount for each line. Shopify notes that the report's Net sales doesn't include tax-exempt customers or products that are exempt from sales tax.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/shopify-automated-tax-filing-ending/">Shopify automated tax filing is ending. How to file sales tax yourself in 2027.</a></li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/default-reports/finances-report">Shopify Help Center: Finance reports (United States sales tax report)</a></li>
+    <li><a href="https://help.shopify.com/en/manual/taxes/tax-overrides">Shopify Help Center: Tax overrides and exemptions</a></li>
+    <li><a href="https://help.shopify.com/en/manual/taxes/us/us-tax-migrate">Shopify Help Center: Basic Tax service in the US (troubleshooting tax not charged)</a></li>
+    <li><a href="https://help.shopify.com/en/manual/taxes/us/us-tax-setup">Shopify Help Center: Setting up US taxes</a></li>
+    <li><a href="https://help.shopify.com/en/manual/taxes/us/us-tax-liability">Shopify Help Center: Review your US tax liability insights</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+</body>
+</html>
