@@ -1,0 +1,40 @@
+# Alpenglow Software
+
+> Alpenglow Software LLC makes small-business apps for Shopify and monday.com. Positioning: "Your back office, handled." The apps save time, filter out noise, and catch costly mistakes. They find, flag and recommend; the person using them makes the final call. Every app has free and paid plans.
+
+Support: support@alpenglowsoftware.com. Privacy policies and terms for every app: https://legal.alpenglowsoftware.com/
+
+## Save time (monday.com apps)
+
+- [PostroomIQ](https://alpenglowsoftware.com/monday/postroomiq/): turns orders, invoices and leads forwarded to an email address, and their attachments, into monday.com board items with AI, and sends anything uncertain to review.
+- [DedupeIQ](https://alpenglowsoftware.com/monday/dedupeiq/): finds duplicate items on monday.com boards by name, email, phone and company, and merges them only after you review each match; the duplicate is archived, not deleted.
+
+## Filter the noise (Shopify apps)
+
+- [ClearSignal](https://alpenglowsoftware.com/shopify/clearsignal/): sorts Shopify store sessions into real shoppers, good AI agents, bad bots and unclassified, and shows the conversion rate with bad bot and AI agent sessions taken out. It measures; it doesn't block visitors.
+- [FraudPilot](https://alpenglowsoftware.com/shopify/fraudpilot/): puts the orders Shopify flags as medium or high risk in one review queue with the reasons, and keeps a log of your decisions. It never cancels orders or blocks checkouts.
+
+## Catch costly mistakes (Shopify apps)
+
+- [TaxDelta](https://alpenglowsoftware.com/shopify/taxdelta/): reads Shopify orders and flags sales tax to check before you file, such as tax over-refunded on partial refunds and tax collected in states you aren't registered in. It only reads orders and doesn't file returns.
+- [GhostCode](https://alpenglowsoftware.com/shopify/ghostcode/): audits a Shopify theme for the apps that slow it, known malicious scripts, wrong schema prices, script tag apps and leftover app code from apps that may no longer be installed. It only reads the theme and never edits it.
+
+## Guides for Shopify merchants
+
+- [Shopify automated tax filing is ending: how to file sales tax yourself in 2027](https://alpenglowsoftware.com/guides/shopify-automated-tax-filing-ending/)
+- [Shopify sales tax doesn't match: finding tax discrepancies before you file](https://alpenglowsoftware.com/guides/shopify-sales-tax-discrepancies/)
+- [Shopify bot traffic: why sessions spiked and conversion rate dropped](https://alpenglowsoftware.com/guides/shopify-bot-traffic/)
+- [Card testing attack on a Shopify store: what to do](https://alpenglowsoftware.com/guides/shopify-card-testing-attack/)
+- [Why is every order on my Shopify store flagged medium or high risk?](https://alpenglowsoftware.com/guides/shopify-every-order-flagged-high-risk/)
+- [Shopify high risk order: what to do before you fulfill](https://alpenglowsoftware.com/guides/shopify-high-risk-orders/)
+- [How to remove leftover code from uninstalled Shopify apps](https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/)
+- [Does uninstalling a Shopify app remove its code from your theme?](https://alpenglowsoftware.com/guides/does-uninstalling-shopify-app-remove-code/)
+- [What to check after a Shopify app is reported compromised](https://alpenglowsoftware.com/guides/shopify-app-compromised-checklist/)
+
+## Optional
+
+- [Shopify apps](https://alpenglowsoftware.com/shopify/)
+- [monday.com apps](https://alpenglowsoftware.com/monday/)
+- [DedupeIQ pricing](https://alpenglowsoftware.com/dedupeiq/pricing.html)
+- [PostroomIQ pricing](https://alpenglowsoftware.com/postroomiq/pricing.html)
+- [Support](https://alpenglowsoftware.com/support/)

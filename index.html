@@ -14,6 +14,7 @@
   <meta property="og:description" content="Small-business tools for Shopify and monday.com that do the tedious work, filter out the noise, and flag what's costing you money.">
   <meta property="og:url" content="https://alpenglowsoftware.com/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">
   {
@@ -33,71 +34,91 @@
         "@id": "https://alpenglowsoftware.com/#website",
         "name": "Alpenglow Software",
         "url": "https://alpenglowsoftware.com/",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
       },
       {
         "@type": "SoftwareApplication",
-        "name": "DedupeIQ",
-        "description": "Finds duplicate and near-duplicate items on monday.com boards and merges them without losing data.",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "monday.com",
-        "image": "https://alpenglowsoftware.com/assets/icons/dedupeiq.png",
-        "url": "https://alpenglowsoftware.com/dedupeiq/pricing.html",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "PostroomIQ",
-        "description": "Turns emails forwarded to an address, and their attachments, into monday.com board items with AI, and sends anything uncertain to review.",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "monday.com",
-        "image": "https://alpenglowsoftware.com/assets/icons/postroomiq.png",
-        "url": "https://alpenglowsoftware.com/postroomiq/pricing.html",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
-      },
-      {
-        "@type": "SoftwareApplication",
+        "@id": "https://alpenglowsoftware.com/shopify/ghostcode/#app",
         "name": "GhostCode",
-        "description": "Finds the code that uninstalled apps left in a Shopify theme: scripts, styles and snippets that still load and slow the store.",
+        "description": "Audits a Shopify theme for the apps that slow it down, known malicious scripts, schema prices that disagree with live prices, apps that rely on script tags, and leftover app code. It only reads the theme.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/ghostcode.png",
-        "url": "https://apps.shopify.com/ghost-code",
+        "url": "https://alpenglowsoftware.com/shopify/ghostcode/",
         "sameAs": "https://apps.shopify.com/ghost-code",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://alpenglowsoftware.com/shopify/clearsignal/#app",
         "name": "ClearSignal",
-        "description": "Shows a Shopify store's true human conversion rate by separating real shoppers, bad bots and AI shopping agents in its analytics.",
+        "description": "Shows a Shopify store's conversion rate with bad bot and AI agent sessions taken out by sorting traffic into real shoppers, good AI agents, bad bots and unclassified. It measures and reports; it doesn't block visitors.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/clearsignal.png",
-        "url": "https://apps.shopify.com/bot-analytics-cleanup",
+        "url": "https://alpenglowsoftware.com/shopify/clearsignal/",
         "sameAs": "https://apps.shopify.com/bot-analytics-cleanup",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://alpenglowsoftware.com/shopify/taxdelta/#app",
         "name": "TaxDelta",
-        "description": "Finds sales tax discrepancies hiding in Shopify partial refunds and undercollected orders, and exports them as CSV for an accountant.",
+        "description": "Reads Shopify orders and flags sales tax to check before filing: tax over-refunded on partial refunds, refunds entered without line items, tax collected in unregistered states, and exempt orders charged tax. It only reads orders.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/taxdelta.png",
-        "url": "https://apps.shopify.com/tax-integrity-monitor",
+        "url": "https://alpenglowsoftware.com/shopify/taxdelta/",
         "sameAs": "https://apps.shopify.com/tax-integrity-monitor",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://alpenglowsoftware.com/shopify/fraudpilot/#app",
         "name": "FraudPilot",
-        "description": "Review the orders Shopify flags as high risk, decide in one click, and keep a decision log usable as chargeback evidence.",
+        "description": "Puts the orders Shopify flags as medium or high risk in one review queue with the reasons each was flagged, and keeps a log of the merchant's decisions. It never cancels orders or blocks checkouts.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/fraudpilot.png",
-        "url": "https://apps.shopify.com/fraud-triage-cockpit",
+        "url": "https://alpenglowsoftware.com/shopify/fraudpilot/",
         "sameAs": "https://apps.shopify.com/fraud-triage-cockpit",
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" }
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://alpenglowsoftware.com/monday/dedupeiq/#app",
+        "name": "DedupeIQ",
+        "description": "Finds duplicate items on monday.com boards by name, email, phone and company, shows why each pair matched, and merges only after you review. The duplicate is archived, not deleted.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "monday.com",
+        "image": "https://alpenglowsoftware.com/assets/icons/dedupeiq.png",
+        "url": "https://alpenglowsoftware.com/monday/dedupeiq/",
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://alpenglowsoftware.com/monday/postroomiq/#app",
+        "name": "PostroomIQ",
+        "description": "Turns orders, invoices and leads forwarded to an email address, and their attachments, into monday.com board items with AI, and sends anything uncertain to review.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "monday.com",
+        "image": "https://alpenglowsoftware.com/assets/icons/postroomiq.png",
+        "url": "https://alpenglowsoftware.com/monday/postroomiq/",
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        }
       }
     ]
   }
@@ -129,24 +150,24 @@
         <h2 id="p0">Save time</h2>
         <p>Does the tedious work for you.</p>
         <ul>
-          <li><img src="/assets/icons/postroomiq.png" alt="" width="32" height="32"><a href="/monday/#postroomiq">PostroomIQ</a><p>Turns forwarded emails and their attachments into monday.com board items, and sends anything uncertain to you to review.</p></li>
-          <li><img src="/assets/icons/dedupeiq.png" alt="" width="32" height="32"><a href="/monday/#dedupeiq">DedupeIQ</a><p>Finds duplicate items on your monday.com boards and merges them after you review.</p></li>
+          <li><img src="/assets/icons/postroomiq.png" alt="" width="32" height="32"><a href="/monday/postroomiq/">PostroomIQ</a><p>Turns forwarded emails and their attachments into monday.com board items, and sends anything uncertain to you to review.</p></li>
+          <li><img src="/assets/icons/dedupeiq.png" alt="" width="32" height="32"><a href="/monday/dedupeiq/">DedupeIQ</a><p>Finds duplicate items on your monday.com boards and merges them after you review.</p></li>
         </ul>
       </section>
       <section class="ag-pillar" aria-labelledby="p1">
         <h2 id="p1">Filter the noise</h2>
         <p>Separates what matters from what doesn't.</p>
         <ul>
-          <li><img src="/assets/icons/clearsignal.png" alt="" width="32" height="32"><a href="/shopify/#clearsignal">ClearSignal</a><p>Separates real shoppers from bad bots and AI agents, so you see your true conversion rate.</p></li>
-          <li><img src="/assets/icons/fraudpilot.png" alt="" width="32" height="32"><a href="/shopify/#fraudpilot">FraudPilot</a><p>Puts the orders Shopify flags as risky in one queue with the reasons, so you can decide each one quickly.</p></li>
+          <li><img src="/assets/icons/clearsignal.png" alt="" width="32" height="32"><a href="/shopify/clearsignal/">ClearSignal</a><p>Separates real shoppers from bad bots and AI agents, so you see your true conversion rate.</p></li>
+          <li><img src="/assets/icons/fraudpilot.png" alt="" width="32" height="32"><a href="/shopify/fraudpilot/">FraudPilot</a><p>Puts the orders Shopify flags as risky in one queue with the reasons, so you can decide each one quickly.</p></li>
         </ul>
       </section>
       <section class="ag-pillar" aria-labelledby="p2">
         <h2 id="p2">Catch costly mistakes</h2>
         <p>Shows you what's wrong and where, so you decide what to change.</p>
         <ul>
-          <li><img src="/assets/icons/taxdelta.png" alt="" width="32" height="32"><a href="/shopify/#taxdelta">TaxDelta</a><p>Finds sales tax discrepancies in refunds and undercollected orders, so you can check them before you file.</p></li>
-          <li><img src="/assets/icons/ghostcode.png" alt="" width="32" height="32"><a href="/shopify/#ghostcode">GhostCode</a><p>Finds code that uninstalled apps left in your theme, down to the file and line. It never edits your theme.</p></li>
+          <li><img src="/assets/icons/taxdelta.png" alt="" width="32" height="32"><a href="/shopify/taxdelta/">TaxDelta</a><p>Finds sales tax discrepancies in refunds and undercollected orders, so you can check them before you file.</p></li>
+          <li><img src="/assets/icons/ghostcode.png" alt="" width="32" height="32"><a href="/shopify/ghostcode/">GhostCode</a><p>Finds code that uninstalled apps left in your theme, down to the file and line. It never edits your theme.</p></li>
         </ul>
       </section>
   </div>
