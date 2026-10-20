@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alpenglow Software: apps for Shopify and monday.com</title>
-  <meta name="description" content="Makers of GhostCode, ClearSignal, TaxDelta and FraudPilot for Shopify, and DedupeIQ and PostroomIQ for monday.com. Apps that find and fix bad store and board data.">
+  <title>Alpenglow Software: back-office apps for Shopify and monday.com</title>
+  <meta name="description" content="Small-business tools for Shopify and monday.com that do the tedious work, filter out the noise, and flag what's costing you money.">
   <link rel="canonical" href="https://alpenglowsoftware.com/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Alpenglow Software">
-  <meta property="og:title" content="Alpenglow Software: apps for Shopify and monday.com">
-  <meta property="og:description" content="Makers of GhostCode, ClearSignal, TaxDelta and FraudPilot for Shopify, and DedupeIQ and PostroomIQ for monday.com.">
+  <meta property="og:title" content="Alpenglow Software: back-office apps for Shopify and monday.com">
+  <meta property="og:description" content="Small-business tools for Shopify and monday.com that do the tedious work, filter out the noise, and flag what's costing you money.">
   <meta property="og:url" content="https://alpenglowsoftware.com/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -104,156 +102,96 @@
     ]
   }
   </script>
-  <style>
-    /* Layout: one reading column; each platform is a labeled section of app cards. */
-    :root {
-      color-scheme: light;
-      --bg: #fbfbfd; --surface: #ffffff; --ink: #1b1d2a; --muted: #5d6275; --rule: #e4e5ee;
-      --accent: #4a6fb5; --chip: #eef1f9;
-      --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { color-scheme: dark; --bg: #12141b; --surface: #1a1d27; --ink: #e9eaf2; --muted: #a0a5b8; --rule: #2b2f3d; --accent: #8fb0ea; --chip: #232838; }
-    }
-    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--font); }
-    a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-    .wrap { max-width: 760px; margin: 0 auto; padding-inline: 16px; }
-
-    header.site { padding-block: 56px 28px; display: grid; gap: 18px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 15px; }
-    .brand img { width: 40px; height: 40px; border-radius: 10px; }
-    h1 { font-size: clamp(30px, 5.4vw, 44px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin: 0; max-width: 20ch; text-wrap: balance; }
-    .lede { color: var(--muted); font-size: 18px; margin: 0; max-width: 58ch; }
-    .jump { display: flex; flex-wrap: wrap; gap: 8px; }
-    .jump a { text-decoration: none; background: var(--chip); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 500; }
-    .jump a span { color: var(--muted); font-variant-numeric: tabular-nums; margin-left: 4px; }
-
-    section { padding-block: 28px; border-top: 1px solid var(--rule); }
-    .section-head { display: grid; gap: 4px; margin-bottom: 20px; }
-    .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-    h2 { font-size: 26px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
-    .section-head p { margin: 0; color: var(--muted); max-width: 60ch; }
-
-    .apps { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    .apps.single { grid-template-columns: 1fr; }
-    article { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-    .app-top { display: flex; align-items: center; gap: 10px; }
-    .app-top img { width: 40px; height: 40px; border-radius: 10px; flex: none; }
-    h3 { font-size: 20px; line-height: 1.2; font-weight: 600; margin: 0; }
-    .tag { font-size: 12px; font-weight: 500; color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 8px; margin-left: auto; white-space: nowrap; }
-    article p { margin: 0; }
-    .price { font-size: 14px; color: var(--muted); }
-    .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 14px; padding-top: 4px; }
-    .cta img { display: block; }
-    .btn { display: inline-flex; align-items: center; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600; padding: 8px 14px; border-radius: 8px; }
-    .sub { color: var(--muted); }
-
-    .support { padding-block: 28px 40px; }
-    .support h2 { font-size: 20px; margin-bottom: 6px; }
-    .support p { margin: 0; }
-    footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; padding-block: 24px; }
-  </style>
 </head>
-<body>
-<div class="wrap">
-  <header class="site">
-    <div class="brand"><img src="/assets/icons/alpenglow.png" alt="" width="40" height="40">Alpenglow Software</div>
-    <h1>Apps that keep your store and board data clean</h1>
-    <p class="lede">Alpenglow Software LLC builds six apps: two for monday.com and four for Shopify. Each one finds a specific kind of bad data, shows you where it is, and helps you fix it.</p>
-    <nav class="jump" aria-label="Jump to platform">
-      <a href="#monday">monday.com apps<span>2</span></a>
-      <a href="#shopify">Shopify apps<span>4</span></a>
+<body class="ag">
+<a class="ag-skip" href="#main">Skip to content</a>
+<header class="ag-header">
+  <div class="ag-header-inner">
+    <a class="ag-logo" href="/"><img src="/assets/icons/alpenglow.png" alt="" width="28" height="28"><span>Alpenglow Software</span></a>
+    <nav class="ag-nav" aria-label="Main">
+      <ul>
+        <li><a href="/shopify/">Shopify apps</a></li>
+        <li><a href="/monday/">monday.com apps</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/support/">Support</a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
+<main id="main" class="ag-wrap">
+  <div class="ag-hero">
+    <h1>Your back office, handled.</h1>
+    <p class="ag-lede">Small-business tools for Shopify and monday.com that do the tedious work, filter out the noise, and flag what's costing you money. You make the final call.</p>
+  </div>
 
-  <main>
-    <section id="monday" aria-labelledby="monday-h">
-      <div class="section-head">
-        <span class="eyebrow">monday.com marketplace</span>
-        <h2 id="monday-h">Apps for monday.com</h2>
-        <p>For teams that run work on monday.com boards.</p>
-      </div>
-      <div class="apps">
-        <article>
-          <div class="app-top"><img src="/assets/icons/dedupeiq.png" alt="" width="40" height="40"><h3>DedupeIQ</h3><span class="tag">for monday.com</span></div>
-          <p>Finds duplicate and near-duplicate items on your monday.com boards and merges them without losing data.</p>
-          <p class="price">Free and paid plans available.</p>
-          <div class="cta">
-            <!-- Official "Add to monday.com" button from Developer Center → DedupeIQ → Share. -->
-            <a href="https://auth.monday.com/oauth2/authorize?client_id=b1f431a9505991fe320bb7bf86d6f88a&amp;response_type=install"><img alt="Add to monday.com" height="32" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/uploads/Tal/4b5d9548-0598-436e-a5b6-9bc5f29ee1d9_Group12441.png"></a>
-            <a href="/dedupeiq/pricing.html">Pricing</a>
-            <a href="https://legal.alpenglowsoftware.com/dedupeiq/how-to.html">How it works</a>
-            <span class="sub"><a href="https://legal.alpenglowsoftware.com/dedupeiq/privacy.html">Privacy</a> · <a href="https://legal.alpenglowsoftware.com/dedupeiq/terms.html">Terms</a></span>
-          </div>
-        </article>
-        <article>
-          <div class="app-top"><img src="/assets/icons/postroomiq.png" alt="" width="40" height="40"><h3>PostroomIQ</h3><span class="tag">for monday.com</span></div>
-          <p>Forward orders, invoices and leads to an email address. AI turns each email and its attachments into a monday.com board item, and sends anything uncertain to review.</p>
-          <p class="price">Free and paid plans available.</p>
-          <div class="cta">
-            <a href="https://auth.monday.com/oauth2/authorize?client_id=205757554696e64e9f4467ddea397e59&amp;response_type=install"><img alt="Add to monday.com" height="32" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/uploads/Tal/4b5d9548-0598-436e-a5b6-9bc5f29ee1d9_Group12441.png"></a>
-            <a href="/postroomiq/pricing.html">Pricing</a>
-            <!-- TODO: these legal pages 404 until the PostroomIQ legal docs are published at legal.alpenglowsoftware.com/postroomiq/. -->
-            <span class="sub"><a href="https://legal.alpenglowsoftware.com/postroomiq/privacy.html">Privacy</a> · <a href="https://legal.alpenglowsoftware.com/postroomiq/terms.html">Terms</a></span>
-          </div>
-        </article>
-      </div>
-    </section>
+  <div class="ag-pillars">
+      <section class="ag-pillar" aria-labelledby="p0">
+        <h2 id="p0">Save time</h2>
+        <p>Does the tedious work for you.</p>
+        <ul>
+          <li><img src="/assets/icons/postroomiq.png" alt="" width="32" height="32"><a href="/monday/#postroomiq">PostroomIQ</a><p>Turns forwarded emails and their attachments into monday.com board items, and sends anything uncertain to you to review.</p></li>
+          <li><img src="/assets/icons/dedupeiq.png" alt="" width="32" height="32"><a href="/monday/#dedupeiq">DedupeIQ</a><p>Finds duplicate items on your monday.com boards and merges them after you review.</p></li>
+        </ul>
+      </section>
+      <section class="ag-pillar" aria-labelledby="p1">
+        <h2 id="p1">Filter the noise</h2>
+        <p>Separates what matters from what doesn't.</p>
+        <ul>
+          <li><img src="/assets/icons/clearsignal.png" alt="" width="32" height="32"><a href="/shopify/#clearsignal">ClearSignal</a><p>Separates real shoppers from bad bots and AI agents, so you see your true conversion rate.</p></li>
+          <li><img src="/assets/icons/fraudpilot.png" alt="" width="32" height="32"><a href="/shopify/#fraudpilot">FraudPilot</a><p>Puts the orders Shopify flags as risky in one queue with the reasons, so you can decide each one quickly.</p></li>
+        </ul>
+      </section>
+      <section class="ag-pillar" aria-labelledby="p2">
+        <h2 id="p2">Catch costly mistakes</h2>
+        <p>Shows you what's wrong and where, so you decide what to change.</p>
+        <ul>
+          <li><img src="/assets/icons/taxdelta.png" alt="" width="32" height="32"><a href="/shopify/#taxdelta">TaxDelta</a><p>Finds sales tax discrepancies in refunds and undercollected orders, so you can check them before you file.</p></li>
+          <li><img src="/assets/icons/ghostcode.png" alt="" width="32" height="32"><a href="/shopify/#ghostcode">GhostCode</a><p>Finds code that uninstalled apps left in your theme, down to the file and line. It never edits your theme.</p></li>
+        </ul>
+      </section>
+  </div>
 
-    <section id="shopify" aria-labelledby="shopify-h">
-      <div class="section-head">
-        <span class="eyebrow">Shopify App Store</span>
-        <h2 id="shopify-h">Apps for Shopify</h2>
-        <p>For Shopify merchants who want accurate analytics, a clean theme, correct tax and fewer chargebacks.</p>
+  <section class="ag-section" aria-labelledby="platforms-h">
+    <div class="ag-section-head">
+      <h2 id="platforms-h">Apps by platform</h2>
+    </div>
+    <div class="ag-doors">
+      <div class="ag-door" id="shopify">
+        <h3><a href="/shopify/">Shopify stores</a></h3>
+        <p>Four apps that find bot traffic, risky orders, sales tax discrepancies and leftover theme code.</p>
+        <div class="ag-door-icons"><img src="/assets/icons/ghostcode.png" alt="" width="28" height="28"><img src="/assets/icons/clearsignal.png" alt="" width="28" height="28"><img src="/assets/icons/taxdelta.png" alt="" width="28" height="28"><img src="/assets/icons/fraudpilot.png" alt="" width="28" height="28"></div>
+        <span class="ag-door-more" aria-hidden="true">See Shopify apps</span>
       </div>
-      <div class="apps">
-        <article>
-          <div class="app-top"><img src="/assets/icons/ghostcode.png" alt="" width="40" height="40"><h3>GhostCode</h3><span class="tag">for Shopify</span></div>
-          <p>Finds the code that uninstalled apps left in your Shopify theme: scripts, styles and snippets that still load and slow your store.</p>
-          <p class="price">Free and paid plans available.</p>
-          <div class="cta">
-            <a class="btn" href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=homepage&amp;utm_campaign=app-cards">View on Shopify App Store</a>
-            <span class="sub"><a href="/guides/remove-leftover-shopify-app-code/">Guide: leftover app code</a> · <a href="https://legal.alpenglowsoftware.com/ghost-code/privacy.html">Privacy</a> · <a href="https://legal.alpenglowsoftware.com/ghost-code/terms.html">Terms</a></span>
-          </div>
-        </article>
-        <article>
-          <div class="app-top"><img src="/assets/icons/clearsignal.png" alt="" width="40" height="40"><h3>ClearSignal</h3><span class="tag">for Shopify</span></div>
-          <p>Shows your true conversion rate by separating real shoppers, bad bots and AI shopping agents in your store traffic.</p>
-          <p class="price">Free and paid plans available.</p>
-          <div class="cta">
-            <a class="btn" href="https://apps.shopify.com/bot-analytics-cleanup?utm_source=alpenglowsoftware&amp;utm_medium=homepage&amp;utm_campaign=app-cards">View on Shopify App Store</a>
-            <span class="sub"><a href="/guides/shopify-bot-traffic/">Guide: bot traffic</a> · <a href="https://legal.alpenglowsoftware.com/clearsignal/privacy.html">Privacy</a> · <a href="https://legal.alpenglowsoftware.com/clearsignal/terms.html">Terms</a></span>
-          </div>
-        </article>
-        <article>
-          <div class="app-top"><img src="/assets/icons/taxdelta.png" alt="" width="40" height="40"><h3>TaxDelta</h3><span class="tag">for Shopify</span></div>
-          <p>Finds sales tax discrepancies hiding in partial refunds and undercollected orders, and exports them as CSV for your accountant.</p>
-          <p class="price">Free and paid plans available.</p>
-          <div class="cta">
-            <a class="btn" href="https://apps.shopify.com/tax-integrity-monitor?utm_source=alpenglowsoftware&amp;utm_medium=homepage&amp;utm_campaign=app-cards">View on Shopify App Store</a>
-            <span class="sub"><a href="/guides/shopify-sales-tax-discrepancies/">Guide: sales tax discrepancies</a> · <a href="/guides/shopify-automated-tax-filing-ending/">Guide: automated filing ending</a> · <a href="https://legal.alpenglowsoftware.com/tax-integrity-monitor/privacy.html">Privacy</a> · <a href="https://legal.alpenglowsoftware.com/tax-integrity-monitor/terms.html">Terms</a></span>
-          </div>
-        </article>
-        <article>
-          <div class="app-top"><img src="/assets/icons/fraudpilot.png" alt="" width="40" height="40"><h3>FraudPilot</h3><span class="tag">for Shopify</span></div>
-          <p>Lets you review the orders Shopify flags as high risk, decide in one click, and keep a decision log you can use as chargeback evidence.</p>
-          <p class="price">Free and paid plans available.</p>
-          <div class="cta">
-            <a class="btn" href="https://apps.shopify.com/fraud-triage-cockpit?utm_source=alpenglowsoftware&amp;utm_medium=homepage&amp;utm_campaign=app-cards">View on Shopify App Store</a>
-            <span class="sub"><a href="/guides/shopify-high-risk-orders/">Guide: high risk orders</a> · <a href="/guides/shopify-card-testing-attack/">Guide: card testing</a> · <a href="/guides/shopify-every-order-flagged-high-risk/">Guide: every order flagged</a> · <a href="https://legal.alpenglowsoftware.com/fraudpilot/privacy.html">Privacy</a> · <a href="https://legal.alpenglowsoftware.com/fraudpilot/terms.html">Terms</a></span>
-          </div>
-        </article>
+      <div class="ag-door" id="monday">
+        <h3><a href="/monday/">monday.com teams</a></h3>
+        <p>Two apps for teams that run work on monday.com boards: cleaner boards and less copy-paste from email.</p>
+        <div class="ag-door-icons"><img src="/assets/icons/dedupeiq.png" alt="" width="28" height="28"><img src="/assets/icons/postroomiq.png" alt="" width="28" height="28"></div>
+        <span class="ag-door-more" aria-hidden="true">See monday.com apps</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="support" aria-labelledby="support-h">
+  <section class="ag-section" aria-labelledby="latest-h">
+    <div class="ag-section-head">
+      <h2 id="latest-h">Latest guides</h2>
+    </div>
+    <ul class="ag-guide-list">
+      <li><a href="/guides/shopify-automated-tax-filing-ending/">Shopify automated tax filing is ending: how to file sales tax yourself in 2027</a><p>Shopify Tax automated filing is ending. Your last automated return, the records to download by April 30, 2027, and what to check before you file yourself.</p><time datetime="2026-10-19">October 19, 2026</time></li>
+      <li><a href="/guides/shopify-sales-tax-discrepancies/">Shopify sales tax doesn't match: finding tax discrepancies before you file</a><p>Why Shopify's tax numbers may not match what you file: custom-amount refunds, tax-exempt sales, unregistered states and partial refunds.</p><time datetime="2026-10-19">October 19, 2026</time></li>
+      <li><a href="/guides/shopify-bot-traffic/">Shopify bot traffic: why sessions spiked and conversion rate dropped</a><p>Sessions jumped and orders didn't. How to tell if bots are the cause, and what Shopify and GA4 already filter out.</p><time datetime="2026-10-19">October 19, 2026</time></li>
+    </ul>
+    <p class="ag-more"><a href="/guides/">All guides</a></p>
+  </section>
+
+  <section class="ag-section" aria-labelledby="support-h">
+    <div class="ag-section-head">
       <h2 id="support-h">Support</h2>
-      <p>Email us about any app: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
-    </section>
-  </main>
-
-  <footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a></footer>
+      <p>Questions about any app? Email <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a> or see <a href="/support/">Support</a> for what to include.</p>
+    </div>
+  </section>
+</main>
+<div class="ag-wrap">
+  <footer class="ag-footer">&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a> · <a href="/support/">Support</a></footer>
 </div>
 </body>
 </html>

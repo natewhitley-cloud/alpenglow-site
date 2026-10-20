@@ -1,0 +1,126 @@
+/* Shared styles for alpenglowsoftware.com.
+   Everything here is class-scoped (.ag-*) or limited to body.ag, so pages that keep
+   their own inline styles (guides, pricing pages) only pick up the header. */
+
+:root {
+  --ag-bg: #ffffff;
+  --ag-surface: #ffffff;
+  --ag-tint: #f2f4f9;
+  --ag-ink: #1b1d2a;
+  --ag-muted: #545a6e;
+  --ag-rule: #e1e3ec;
+  --ag-accent: #4a6fb5;
+  --ag-brand: linear-gradient(90deg, #6544b5, #4680aa 55%, #3fab8b);
+  --ag-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ag-wide: 1040px;
+  --ag-radius: 10px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ag-bg: #12141b; --ag-surface: #1a1d27; --ag-tint: #1a1e2a; --ag-ink: #e9eaf2;
+    --ag-muted: #a7acbe; --ag-rule: #2b2f3d; --ag-accent: #8fb0ea;
+  }
+}
+
+/* Skip link and site header (used on every page) */
+.ag-skip { position: absolute; left: 16px; top: -48px; z-index: 10; background: var(--ag-ink); color: var(--ag-bg); padding: 8px 12px; border-radius: 6px; font: 600 14px/1.4 var(--ag-font); text-decoration: none; }
+.ag-skip:focus { top: 12px; }
+.ag-header { border-bottom: 1px solid var(--ag-rule); background: var(--ag-bg); font-family: var(--ag-font); }
+.ag-header::before { content: ""; display: block; height: 3px; background: var(--ag-brand); }
+.ag-header-inner { max-width: var(--ag-wide); margin: 0 auto; padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; }
+.ag-logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ag-ink); text-decoration: none; font-weight: 700; font-size: 16px; line-height: 1.2; }
+.ag-logo img { width: 28px; height: 28px; border-radius: 7px; display: block; }
+.ag-nav li { margin: 0; }
+.ag-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.ag-nav a { display: inline-block; padding: 6px 0; color: var(--ag-muted); text-decoration: none; font-size: 15px; font-weight: 500; line-height: 1.4; border-bottom: 2px solid transparent; }
+.ag-nav a:hover { color: var(--ag-ink); }
+.ag-nav a[aria-current] { color: var(--ag-ink); border-bottom-color: var(--ag-accent); }
+.ag-header a:focus-visible, .ag-skip:focus-visible { outline: 2px solid var(--ag-accent); outline-offset: 2px; border-radius: 4px; }
+@media (max-width: 560px) {
+  .ag-header-inner { padding: 10px 16px 4px; }
+  .ag-nav { width: 100%; }
+  .ag-nav ul { gap: 0 16px; }
+  .ag-nav a { font-size: 14px; padding: 10px 0; }
+}
+
+/* Base for pages built on this stylesheet (<body class="ag">) */
+body.ag { margin: 0; background: var(--ag-bg); color: var(--ag-ink); font: 16px/1.6 var(--ag-font); }
+:where(body.ag) a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+:where(body.ag) a:focus-visible { outline: 2px solid var(--ag-accent); outline-offset: 2px; border-radius: 4px; }
+:where(body.ag) :is(h1, h2, h3) { margin: 0; line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance; }
+:where(body.ag) h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em; }
+:where(body.ag) h2 { font-size: 24px; font-weight: 700; }
+:where(body.ag) h3 { font-size: 18px; font-weight: 600; }
+:where(body.ag) p { margin: 0; }
+.ag-wrap { max-width: var(--ag-wide); margin: 0 auto; padding-inline: 16px; }
+.ag-intro { padding-block: 48px 32px; display: grid; gap: 12px; }
+.ag-lede { color: var(--ag-muted); font-size: 18px; max-width: 60ch; }
+.ag-section { padding-block: 32px; border-top: 1px solid var(--ag-rule); }
+.ag-section-head { display: grid; gap: 6px; margin-bottom: 20px; }
+.ag-section-head p { color: var(--ag-muted); max-width: 60ch; }
+.ag-footer { border-top: 1px solid var(--ag-rule); color: var(--ag-muted); font-size: 14px; padding-block: 24px 32px; margin-top: 16px; }
+
+/* App cards (Shopify and monday.com pages). Every card has the same parts in the same
+   order; the action row is pushed to the bottom so rows line up. */
+.ag-cards { display: grid; gap: 16px; grid-template-columns: 1fr; }
+/* Two columns of equal-height cards from 760px; one column of natural-height cards below. */
+@media (min-width: 760px) { .ag-cards { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; } }
+.ag-card { background: var(--ag-surface); border: 1px solid var(--ag-rule); border-radius: var(--ag-radius); padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; scroll-margin-top: 16px; }
+.ag-card-top { display: flex; align-items: center; gap: 12px; }
+.ag-card-top img { width: 40px; height: 40px; border-radius: 10px; flex: none; display: block; }
+.ag-card-top h2 { font-size: 20px; font-weight: 600; }
+.ag-card-plan { font-size: 14px; color: var(--ag-muted); }
+.ag-card-guides { font-size: 14px; }
+.ag-card-guides h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.ag-card-guides ul { margin: 0; padding-left: 18px; display: grid; gap: 2px; }
+.ag-card-actions { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 14px; padding-top: 4px; }
+.ag-card-actions img { display: block; }
+.ag-card-legal { font-size: 14px; color: var(--ag-muted); border-top: 1px solid var(--ag-rule); padding-top: 10px; }
+a.ag-btn { display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; background: var(--ag-ink); color: var(--ag-bg); text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 8px; }
+a.ag-btn:hover { opacity: .9; }
+
+/* Homepage */
+.ag-hero { padding-block: 64px 40px; display: grid; gap: 16px; }
+.ag-hero h1 { font-size: clamp(36px, 6.4vw, 60px); max-width: 22ch; }
+.ag-hero .ag-lede { font-size: 19px; max-width: 56ch; }
+.ag-pillars { display: grid; gap: 32px; grid-template-columns: 1fr; padding-block: 8px 40px; }
+@media (min-width: 900px) { .ag-pillars { grid-template-columns: repeat(3, 1fr); } }
+.ag-pillar { border-top: 1px solid var(--ag-ink); padding-top: 16px; display: grid; gap: 8px; align-content: start; }
+.ag-pillar > p { color: var(--ag-muted); }
+.ag-pillar ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 16px; }
+.ag-pillar li { display: grid; grid-template-columns: 32px 1fr; gap: 2px 12px; }
+.ag-pillar li img { width: 32px; height: 32px; border-radius: 8px; grid-row: span 2; display: block; }
+.ag-pillar li a { font-weight: 600; }
+.ag-pillar li p { font-size: 15px; color: var(--ag-muted); }
+.ag-doors { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.ag-door { position: relative; background: var(--ag-tint); border: 1px solid var(--ag-rule); border-radius: var(--ag-radius); padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.ag-door h3 { font-size: 22px; }
+.ag-door h3 a { text-decoration: none; }
+.ag-door h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--ag-radius); }
+.ag-door:hover { border-color: var(--ag-accent); }
+.ag-door h3 a:focus-visible { outline: none; }
+.ag-door h3 a:focus-visible::after { outline: 2px solid var(--ag-accent); outline-offset: 2px; }
+.ag-door p { color: var(--ag-muted); }
+.ag-door-icons { display: flex; gap: 8px; margin-top: auto; padding-top: 6px; }
+.ag-door-icons img { width: 28px; height: 28px; border-radius: 7px; display: block; }
+.ag-door-more { font-weight: 600; }
+.ag-more { margin-top: 16px; font-weight: 600; }
+
+/* Guide lists (homepage teaser and /guides/) */
+.ag-guide-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.ag-guide-list li { padding-block: 14px; border-bottom: 1px solid var(--ag-rule); display: grid; gap: 4px; }
+.ag-guide-list li:first-child { padding-top: 0; }
+.ag-guide-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.ag-guide-list a { font-weight: 600; font-size: 17px; line-height: 1.35; }
+.ag-guide-list p { color: var(--ag-muted); max-width: 70ch; }
+.ag-guide-list time { font-size: 14px; color: var(--ag-muted); }
+.ag-guide-group { padding-block: 28px; border-top: 1px solid var(--ag-rule); }
+.ag-guide-group .ag-section-head { margin-bottom: 12px; }
+
+/* Support page */
+.ag-prose { max-width: 70ch; display: grid; gap: 12px; }
+.ag-prose ul { margin: 0; padding-left: 22px; display: grid; gap: 4px; }
+.ag-legal-table { width: 100%; max-width: 560px; border-collapse: collapse; font-size: 15px; }
+.ag-legal-table th, .ag-legal-table td { text-align: left; padding: 8px 8px 8px 0; border-bottom: 1px solid var(--ag-rule); }
+.ag-legal-table th { font-size: 13px; color: var(--ag-muted); font-weight: 600; }
