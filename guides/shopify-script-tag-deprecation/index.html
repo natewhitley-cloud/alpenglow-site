@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify script tags stop working March 1, 2027: which apps on your store will break · Alpenglow Software</title>
+  <meta name="description" content="On March 1, 2027 Shopify stops loading script tags on storefronts. Apps that still use them stop working unless their developer moves them. How to see which apps on your store still use script tags, and what to do about each one.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Shopify script tags stop working March 1, 2027: which apps on your store will break">
+  <meta property="og:description" content="Shopify stops loading script tags on storefronts on March 1, 2027. How to find the apps on your store that still use them, and what to do about each one.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Shopify script tags stop working March 1, 2027: which apps on your store will break",
+        "datePublished": "2026-10-26",
+        "dateModified": "2026-10-26",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I see or delete script tags in my Shopify admin?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Script tags belong to the app that created them and don't appear in your admin or your theme code. You can see their web addresses in your storefront's page source, but only the app's developer can change or remove them. When you uninstall an app, Shopify removes its script tags for you." }
+          },
+          {
+            "@type": "Question",
+            "name": "Will Shopify warn me about apps that still use script tags?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Don't count on it. Shopify's developer documentation says an earlier plan to show merchants a warning banner was dropped for now, and it doesn't describe any other merchant notice. Check your store yourself and ask the developers of the apps you find." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the script tag change affect my checkout or order status page?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The order status page went first: script tags stopped running there on August 26, 2026, and earlier for Plus stores. The March 1, 2027 date is for storefront pages, such as your home, product, collection and cart pages." }
+          },
+          {
+            "@type": "Question",
+            "name": "What about analytics and tracking scripts?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify's recommended replacement for scripts that only collect analytics or conversion data is a web pixel. Web pixels don't need switching on in the theme editor; you approve the app's access when you install or update it. If a tracking app on your store still uses a script tag, ask its developer whether it has moved to a web pixel." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to clean up leftover script tags after March 1, 2027?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify's documentation says leftover script tag records have no effect after storefronts stop loading them, so there is nothing to delete. The work is making sure the apps you still use have moved to an app embed or a web pixel before then." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    code { font-size:14px; overflow-wrap:anywhere; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<a class="ag-skip" href="#main">Skip to content</a>
+<header class="ag-header">
+  <div class="ag-header-inner">
+    <a class="ag-logo" href="/"><img src="/assets/icons/alpenglow.png" alt="" width="28" height="28"><span>Alpenglow Software</span></a>
+    <nav class="ag-nav" aria-label="Main">
+      <ul>
+        <li><a href="/shopify/">Shopify apps</a></li>
+        <li><a href="/monday/">monday.com apps</a></li>
+        <li><a href="/guides/" aria-current="true">Guides</a></li>
+        <li><a href="/support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
+  <h1>Shopify script tags stop working March 1, 2027: which apps on your store will break</h1>
+  <p class="muted">Updated October 26, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> on March 1, 2027 Shopify stops loading script tags on storefront pages. Script tags are an older way for apps to add JavaScript to your store without touching your theme. Any app on your store that still relies on one stops working on your storefront that day, unless its developer has moved it to an app embed or a web pixel. You can't see or remove script tags in your admin, so the fix is up to each app's developer. Your job is to find out which apps are affected and ask.</p>
+  </div>
+  <p class="muted">Want the check done for you? <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=top">GhostCode</a> lists the apps on your store that still load through script tags. It only reads your store. Free and paid plans available.</p>
+
+  <h2>The dates</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Date</th><th>What changes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>August 26, 2026</strong></td><td>Script tags stopped running on the order status page (earlier for Plus stores).</td></tr>
+      <tr><td><strong>October 1, 2026</strong></td><td>Apps can no longer create or update script tags. Existing ones keep running on storefronts for now.</td></tr>
+      <tr><td><strong>March 1, 2027</strong></td><td>Shopify stops loading script tags on storefront pages. Whatever an app loaded that way stops appearing.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Shopify asked app developers to release replacements before October 1, 2026. Not every app may have done it, and Shopify isn't planning to warn merchants: its developer documentation says an earlier plan for a warning banner was dropped.</p>
+
+  <h2>How to check which apps on your store still use script tags</h2>
+  <ol>
+    <li><strong>Open your storefront's page source.</strong> Visit your store's homepage in a desktop browser, then choose View page source (in Chrome, press Ctrl+U on Windows or Cmd+Option+U on a Mac). Use the page source, not the developer tools, so you see what Shopify sent before any script ran.</li>
+    <li><strong>Search for <code>asyncLoad</code>.</strong> Press Ctrl+F or Cmd+F and search for <code>asyncLoad</code>. Shopify prints your store's storefront script tags in a short block of code there, as a list that starts with <code>var urls = [</code>. If the search finds nothing, your storefront isn't loading any script tags.</li>
+    <li><strong>Read the list of web addresses.</strong> Each address in that list is one script tag. The slashes appear as <code>\/</code>, so <code>https:\/\/example.com\/widget.js</code> means <code>https://example.com/widget.js</code>. Many end with <code>?shop=yourstore.myshopify.com</code>.</li>
+    <li><strong>Match each address to an app.</strong> The domain usually names the app or its developer. If it doesn't, search the web for the domain. Some apps host their files on Shopify's own servers (<code>cdn.shopify.com</code>), which doesn't name the app; the file name sometimes does.</li>
+    <li><strong>Check each app against Settings → Apps.</strong> Script tags only exist for apps that are still installed, because Shopify removes an app's script tags when you uninstall it. So every address in the list belongs to an app you still have.</li>
+  </ol>
+
+  <h2>What to do about each app</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>What you find</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td><strong>An app you still use</strong></td><td>Ask the developer: "Has your app moved off script tags to an app embed or a web pixel, and do I need to do anything?" If they say it now uses an app embed, open your theme with <strong>Edit theme</strong>, go to <strong>App embeds</strong> and check that it's switched on for your published theme. App embeds are switched on per theme, so a theme you publish later needs the same check.</td></tr>
+      <tr><td><strong>An app you don't use any more</strong></td><td>Uninstall it. Shopify removes its script tags for you. Then check your theme for code the app may have written into your theme files, which uninstalling doesn't remove.</td></tr>
+      <tr><td><strong>A custom app built for your store</strong></td><td>Ask whoever built it. Custom apps that can't use app extensions may need the script moved into your theme, for example with a Custom Liquid section.</td></tr>
+      <tr><td><strong>An address you can't place</strong></td><td>Search the web for the domain. If it isn't from any app you recognize, treat it as a security question: review your installed apps and your staff and collaborator accounts.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>After a developer moves their app, its address should disappear from the <code>asyncLoad</code> list. If an app shows up twice on a page, for example two copies of the same widget, the old script tag and its replacement may both be running. Tell the developer, because that can also double-count analytics.</p>
+
+  <h2>What happens if you do nothing</h2>
+  <p>On March 1, 2027 the script stops loading, and whatever it did on your storefront goes away without an error: a review widget, a popup, a chat button, a tracking script. Nothing in your admin will flag it, so the first sign may be a customer or a drop in a report. Leftover script tag records do nothing after that date, so there is nothing to clean up. The only work is moving the apps you still need.</p>
+
+  <h2>Where GhostCode fits</h2>
+  <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=middle">GhostCode</a>, a Shopify app that does this check for you. It reads the same script tag list from your public storefront, matches each address to the app it belongs to, and flags apps that still load through a script tag and have no app embed switched on, since those are the ones most likely to stop working. It can't tell whether a developer's update is coming, so asking them is still your step. GhostCode only reads your store. It never edits your theme. It also finds code that uninstalled apps left in your theme files. Read <a href="/shopify/ghostcode/">how GhostCode works</a>. Free and paid plans available. See the <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">GhostCode listing on the Shopify App Store</a> for features and plans.</p>
+
+  <h2>Common questions</h2>
+  <h3>Can I see or delete script tags in my Shopify admin?</h3>
+  <p>No. Script tags belong to the app that created them and don't appear in your admin or your theme code. You can see their web addresses in your storefront's page source, but only the app's developer can change or remove them. When you uninstall an app, Shopify removes its script tags for you.</p>
+  <h3>Will Shopify warn me about apps that still use script tags?</h3>
+  <p>Don't count on it. Shopify's developer documentation says an earlier plan to show merchants a warning banner was dropped for now, and it doesn't describe any other merchant notice. Check your store yourself and ask the developers of the apps you find.</p>
+  <h3>Does the script tag change affect my checkout or order status page?</h3>
+  <p>The order status page went first: script tags stopped running there on August 26, 2026, and earlier for Plus stores. The March 1, 2027 date is for storefront pages, such as your home, product, collection and cart pages.</p>
+  <h3>What about analytics and tracking scripts?</h3>
+  <p>Shopify's recommended replacement for scripts that only collect analytics or conversion data is a web pixel. Web pixels don't need switching on in the theme editor; you approve the app's access when you install or update it. If a tracking app on your store still uses a script tag, ask its developer whether it has moved to a web pixel.</p>
+  <h3>Do I need to clean up leftover script tags after March 1, 2027?</h3>
+  <p>No. Shopify's documentation says leftover script tag records have no effect after storefronts stop loading them, so there is nothing to delete. The work is making sure the apps you still use have moved to an app embed or a web pixel before then.</p>
+
+  <div class="answer">
+    <p><strong>See which apps are affected in a few minutes:</strong> <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">install GhostCode from the Shopify App Store</a>. It never edits your theme. Free and paid plans available.</p>
+  </div>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/does-uninstalling-shopify-app-remove-code/">Does uninstalling a Shopify app remove its code from your theme?</a></li>
+    <li><a href="/guides/remove-leftover-shopify-app-code/">How to find and remove leftover code from uninstalled Shopify apps</a></li>
+    <li><a href="/guides/shopify-app-compromised-checklist/">What to check after a Shopify app is reported compromised</a></li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation">Shopify developer docs: Script tag deprecation</a></li>
+    <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation/storefront">Shopify developer docs: Storefront script tags</a></li>
+    <li><a href="https://shopify.dev/changelog/online-store-script-tags-deprecation">Shopify developer changelog: Online store script tags deprecation</a></li>
+    <li><a href="https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag">Shopify developer docs: ScriptTag (removed when the app that created it is uninstalled)</a></li>
+    <li><a href="https://help.shopify.com/en/manual/online-store/themes/theme-structure/extend/apps">Shopify Help Center: Extend your theme with apps</a></li>
+    <li><a href="https://help.shopify.com/en/manual/apps/uninstalling-apps">Shopify Help Center: Uninstalling apps</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a> · <a href="/support/">Support</a></footer>
+</body>
+</html>

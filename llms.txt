@@ -27,6 +27,7 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 - [Card testing attack on a Shopify store: what to do](https://alpenglowsoftware.com/guides/shopify-card-testing-attack/)
 - [Why is every order on my Shopify store flagged medium or high risk?](https://alpenglowsoftware.com/guides/shopify-every-order-flagged-high-risk/)
 - [Shopify high risk order: what to do before you fulfill](https://alpenglowsoftware.com/guides/shopify-high-risk-orders/)
+- [Shopify script tags stop working March 1, 2027: which apps on your store will break](https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/)
 - [How to remove leftover code from uninstalled Shopify apps](https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/)
 - [Does uninstalling a Shopify app remove its code from your theme?](https://alpenglowsoftware.com/guides/does-uninstalling-shopify-app-remove-code/)
 - [What to check after a Shopify app is reported compromised](https://alpenglowsoftware.com/guides/shopify-app-compromised-checklist/)
