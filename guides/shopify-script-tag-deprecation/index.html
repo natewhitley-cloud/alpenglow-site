@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopify script tags stop working March 1, 2027: which apps on your store will break · Alpenglow Software</title>
-  <meta name="description" content="On March 1, 2027 Shopify stops loading script tags on storefronts. Apps that still use them stop working unless their developer moves them. How to see which apps on your store still use script tags, and what to do about each one.">
+  <meta name="description" content="On March 1, 2027 Shopify stops loading script tags on storefronts. Whatever apps still load that way stops working unless their developer moves it. How to see which apps on your store still use script tags, and what to do about each one.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
@@ -32,7 +32,7 @@
           {
             "@type": "Question",
             "name": "Can I see or delete script tags in my Shopify admin?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Script tags belong to the app that created them and don't appear in your admin or your theme code. You can see their web addresses in your storefront's page source, but only the app's developer can change or remove them. When you uninstall an app, Shopify removes its script tags for you." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Script tags belong to the app that created them and aren't listed anywhere in your admin or your theme code. You can see their web addresses in your storefront's page source, but only the app's developer can change or remove them. When you uninstall an app, Shopify removes its script tags for you." }
           },
           {
             "@type": "Question",
@@ -98,9 +98,9 @@
   <p class="muted">Updated October 26, 2026</p>
 
   <div class="answer">
-    <p><strong>Short answer:</strong> on March 1, 2027 Shopify stops loading script tags on storefront pages. Script tags are an older way for apps to add JavaScript to your store without touching your theme. Any app on your store that still relies on one stops working on your storefront that day, unless its developer has moved it to an app embed or a web pixel. You can't see or remove script tags in your admin, so the fix is up to each app's developer. Your job is to find out which apps are affected and ask.</p>
+    <p><strong>Short answer:</strong> on March 1, 2027 Shopify stops loading script tags on storefront pages. Script tags are an older way for apps to add JavaScript to your store without touching your theme. Whatever an app on your store still loads that way stops working on your storefront that day, unless its developer has moved it to an app embed or a web pixel. You can't see or remove script tags in your admin, so the fix is up to each app's developer. Your job is to find out which apps are affected and ask.</p>
   </div>
-  <p class="muted">Want the check done for you? <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=top">GhostCode</a> lists the apps on your store that still load through script tags. It only reads your store. Free and paid plans available.</p>
+  <p class="muted">Want the check done for you? <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=top">GhostCode</a> flags the apps on your store that still load through script tags. It only reads your store. Free and paid plans available.</p>
 
   <h2>The dates</h2>
   <div class="wrap">
@@ -113,12 +113,12 @@
     </tbody>
   </table>
   </div>
-  <p>Shopify asked app developers to release replacements before October 1, 2026. Not every app may have done it, and Shopify isn't planning to warn merchants: its developer documentation says an earlier plan for a warning banner was dropped.</p>
+  <p>Shopify asked app developers to release replacements before October 1, 2026. Not every app may have done it, and Shopify has said it won't show merchants a warning banner for now.</p>
 
   <h2>How to check which apps on your store still use script tags</h2>
   <ol>
-    <li><strong>Open your storefront's page source.</strong> Visit your store's homepage in a desktop browser, then choose View page source (in Chrome, press Ctrl+U on Windows or Cmd+Option+U on a Mac). Use the page source, not the developer tools, so you see what Shopify sent before any script ran.</li>
-    <li><strong>Search for <code>asyncLoad</code>.</strong> Press Ctrl+F or Cmd+F and search for <code>asyncLoad</code>. Shopify prints your store's storefront script tags in a short block of code there, as a list that starts with <code>var urls = [</code>. If the search finds nothing, your storefront isn't loading any script tags.</li>
+    <li><strong>Open your storefront's page source.</strong> Visit your store's homepage in a desktop browser (if your store has a password page, enter the password first), then choose View page source (in Chrome, press Ctrl+U on Windows or Cmd+Option+U on a Mac). Use the page source, not the developer tools, so you see what Shopify sent before any script ran.</li>
+    <li><strong>Search for <code>asyncLoad</code>.</strong> Press Ctrl+F or Cmd+F and search for <code>asyncLoad</code>. Shopify prints your store's storefront script tags in a short block of code written as <code>function asyncLoad()</code>, with a list inside it that starts with <code>var urls = [</code>. Some themes have their own code with similar names, so use the match inside that function. If the search finds nothing, your storefront isn't loading any script tags.</li>
     <li><strong>Read the list of web addresses.</strong> Each address in that list is one script tag. The slashes appear as <code>\/</code>, so <code>https:\/\/example.com\/widget.js</code> means <code>https://example.com/widget.js</code>. Many end with <code>?shop=yourstore.myshopify.com</code>.</li>
     <li><strong>Match each address to an app.</strong> The domain usually names the app or its developer. If it doesn't, search the web for the domain. Some apps host their files on Shopify's own servers (<code>cdn.shopify.com</code>), which doesn't name the app; the file name sometimes does.</li>
     <li><strong>Check each app against Settings → Apps.</strong> Script tags only exist for apps that are still installed, because Shopify removes an app's script tags when you uninstall it. So every address in the list belongs to an app you still have.</li>
@@ -129,24 +129,24 @@
   <table>
     <thead><tr><th>What you find</th><th>What to do</th></tr></thead>
     <tbody>
-      <tr><td><strong>An app you still use</strong></td><td>Ask the developer: "Has your app moved off script tags to an app embed or a web pixel, and do I need to do anything?" If they say it now uses an app embed, open your theme with <strong>Edit theme</strong>, go to <strong>App embeds</strong> and check that it's switched on for your published theme. App embeds are switched on per theme, so a theme you publish later needs the same check.</td></tr>
+      <tr><td><strong>An app you still use</strong></td><td>Ask the developer: "Has your app moved off script tags to an app embed or a web pixel, and do I need to do anything?" If they say it now uses an app embed, open your theme with <strong>Edit theme</strong>, go to <strong>App embeds</strong> and check that it's switched on for your published theme. App embeds are switched on per theme (and per market, if you sell in several), so a theme you publish later needs the same check.</td></tr>
       <tr><td><strong>An app you don't use any more</strong></td><td>Uninstall it. Shopify removes its script tags for you. Then check your theme for code the app may have written into your theme files, which uninstalling doesn't remove.</td></tr>
-      <tr><td><strong>A custom app built for your store</strong></td><td>Ask whoever built it. Custom apps that can't use app extensions may need the script moved into your theme, for example with a Custom Liquid section.</td></tr>
+      <tr><td><strong>A custom app built for your store</strong></td><td>Ask whoever built it. Custom apps created in your Shopify admin can't use app extensions, so they may need the script moved into your theme, for example with a Custom Liquid section.</td></tr>
       <tr><td><strong>An address you can't place</strong></td><td>Search the web for the domain. If it isn't from any app you recognize, treat it as a security question: review your installed apps and your staff and collaborator accounts.</td></tr>
     </tbody>
   </table>
   </div>
-  <p>After a developer moves their app, its address should disappear from the <code>asyncLoad</code> list. If an app shows up twice on a page, for example two copies of the same widget, the old script tag and its replacement may both be running. Tell the developer, because that can also double-count analytics.</p>
+  <p>Even after a developer moves their app, its address can stay in the <code>asyncLoad</code> list until March 1, because Shopify doesn't require developers to delete old script tags. The developer's answer is what counts. If an app shows up twice on a page, for example two copies of the same widget, the old script tag and its replacement may both be running. Tell the developer, because that can also double-count analytics.</p>
 
   <h2>What happens if you do nothing</h2>
-  <p>On March 1, 2027 the script stops loading, and whatever it did on your storefront goes away without an error: a review widget, a popup, a chat button, a tracking script. Nothing in your admin will flag it, so the first sign may be a customer or a drop in a report. Leftover script tag records do nothing after that date, so there is nothing to clean up. The only work is moving the apps you still need.</p>
+  <p>On March 1, 2027 the script stops loading, and whatever it did on your storefront goes away without an error: a review widget, a popup, a chat button, a tracking script. Don't count on your admin flagging it; the first sign may be a customer or a drop in a report. Leftover script tag records do nothing after that date, so there is nothing to clean up. The only work is moving the apps you still need.</p>
 
   <h2>Where GhostCode fits</h2>
-  <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=middle">GhostCode</a>, a Shopify app that does this check for you. It reads the same script tag list from your public storefront, matches each address to the app it belongs to, and flags apps that still load through a script tag and have no app embed switched on, since those are the ones most likely to stop working. It can't tell whether a developer's update is coming, so asking them is still your step. GhostCode only reads your store. It never edits your theme. It also finds code that uninstalled apps left in your theme files. Read <a href="/shopify/ghostcode/">how GhostCode works</a>. Free and paid plans available. See the <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">GhostCode listing on the Shopify App Store</a> for features and plans.</p>
+  <p>We make <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=middle">GhostCode</a>, a Shopify app that does this check for you. It reads the same script tag list from your public storefront, matches each address to the app it belongs to when it recognizes it (and otherwise shows where the script comes from), and flags apps that still load through a script tag and have no app embed switched on, since those are the ones most likely to stop working. It can't tell whether a developer's update is coming, so asking them is still your step. GhostCode only reads your store. It never edits your theme. It also finds code that uninstalled apps left in your theme files. Read <a href="/shopify/ghostcode/">how GhostCode works</a>. Free and paid plans available. See the <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">GhostCode listing on the Shopify App Store</a> for features and plans.</p>
 
   <h2>Common questions</h2>
   <h3>Can I see or delete script tags in my Shopify admin?</h3>
-  <p>No. Script tags belong to the app that created them and don't appear in your admin or your theme code. You can see their web addresses in your storefront's page source, but only the app's developer can change or remove them. When you uninstall an app, Shopify removes its script tags for you.</p>
+  <p>No. Script tags belong to the app that created them and aren't listed anywhere in your admin or your theme code. You can see their web addresses in your storefront's page source, but only the app's developer can change or remove them. When you uninstall an app, Shopify removes its script tags for you.</p>
   <h3>Will Shopify warn me about apps that still use script tags?</h3>
   <p>Don't count on it. Shopify's developer documentation says an earlier plan to show merchants a warning banner was dropped for now, and it doesn't describe any other merchant notice. Check your store yourself and ask the developers of the apps you find.</p>
   <h3>Does the script tag change affect my checkout or order status page?</h3>
@@ -157,7 +157,7 @@
   <p>No. Shopify's documentation says leftover script tag records have no effect after storefronts stop loading them, so there is nothing to delete. The work is making sure the apps you still use have moved to an app embed or a web pixel before then.</p>
 
   <div class="answer">
-    <p><strong>See which apps are affected in a few minutes:</strong> <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">install GhostCode from the Shopify App Store</a>. It never edits your theme. Free and paid plans available.</p>
+    <p><strong>See which apps are affected:</strong> <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">install GhostCode from the Shopify App Store</a>. It never edits your theme. Free and paid plans available.</p>
   </div>
 
   <h2>Related guides</h2>
