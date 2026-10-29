@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice · Alpenglow Software</title>
+  <meta name="description" content="Wholesale buyers resend and revise POs under the same number. How to spot a duplicate, apply a revision to the Shopify draft or order, and handle reorders.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice">
+  <meta property="og:description" content="Resent POs, revisions under the same number, cancellations and reorders: how to tell them apart and update the right Shopify draft or order.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice",
+        "datePublished": "2026-10-28",
+        "dateModified": "2026-10-28",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I search Shopify orders by PO number?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify's Help Center lists order number, customer name and product details as the fields you can search orders by, and doesn't mention PO numbers. To be able to find an order by its PO, also add the PO number as a tag, such as PO-4471. Tags on orders and draft orders can be up to 40 characters, and you can filter both the Orders and Drafts lists by tag." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I change a Shopify order after the buyer sends a revised PO?",
+            "acceptedAnswer": { "@type": "Answer", "text": "If it's still a draft, update it from the Drafts page. If it's already an order, edit the order: you can add or remove products, adjust quantities and update shipping fees. If the total goes up you can send the customer an updated invoice, and if it goes down you can issue a refund." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I repeat a wholesale customer's last order on Shopify?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Duplicate the earlier order or draft order, then make the changes the buyer asked for. Discounts and shipping rates aren't carried over to the copy, so add them again, and enter the new PO number." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<a class="ag-skip" href="#main">Skip to content</a>
+<header class="ag-header">
+  <div class="ag-header-inner">
+    <a class="ag-logo" href="/"><img src="/assets/icons/alpenglow.png" alt="" width="28" height="28"><span>Alpenglow Software</span></a>
+    <nav class="ag-nav" aria-label="Main">
+      <ul>
+        <li><a href="/shopify/">Shopify apps</a></li>
+        <li><a href="/monday/">monday.com apps</a></li>
+        <li><a href="/guides/" aria-current="true">Guides</a></li>
+        <li><a href="/support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
+  <h1>Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice</h1>
+  <p class="muted">Updated October 28, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> before you enter any PO, look for its number among your drafts and orders. Shopify doesn't list the PO number as a searchable order field, so tag every wholesale draft with its PO number (for example PO-4471) and filter by that tag. If you find a match, compare it line by line: identical means a resend you can ignore, changed means a revision to apply to the existing draft or order, never a second one.</p>
+  </div>
+
+  <h2>Why the same PO arrives twice</h2>
+  <p>Buyers resend a PO when they haven't heard back, forward it to a second address, or reply to their own email with a change. Their system may send a "revised" PO under the same number. In a shared inbox, two people can each enter the same email. Each of these looks like a new order unless you check, and a second draft that gets invoiced means a credit note and an awkward call.</p>
+
+  <h2>Tell them apart</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>What arrived</th><th>How to recognize it</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>A resend</td><td>Same PO number, same lines, quantities, dates and ship-to</td><td>Nothing in Shopify. Reply to confirm you have it.</td></tr>
+      <tr><td>A revision</td><td>Same PO number, but a line, quantity, price, date or address changed</td><td>Update the existing draft or edit the order. Note what changed.</td></tr>
+      <tr><td>A cancellation</td><td>Same PO number, marked cancelled or void</td><td>Delete the draft, or cancel the order if it's already one.</td></tr>
+      <tr><td>A new PO</td><td>A new PO number, even if the lines look familiar</td><td>Enter it as a new order.</td></tr>
+      <tr><td>A reorder</td><td>"Same as last time", often with changes</td><td>Duplicate the last order, then apply the changes.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>A revision that only changes the delivery date or ship-to is easy to miss: the lines match, so it looks like a resend. Compare the header (dates, address, terms) as well as the lines.</p>
+
+  <h2>Make every PO findable</h2>
+  <p>On a B2B draft order, the buyer's number goes in the PO number section. But Shopify's Help Center lists order number, customer name and product details as the fields you can search orders by, and doesn't mention the PO number. So add the PO number as a tag too:</p>
+  <ul>
+    <li><strong>Use one format,</strong> such as PO-4471. Tags on orders and draft orders can be up to 40 characters.</li>
+    <li><strong>Filter by it.</strong> You can filter the Orders and Drafts lists by tag, or search for a tag, so one lookup covers both.</li>
+    <li><strong>Add it when you create the draft,</strong> not later. The point is to find it before you enter the next copy.</li>
+  </ul>
+  <p>If two buyers could use the same PO number, they're still different orders. A match only counts as a duplicate when the company matches too.</p>
+
+  <h2>Applying a revision</h2>
+  <h3>If it's still a draft</h3>
+  <ol>
+    <li>Open it from the Drafts page and change the lines, quantities, dates or address to match the revised PO.</li>
+    <li>Add a line to the note, such as "Revised per buyer email Oct 28: line 3 qty 24 to 36, ship date Nov 4".</li>
+    <li>If you'd already sent the invoice, check the prices: invoices lock a draft's prices by default.</li>
+  </ol>
+  <h3>If it's already an order</h3>
+  <ol>
+    <li>Edit the order: you can add or remove products, adjust quantities and update shipping fees.</li>
+    <li>If the total goes up, send the buyer an updated invoice. If it goes down, issue a refund.</li>
+    <li>If part of the order has already shipped, agree with the buyer what happens to the rest before you change anything.</li>
+    <li>Note the change on the order, with the date of the revised PO.</li>
+  </ol>
+
+  <h2>Reorders: "same as last time"</h2>
+  <p>Find the buyer's last order and duplicate it; Shopify can duplicate both orders and draft orders. Discounts and shipping rates aren't carried over, so add them again. Then apply the changes ("double the honey, drop the decaf"), check the company location and payment terms on the copy, and enter the new PO number. If the buyer doesn't give one, tag it so you can still find it.</p>
+
+  <h2>In a shared inbox</h2>
+  <ul>
+    <li>Give each PO one owner: whoever opens it first labels or moves the email before they start.</li>
+    <li>Label the email as entered, with the draft or order number, once it's in Shopify.</li>
+    <li>Keep revisions in the same email thread as the original where you can, so the history is in one place.</li>
+  </ul>
+
+  <h2>We're building something for this</h2>
+  <p>We're building a Shopify app that reads emailed purchase orders and drafts the order for you to check and approve. It isn't available yet; this page will say when it is.</p>
+
+  <h2>Common questions</h2>
+  <h3>Can I search Shopify orders by PO number?</h3>
+  <p>Shopify's Help Center lists order number, customer name and product details as the fields you can search orders by, and doesn't mention PO numbers. To be able to find an order by its PO, also add the PO number as a tag, such as PO-4471. Tags on orders and draft orders can be up to 40 characters, and you can filter both the Orders and Drafts lists by tag.</p>
+  <h3>How do I change an order after the buyer sends a revised PO?</h3>
+  <p>If it's still a draft, update it from the Drafts page. If it's already an order, edit the order: you can add or remove products, adjust quantities and update shipping fees. If the total goes up you can send the customer an updated invoice, and if it goes down you can issue a refund.</p>
+  <h3>How do I repeat a wholesale customer's last order?</h3>
+  <p>Duplicate the earlier order or draft order, then make the changes the buyer asked for. Discounts and shipping rates aren't carried over to the copy, so add them again, and enter the new PO number.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/shopify-purchase-order-to-draft-order/">How to turn a customer's emailed purchase order into a Shopify draft order</a></li>
+    <li><a href="/guides/shopify-wholesale-case-packs/">Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4</a></li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/searching-and-filtering-orders">Shopify Help Center: Searching and filtering orders</a></li>
+    <li><a href="https://help.shopify.com/en/manual/shopify-admin/productivity-tools/using-tags">Shopify Help Center: Using tags</a></li>
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/editing-orders">Shopify Help Center: Editing orders</a></li>
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders/create-draft">Shopify Help Center: Creating draft orders</a></li>
+    <li><a href="https://help.shopify.com/en/manual/b2b/checkout-and-orders/draft-orders">Shopify Help Center: Creating B2B orders using draft orders</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a> · <a href="/support/">Support</a></footer>
+</body>
+</html>

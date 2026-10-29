@@ -21,6 +21,9 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 
 ## Guides for Shopify merchants
 
+- [How to turn a customer's emailed purchase order into a Shopify draft order](https://alpenglowsoftware.com/guides/shopify-purchase-order-to-draft-order/)
+- [Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4](https://alpenglowsoftware.com/guides/shopify-wholesale-case-packs/)
+- [Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice](https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/)
 - [Shopify automated tax filing is ending: how to file sales tax yourself in 2027](https://alpenglowsoftware.com/guides/shopify-automated-tax-filing-ending/)
 - [Shopify sales tax doesn't match: finding tax discrepancies before you file](https://alpenglowsoftware.com/guides/shopify-sales-tax-discrepancies/)
 - [Shopify bot traffic: why sessions spiked and conversion rate dropped](https://alpenglowsoftware.com/guides/shopify-bot-traffic/)

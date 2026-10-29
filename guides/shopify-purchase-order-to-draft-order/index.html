@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to turn a customer's emailed purchase order into a Shopify draft order · Alpenglow Software</title>
+  <meta name="description" content="Enter a wholesale customer's emailed PO as a Shopify B2B draft order: company location, PO number, catalog prices, payment terms and invoice, step by step.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-purchase-order-to-draft-order/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="How to turn a customer's emailed purchase order into a Shopify draft order">
+  <meta property="og:description" content="Company location, PO number, catalog prices, payment terms and the invoice: entering an emailed wholesale PO as a Shopify B2B draft order without the usual mistakes.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-purchase-order-to-draft-order/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to turn a customer's emailed purchase order into a Shopify draft order",
+        "datePublished": "2026-10-28",
+        "dateModified": "2026-10-28",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-purchase-order-to-draft-order/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need Shopify Plus to create B2B draft orders with a PO number and payment terms?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify B2B is available on the Basic, Grow, Advanced and Shopify Plus plans, and PO numbers, net payment terms and sending a draft order as an invoice are listed for all four. Deposits on draft orders are Shopify Plus only, and Basic, Grow and Advanced can have up to 3 active B2B catalogs." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where do I put the customer's PO number on a Shopify order?",
+            "acceptedAnswer": { "@type": "Answer", "text": "On a B2B draft order there is a PO number section: click the edit icon, enter the number and click Done. Use that field rather than a note or tag, so the number is stored as the order's PO number." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does my draft order show the wrong wholesale price?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Prices on a B2B draft order come from the company location's catalog once you select the B2B customer and the company location. If you add products before selecting the location, or pick the wrong location, the prices won't be the ones that buyer gets. If the PO has a negotiated price that isn't in the catalog, you can set a custom price on the line item." }
+          },
+          {
+            "@type": "Question",
+            "name": "When do net 30 payment terms start on a Shopify B2B order?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify's net terms start from the day the order is placed. After the terms expire the order shows as Overdue in the customer's account, and payments on saved cards aren't captured automatically." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I save a draft order and finish it later?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. A saved draft can be updated later from the Drafts page in the Shopify admin, which is useful when you're waiting on the buyer to confirm a price or a substitute." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<a class="ag-skip" href="#main">Skip to content</a>
+<header class="ag-header">
+  <div class="ag-header-inner">
+    <a class="ag-logo" href="/"><img src="/assets/icons/alpenglow.png" alt="" width="28" height="28"><span>Alpenglow Software</span></a>
+    <nav class="ag-nav" aria-label="Main">
+      <ul>
+        <li><a href="/shopify/">Shopify apps</a></li>
+        <li><a href="/monday/">monday.com apps</a></li>
+        <li><a href="/guides/" aria-current="true">Guides</a></li>
+        <li><a href="/support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
+  <h1>How to turn a customer's emailed purchase order into a Shopify draft order</h1>
+  <p class="muted">Updated October 28, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> in Orders &gt; Drafts, create an order, select the B2B customer and then the company location the PO is for, before adding products, so the location's catalog prices and payment terms apply. Add each line by SKU, converting cases to units, enter the buyer's number in the PO number section, check the payment terms and shipping address, then send the invoice or create the order. B2B with PO numbers and net terms works on the Basic, Grow and Advanced plans as well as Shopify Plus.</p>
+  </div>
+
+  <h2>Before you start: set the buyer up once</h2>
+  <p>A draft order is only as right as the buyer's setup behind it. For each wholesale account, Shopify B2B keeps a company, one or more company locations (a store, a warehouse, a head office), and the contacts who order for them. Each location carries its own catalog, payment terms and checkout settings. Setting these up once means every PO from that buyer starts with the right prices and terms.</p>
+  <p>Shopify B2B is available on the Basic, Grow, Advanced and Shopify Plus plans, but not on Starter or Retail. On Basic, Grow and Advanced you can have up to 3 active B2B catalogs; Plus has no limit. Deposits are the main draft-order feature that needs Plus.</p>
+
+  <h2>What to copy from the PO, and where it goes</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>On the PO</th><th>Where it goes in Shopify</th><th>What goes wrong</th></tr></thead>
+    <tbody>
+      <tr><td>Buyer and ship-to store</td><td>The B2B customer, then the company location</td><td>The wrong location means the wrong catalog prices, terms and address.</td></tr>
+      <tr><td>PO number</td><td>The draft's PO number section</td><td>Put in a note instead, it's hard to find when the buyer asks about it.</td></tr>
+      <tr><td>Item codes and descriptions</td><td>Line items, added by SKU</td><td>The buyer's own item code, or a similar product, gets picked.</td></tr>
+      <tr><td>Quantities (often in cases)</td><td>Line item quantity, in the units you sell</td><td>"4 cases" entered as 4 units. See <a href="/guides/shopify-wholesale-case-packs/">cases vs units</a>.</td></tr>
+      <tr><td>Prices on the PO</td><td>Compare with the catalog price; custom line price only if agreed</td><td>An old price list on the PO replaces your current price, or the reverse.</td></tr>
+      <tr><td>Payment terms (net 30 and so on)</td><td>Payment due later, then the term</td><td>A net 30 account invoiced as due immediately.</td></tr>
+      <tr><td>Requested ship date and instructions</td><td>The draft's note</td><td>"Don't ship before the 15th" lost because it had no field.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Step by step</h2>
+  <ol>
+    <li><strong>Check it isn't already in.</strong> Buyers resend POs and send revisions under the same number. Search your drafts and orders for the PO number, or the PO tag if you use one, before you start. See <a href="/guides/shopify-duplicate-purchase-orders/">duplicate and revised POs</a>.</li>
+    <li><strong>Create the draft.</strong> In the Shopify admin, go to Orders &gt; Drafts and click Create order.</li>
+    <li><strong>Select the B2B customer, then the company location.</strong> Pick the location the PO ships to, not just the company. Once the customer and location are set, the draft's prices, payment terms and checkout options follow that location's settings, so do this before adding products.</li>
+    <li><strong>Add the lines by SKU.</strong> Search each product and click Add. Where the buyer uses their own item codes, keep a list that maps their codes to your SKUs; it's the most reused thing you'll own. Enter quantities in the units you sell, converting cases or dozens first.</li>
+    <li><strong>Compare prices with the PO.</strong> The draft shows the catalog price for that location. If the PO shows a different price, decide which is right before you send anything. If you've agreed a price that isn't in the catalog, set a custom price on that line item.</li>
+    <li><strong>Enter the PO number.</strong> In the PO number section, click the edit icon, enter the buyer's number exactly as written and click Done.</li>
+    <li><strong>Check the payment terms.</strong> If the location already has terms, the draft uses them. For a buyer on net terms, choose Payment due later and confirm the term in the Payment terms drop-down. Shopify's net terms start from the day the order is placed.</li>
+    <li><strong>Check the shipping address and shipping.</strong> Confirm the address is the ship-to on the PO, and add shipping if you charge it. A shipping method you preselect can't be changed by the customer at checkout.</li>
+    <li><strong>Add the ship date and instructions to the note.</strong> Requested delivery dates, "no substitutions", "ship on our carrier account": anything on the PO that has no field of its own.</li>
+    <li><strong>Send the invoice or create the order.</strong> Send invoice emails the buyer a checkout link, with an optional message. With payment terms, you can create the order now and collect later. Invoices lock the draft's prices by default.</li>
+    <li><strong>Keep the PO with the order.</strong> Save the original PDF or email where you can find it from the order number, such as a shared folder named by PO number. If the buyer disputes a line later, you'll want the document, not your memory of it.</li>
+  </ol>
+
+  <h2>The checks that catch most mistakes</h2>
+  <ul>
+    <li><strong>Line count:</strong> the draft has as many lines as the PO.</li>
+    <li><strong>Units:</strong> every case or dozen on the PO became the right number of units.</li>
+    <li><strong>Total:</strong> if the PO states a total, the draft's subtotal matches it, or you know why it doesn't.</li>
+    <li><strong>Terms:</strong> a net-terms buyer isn't on due immediately.</li>
+    <li><strong>Location:</strong> the ship-to on the PO is the company location on the draft.</li>
+  </ul>
+  <p>Have a second person check any PO over a size you choose, such as 50 lines or a set dollar amount; long orders are where typed quantities slip.</p>
+
+  <h2>We're building something for this</h2>
+  <p>We're building a Shopify app that reads emailed purchase orders and drafts the order for you to check and approve. It isn't available yet; this page will say when it is.</p>
+
+  <h2>Common questions</h2>
+  <h3>Do I need Shopify Plus for B2B draft orders with a PO number and payment terms?</h3>
+  <p>No. Shopify B2B is available on the Basic, Grow, Advanced and Shopify Plus plans, and PO numbers, net payment terms and sending a draft order as an invoice are listed for all four. Deposits on draft orders are Shopify Plus only, and Basic, Grow and Advanced can have up to 3 active B2B catalogs.</p>
+  <h3>Where do I put the customer's PO number?</h3>
+  <p>On a B2B draft order there is a PO number section: click the edit icon, enter the number and click Done. Use that field rather than a note or tag, so the number is stored as the order's PO number.</p>
+  <h3>Why does my draft order show the wrong wholesale price?</h3>
+  <p>Prices on a B2B draft order come from the company location's catalog once you select the B2B customer and the company location. If you add products before selecting the location, or pick the wrong location, the prices won't be the ones that buyer gets. If the PO has a negotiated price that isn't in the catalog, you can set a custom price on the line item.</p>
+  <h3>When do net 30 payment terms start?</h3>
+  <p>Shopify's net terms start from the day the order is placed. After the terms expire the order shows as Overdue in the customer's account, and payments on saved cards aren't captured automatically.</p>
+  <h3>Can I save a draft order and finish it later?</h3>
+  <p>Yes. A saved draft can be updated later from the Drafts page in the Shopify admin, which is useful when you're waiting on the buyer to confirm a price or a substitute.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/shopify-wholesale-case-packs/">Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4</a></li>
+    <li><a href="/guides/shopify-duplicate-purchase-orders/">Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice</a></li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/b2b/checkout-and-orders/draft-orders">Shopify Help Center: Creating B2B orders using draft orders</a></li>
+    <li><a href="https://help.shopify.com/en/manual/b2b/getting-started/plan-features">Shopify Help Center: B2B features by plan</a></li>
+    <li><a href="https://help.shopify.com/en/manual/b2b">Shopify Help Center: Shopify B2B</a></li>
+    <li><a href="https://help.shopify.com/en/manual/b2b/checkout-and-orders/payment-terms">Shopify Help Center: Setting up payment terms in B2B</a></li>
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders/create-draft">Shopify Help Center: Creating draft orders</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a> · <a href="/support/">Support</a></footer>
+</body>
+</html>

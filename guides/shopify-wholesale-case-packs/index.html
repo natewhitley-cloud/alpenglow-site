@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4 · Alpenglow Software</title>
+  <meta name="description" content="Selling wholesale by the case on Shopify? Compare a case variant with quantity increments, and enter POs in cases, dozens and units without quantity mistakes.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-wholesale-case-packs/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="Cases vs units on Shopify wholesale orders: set up case packs so &quot;4 cases&quot; never becomes 4">
+  <meta property="og:description" content="Two ways to sell by the case on Shopify, a case variant or B2B quantity increments, and how to enter POs in cases, dozens and units without quantity mistakes.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-wholesale-case-packs/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Cases vs units on Shopify wholesale orders: set up case packs so \"4 cases\" never becomes 4",
+        "datePublished": "2026-10-28",
+        "dateModified": "2026-10-28",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-wholesale-case-packs/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I sell by the case on Shopify wholesale?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Two common ways. Add the case as its own variant, such as Case of 12, with its own SKU and price, so one case is a quantity of 1. Or keep selling single units and set a B2B quantity rule on the catalog with an increment of 12, so buyers can only order in multiples of 12." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do Shopify quantity increments apply across variants?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify's increment rules apply to each product variant, so a buyer can't combine 5 gray hats and 5 blue hats to meet an increment of 10 hats." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are B2B quantity rules available without Shopify Plus?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Shopify lists quantity rules (minimum, maximum and increments) and volume pricing for the Basic, Grow and Advanced plans as well as Shopify Plus." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does a case variant share inventory with the single units?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Each variant has its own inventory count, so selling a case variant doesn't reduce the count of single units. If you sell both, you need to move stock between them yourself or use an app that links them." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<a class="ag-skip" href="#main">Skip to content</a>
+<header class="ag-header">
+  <div class="ag-header-inner">
+    <a class="ag-logo" href="/"><img src="/assets/icons/alpenglow.png" alt="" width="28" height="28"><span>Alpenglow Software</span></a>
+    <nav class="ag-nav" aria-label="Main">
+      <ul>
+        <li><a href="/shopify/">Shopify apps</a></li>
+        <li><a href="/monday/">monday.com apps</a></li>
+        <li><a href="/guides/" aria-current="true">Guides</a></li>
+        <li><a href="/support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
+  <h1>Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4</h1>
+  <p class="muted">Updated October 28, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> decide what one unit means in Shopify, then make it impossible to miss. Either sell the case as its own variant (Case of 12, with its own SKU and price), so a PO for 4 cases is a quantity of 4, or sell single units with a B2B quantity rule that only allows multiples of 12, so 4 cases is 48. Put the pack size in the variant name either way, and when you enter a PO, write the conversion down instead of doing it in your head.</p>
+  </div>
+
+  <h2>Why this goes wrong</h2>
+  <p>Buyers order in whatever unit they think in: "4 cs", "2 dozen", "1 master carton", "48 ea". Shopify's quantity field has no unit; it's a count of whatever the variant is. When the person entering the PO and the person who set up the product mean different things by one, the order ships 4 jars instead of 4 cases, or 48 cases instead of 48 jars. Both are expensive, and both look fine on screen.</p>
+
+  <h2>Two ways to sell by the case</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th></th><th>Case as its own variant</th><th>Single units with a quantity increment</th></tr></thead>
+    <tbody>
+      <tr><td>Setup</td><td>Add a variant such as Pack: Single / Case of 12, with its own SKU and price</td><td>On the B2B catalog, set the variant's increment to 12 (and a minimum of 12 if you like)</td></tr>
+      <tr><td>A PO for 4 cases is entered as</td><td>4 of the case variant</td><td>48 of the single unit</td></tr>
+      <tr><td>Inventory</td><td>The case has its own count; it doesn't move with singles</td><td>One count, in units</td></tr>
+      <tr><td>Prices</td><td>A case price, set on the variant or in the catalog</td><td>A unit price; volume price breaks must be multiples of the increment</td></tr>
+      <tr><td>Buyers ordering online</td><td>Add cases to the cart like any product</td><td>Can only add quantities that meet the rule; it's checked again at checkout</td></tr>
+      <tr><td>Best when</td><td>You only sell that item by the case, or retail and wholesale use different stock</td><td>You sell singles at retail and cases wholesale from the same stock</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Quantity rules and volume pricing are B2B catalog features, available on the Basic, Grow and Advanced plans as well as Shopify Plus. Increments apply to each variant: a buyer can't mix 6 of one flavor and 6 of another to make a case of 12. If your cases are mixed, a case variant (or a separate product for the mixed case) is the cleaner choice.</p>
+
+  <h2>Setting up each option</h2>
+  <h3>A case variant</h3>
+  <ol>
+    <li>On the product, add an option such as Pack with values Single and Case of 12 (or add the case as its own product if it has its own barcode and listing).</li>
+    <li>Give the case a SKU that says what it is, such as HONEY-12OZ-CS12, and its own price.</li>
+    <li>Set its inventory in cases. If singles and cases come from the same stock, decide who moves stock between them, and when.</li>
+  </ol>
+  <h3>A quantity increment</h3>
+  <ol>
+    <li>Go to Markets &gt; Catalogs, open the wholesale catalog, then Products and pricing &gt; Manage &gt; Manage products and pricing.</li>
+    <li>For each variant sold by the case, set the increment to the case size, and a minimum if you have one.</li>
+    <li>If you offer volume pricing, set each break at a multiple of the increment (24, 48, 96).</li>
+    <li>Make sure your theme shows the minimum on the product page, so buyers ordering online know how many to add.</li>
+  </ol>
+
+  <h2>Entering a PO without quantity mistakes</h2>
+  <ol>
+    <li><strong>Read the unit on every line,</strong> not just the number. Look for cs, case, ctn, carton, dz, dozen, pk, pack, ea, each, unit.</li>
+    <li><strong>Convert to the unit your product uses.</strong> With a case variant, 4 cases is 4. With singles, 4 cases of 12 is 48, and 2 dozen is 24.</li>
+    <li><strong>Watch for nested packs.</strong> "1 master carton" might be 4 inner packs of 6. Confirm with the buyer the first time and write it on their account.</li>
+    <li><strong>Write the conversion in the draft's note</strong> for any line you converted, such as "Line 3: PO says 4 cs, entered 48 ea". Whoever checks or picks the order can see what you did.</li>
+    <li><strong>Check against the increment.</strong> If you use increments, a quantity that isn't a multiple of the case size is a sign the conversion went wrong.</li>
+    <li><strong>Ask when the unit is missing.</strong> "Honey x 4" from a buyer who usually orders cases is a question to send, not a guess to make.</li>
+  </ol>
+
+  <h2>We're building something for this</h2>
+  <p>We're building a Shopify app that reads emailed purchase orders and drafts the order for you to check and approve. It isn't available yet; this page will say when it is.</p>
+
+  <h2>Common questions</h2>
+  <h3>How do I sell by the case on Shopify wholesale?</h3>
+  <p>Two common ways. Add the case as its own variant, such as Case of 12, with its own SKU and price, so one case is a quantity of 1. Or keep selling single units and set a B2B quantity rule on the catalog with an increment of 12, so buyers can only order in multiples of 12.</p>
+  <h3>Do quantity increments apply across variants?</h3>
+  <p>No. Shopify's increment rules apply to each product variant, so a buyer can't combine 5 gray hats and 5 blue hats to meet an increment of 10 hats.</p>
+  <h3>Are B2B quantity rules available without Shopify Plus?</h3>
+  <p>Yes. Shopify lists quantity rules (minimum, maximum and increments) and volume pricing for the Basic, Grow and Advanced plans as well as Shopify Plus.</p>
+  <h3>Does a case variant share inventory with the single units?</h3>
+  <p>No. Each variant has its own inventory count, so selling a case variant doesn't reduce the count of single units. If you sell both, you need to move stock between them yourself or use an app that links them.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/shopify-purchase-order-to-draft-order/">How to turn a customer's emailed purchase order into a Shopify draft order</a></li>
+    <li><a href="/guides/shopify-duplicate-purchase-orders/">Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice</a></li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/b2b/catalogs/quantity-pricing">Shopify Help Center: Setting up quantity rules and volume pricing in B2B</a></li>
+    <li><a href="https://help.shopify.com/en/manual/b2b/getting-started/plan-features">Shopify Help Center: B2B features by plan</a></li>
+    <li><a href="https://help.shopify.com/en/manual/b2b/checkout-and-orders/draft-orders">Shopify Help Center: Creating B2B orders using draft orders</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a> · <a href="/support/">Support</a></footer>
+</body>
+</html>
