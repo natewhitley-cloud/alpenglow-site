@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice · Alpenglow Software</title>
+  <title>Duplicate and revised POs on Shopify: avoid entering an order twice · Alpenglow Software</title>
   <meta name="description" content="Wholesale buyers resend and revise POs under the same number. How to spot a duplicate, apply a revision to the Shopify draft or order, and handle reorders.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Alpenglow Software">
-  <meta property="og:title" content="Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice">
+  <meta property="og:title" content="Duplicate and revised POs on Shopify: avoid entering an order twice">
   <meta property="og:description" content="Resent POs, revisions under the same number, cancellations and reorders: how to tell them apart and update the right Shopify draft or order.">
   <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
@@ -19,7 +19,7 @@
     "@graph": [
       {
         "@type": "Article",
-        "headline": "Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice",
+        "headline": "Duplicate and revised POs on Shopify: avoid entering an order twice",
         "datePublished": "2026-10-28",
         "dateModified": "2026-10-28",
         "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
@@ -83,7 +83,7 @@
 </header>
 <main id="main">
   <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
-  <h1>Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice</h1>
+  <h1>Duplicate and revised POs on Shopify: avoid entering an order twice</h1>
   <p class="muted">Updated October 28, 2026</p>
 
   <div class="answer">
@@ -100,7 +100,7 @@
     <tbody>
       <tr><td>A resend</td><td>Same PO number, same lines, quantities, dates and ship-to</td><td>Nothing in Shopify. Reply to confirm you have it.</td></tr>
       <tr><td>A revision</td><td>Same PO number, but a line, quantity, price, date or address changed</td><td>Update the existing draft or edit the order. Note what changed.</td></tr>
-      <tr><td>A cancellation</td><td>Same PO number, marked cancelled or void</td><td>Delete the draft, or cancel the order if it's already one.</td></tr>
+      <tr><td>A cancellation</td><td>Same PO number, marked cancelled or void</td><td>Note the cancellation, then delete the draft, or cancel the order if it's already one (restock items and refund any payment).</td></tr>
       <tr><td>A new PO</td><td>A new PO number, even if the lines look familiar</td><td>Enter it as a new order.</td></tr>
       <tr><td>A reorder</td><td>"Same as last time", often with changes</td><td>Duplicate the last order, then apply the changes.</td></tr>
     </tbody>
@@ -109,10 +109,10 @@
   <p>A revision that only changes the delivery date or ship-to is easy to miss: the lines match, so it looks like a resend. Compare the header (dates, address, terms) as well as the lines.</p>
 
   <h2>Make every PO findable</h2>
-  <p>On a B2B draft order, the buyer's number goes in the PO number section. But Shopify's Help Center lists order number, customer name and product details as the fields you can search orders by, and doesn't mention the PO number. So add the PO number as a tag too:</p>
+  <p>On a B2B draft order, the buyer's number goes in the PO number section. But Shopify's Help Center lists order number, customer name and product details as the fields you can search orders by, and doesn't mention the PO number. Try searching for the number; if it doesn't come up, the tag will. So add the PO number as a tag too:</p>
   <ul>
     <li><strong>Use one format,</strong> such as PO-4471. Tags on orders and draft orders can be up to 40 characters.</li>
-    <li><strong>Filter by it.</strong> You can filter the Orders and Drafts lists by tag, or search for a tag, so one lookup covers both.</li>
+    <li><strong>Filter by it.</strong> You can filter both the Orders and Drafts lists by tag, so the same tag finds the PO in either list.</li>
     <li><strong>Add it when you create the draft,</strong> not later. The point is to find it before you enter the next copy.</li>
   </ul>
   <p>If two buyers could use the same PO number, they're still different orders. A match only counts as a duplicate when the company matches too.</p>
@@ -122,12 +122,12 @@
   <ol>
     <li>Open it from the Drafts page and change the lines, quantities, dates or address to match the revised PO.</li>
     <li>Add a line to the note, such as "Revised per buyer email Oct 28: line 3 qty 24 to 36, ship date Nov 4".</li>
-    <li>If you'd already sent the invoice, check the prices: invoices lock a draft's prices by default.</li>
+    <li>If you'd already sent the invoice, check the prices (invoices lock a draft's prices by default), then send the updated invoice so the buyer sees the revised total.</li>
   </ol>
   <h3>If it's already an order</h3>
   <ol>
     <li>Edit the order: you can add or remove products, adjust quantities and update shipping fees.</li>
-    <li>If the total goes up, send the buyer an updated invoice. If it goes down, issue a refund.</li>
+    <li>If the total goes up, send the buyer an updated invoice; on payment terms, the added amount is due with the rest of the order. If it goes down, issue a refund.</li>
     <li>If part of the order has already shipped, agree with the buyer what happens to the rest before you change anything.</li>
     <li>Note the change on the order, with the date of the revised PO.</li>
   </ol>
@@ -156,7 +156,7 @@
   <h2>Related guides</h2>
   <ul>
     <li><a href="/guides/shopify-purchase-order-to-draft-order/">How to turn a customer's emailed purchase order into a Shopify draft order</a></li>
-    <li><a href="/guides/shopify-wholesale-case-packs/">Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4</a></li>
+    <li><a href="/guides/shopify-wholesale-case-packs/">Cases vs units on Shopify wholesale orders: stop "4 cases" shipping as 4 units</a></li>
   </ul>
 
   <h2>Sources</h2>

@@ -37,12 +37,12 @@
           {
             "@type": "Question",
             "name": "Where do I put the customer's PO number on a Shopify order?",
-            "acceptedAnswer": { "@type": "Answer", "text": "On a B2B draft order there is a PO number section: click the edit icon, enter the number and click Done. Use that field rather than a note or tag, so the number is stored as the order's PO number." }
+            "acceptedAnswer": { "@type": "Answer", "text": "On a B2B draft order there is a PO number section: click the edit icon, enter the number and click Done. Use that field so the number is stored as the order's PO number, and also add it as a tag (such as PO-4471) so you can filter for it later." }
           },
           {
             "@type": "Question",
             "name": "Why does my draft order show the wrong wholesale price?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Prices on a B2B draft order come from the company location's catalog once you select the B2B customer and the company location. If you add products before selecting the location, or pick the wrong location, the prices won't be the ones that buyer gets. If the PO has a negotiated price that isn't in the catalog, you can set a custom price on the line item." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Prices on a B2B draft order come from the company location's catalog once the B2B customer and company location are set. Select the location before adding products, and if you change the location, check that every line shows that location's catalog price. If the PO has a negotiated price that isn't in the catalog, you can set a custom price on the line item." }
           },
           {
             "@type": "Question",
@@ -102,7 +102,7 @@
 
   <h2>Before you start: set the buyer up once</h2>
   <p>A draft order is only as right as the buyer's setup behind it. For each wholesale account, Shopify B2B keeps a company, one or more company locations (a store, a warehouse, a head office), and the contacts who order for them. Each location carries its own catalog, payment terms and checkout settings. Setting these up once means every PO from that buyer starts with the right prices and terms.</p>
-  <p>Shopify B2B is available on the Basic, Grow, Advanced and Shopify Plus plans, but not on Starter or Retail. On Basic, Grow and Advanced you can have up to 3 active B2B catalogs; Plus has no limit. Deposits are the main draft-order feature that needs Plus.</p>
+  <p>Shopify B2B is available on the Basic, Grow, Advanced and Shopify Plus plans, but not on Starter or Retail. On Basic, Grow and Advanced you can have up to 3 active B2B catalogs; Plus has no limit. Deposits, partial payments and payment requests per fulfillment need Shopify Plus.</p>
 
   <h2>What to copy from the PO, and where it goes</h2>
   <div class="wrap">
@@ -122,12 +122,12 @@
 
   <h2>Step by step</h2>
   <ol>
-    <li><strong>Check it isn't already in.</strong> Buyers resend POs and send revisions under the same number. Search your drafts and orders for the PO number, or the PO tag if you use one, before you start. See <a href="/guides/shopify-duplicate-purchase-orders/">duplicate and revised POs</a>.</li>
+    <li><strong>Check it isn't already in.</strong> Buyers resend POs and send revisions under the same number. Filter your Drafts and Orders lists by the PO tag (step 6) before you start. See <a href="/guides/shopify-duplicate-purchase-orders/">duplicate and revised POs</a>.</li>
     <li><strong>Create the draft.</strong> In the Shopify admin, go to Orders &gt; Drafts and click Create order.</li>
-    <li><strong>Select the B2B customer, then the company location.</strong> Pick the location the PO ships to, not just the company. Once the customer and location are set, the draft's prices, payment terms and checkout options follow that location's settings, so do this before adding products.</li>
+    <li><strong>Select the B2B customer, then the company location.</strong> Pick the location the PO ships to, not just the company. Once the customer and location are set, the draft's prices, payment terms and checkout options follow that location's settings. Do this before adding products, and if you change the location later, recheck every line's price.</li>
     <li><strong>Add the lines by SKU.</strong> Search each product and click Add. Where the buyer uses their own item codes, keep a list that maps their codes to your SKUs; it's the most reused thing you'll own. Enter quantities in the units you sell, converting cases or dozens first.</li>
     <li><strong>Compare prices with the PO.</strong> The draft shows the catalog price for that location. If the PO shows a different price, decide which is right before you send anything. If you've agreed a price that isn't in the catalog, set a custom price on that line item.</li>
-    <li><strong>Enter the PO number.</strong> In the PO number section, click the edit icon, enter the buyer's number exactly as written and click Done.</li>
+    <li><strong>Enter the PO number.</strong> In the PO number section, click the edit icon, enter the buyer's number exactly as written and click Done. Add the same number as a tag, such as PO-4471, so you can find the order by its PO later.</li>
     <li><strong>Check the payment terms.</strong> If the location already has terms, the draft uses them. For a buyer on net terms, choose Payment due later and confirm the term in the Payment terms drop-down. Shopify's net terms start from the day the order is placed.</li>
     <li><strong>Check the shipping address and shipping.</strong> Confirm the address is the ship-to on the PO, and add shipping if you charge it. A shipping method you preselect can't be changed by the customer at checkout.</li>
     <li><strong>Add the ship date and instructions to the note.</strong> Requested delivery dates, "no substitutions", "ship on our carrier account": anything on the PO that has no field of its own.</li>
@@ -152,9 +152,9 @@
   <h3>Do I need Shopify Plus for B2B draft orders with a PO number and payment terms?</h3>
   <p>No. Shopify B2B is available on the Basic, Grow, Advanced and Shopify Plus plans, and PO numbers, net payment terms and sending a draft order as an invoice are listed for all four. Deposits on draft orders are Shopify Plus only, and Basic, Grow and Advanced can have up to 3 active B2B catalogs.</p>
   <h3>Where do I put the customer's PO number?</h3>
-  <p>On a B2B draft order there is a PO number section: click the edit icon, enter the number and click Done. Use that field rather than a note or tag, so the number is stored as the order's PO number.</p>
+  <p>On a B2B draft order there is a PO number section: click the edit icon, enter the number and click Done. Use that field so the number is stored as the order's PO number, and also add it as a tag (such as PO-4471) so you can filter for it later.</p>
   <h3>Why does my draft order show the wrong wholesale price?</h3>
-  <p>Prices on a B2B draft order come from the company location's catalog once you select the B2B customer and the company location. If you add products before selecting the location, or pick the wrong location, the prices won't be the ones that buyer gets. If the PO has a negotiated price that isn't in the catalog, you can set a custom price on the line item.</p>
+  <p>Prices on a B2B draft order come from the company location's catalog once the B2B customer and company location are set. Select the location before adding products, and if you change the location, check that every line shows that location's catalog price. If the PO has a negotiated price that isn't in the catalog, you can set a custom price on the line item.</p>
   <h3>When do net 30 payment terms start?</h3>
   <p>Shopify's net terms start from the day the order is placed. After the terms expire the order shows as Overdue in the customer's account, and payments on saved cards aren't captured automatically.</p>
   <h3>Can I save a draft order and finish it later?</h3>
@@ -162,8 +162,8 @@
 
   <h2>Related guides</h2>
   <ul>
-    <li><a href="/guides/shopify-wholesale-case-packs/">Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4</a></li>
-    <li><a href="/guides/shopify-duplicate-purchase-orders/">Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice</a></li>
+    <li><a href="/guides/shopify-wholesale-case-packs/">Cases vs units on Shopify wholesale orders: stop "4 cases" shipping as 4 units</a></li>
+    <li><a href="/guides/shopify-duplicate-purchase-orders/">Duplicate and revised POs on Shopify: avoid entering an order twice</a></li>
   </ul>
 
   <h2>Sources</h2>

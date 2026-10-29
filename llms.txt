@@ -21,9 +21,6 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 
 ## Guides for Shopify merchants
 
-- [How to turn a customer's emailed purchase order into a Shopify draft order](https://alpenglowsoftware.com/guides/shopify-purchase-order-to-draft-order/)
-- [Cases vs units on Shopify wholesale orders: set up case packs so "4 cases" never becomes 4](https://alpenglowsoftware.com/guides/shopify-wholesale-case-packs/)
-- [Duplicate and revised purchase orders on Shopify: how to avoid entering an order twice](https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/)
 - [Shopify automated tax filing is ending: how to file sales tax yourself in 2027](https://alpenglowsoftware.com/guides/shopify-automated-tax-filing-ending/)
 - [Shopify sales tax doesn't match: finding tax discrepancies before you file](https://alpenglowsoftware.com/guides/shopify-sales-tax-discrepancies/)
 - [Shopify bot traffic: why sessions spiked and conversion rate dropped](https://alpenglowsoftware.com/guides/shopify-bot-traffic/)
@@ -34,6 +31,9 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 - [How to remove leftover code from uninstalled Shopify apps](https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/)
 - [Does uninstalling a Shopify app remove its code from your theme?](https://alpenglowsoftware.com/guides/does-uninstalling-shopify-app-remove-code/)
 - [What to check after a Shopify app is reported compromised](https://alpenglowsoftware.com/guides/shopify-app-compromised-checklist/)
+- [How to turn a customer's emailed purchase order into a Shopify draft order](https://alpenglowsoftware.com/guides/shopify-purchase-order-to-draft-order/)
+- [Cases vs units on Shopify wholesale orders: stop "4 cases" shipping as 4 units](https://alpenglowsoftware.com/guides/shopify-wholesale-case-packs/)
+- [Duplicate and revised POs on Shopify: avoid entering an order twice](https://alpenglowsoftware.com/guides/shopify-duplicate-purchase-orders/)
 
 ## Optional
 
