@@ -13,6 +13,7 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 
 - [ClearSignal](https://alpenglowsoftware.com/shopify/clearsignal/): sorts Shopify store sessions into real shoppers, good AI agents, bad bots and unclassified, and shows the conversion rate with bad bot and AI agent sessions taken out. It measures; it doesn't block visitors.
 - [FraudPilot](https://alpenglowsoftware.com/shopify/fraudpilot/): puts the orders Shopify flags as medium or high risk in one review queue with the reasons, and keeps a log of your decisions. It never cancels orders or blocks checkouts.
+- [IntakePilot](https://alpenglowsoftware.com/shopify/intakepilot/): turns B2B purchase orders from PDFs, spreadsheets, photos and email into checked Shopify draft orders. Nothing becomes an order until you approve it.
 
 ## Catch costly mistakes (Shopify apps)
 
