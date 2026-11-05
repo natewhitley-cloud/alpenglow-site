@@ -10,7 +10,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Alpenglow Software">
   <meta property="og:title" content="Card testing attack on a Shopify store: how to stop and prevent it">
-  <meta property="og:description" content="How to recognize a card-testing attack on a Shopify store, the settings to change right now, and what depends on your plan.">
+  <meta property="og:description" content="How to spot card testing on a Shopify store, stop an attack now, make the next one harder, and what needs Shopify Payments.">
   <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-card-testing-attack/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
   <script type="application/ld+json">
@@ -80,7 +80,7 @@
           "name": "Does Shopify detect card testing automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Partly. Stores using Shopify Payments get Shopify's built-in card testing protection. Since June 2026 Shopify also leaves checkout attempts it identifies as card testing or bot activity out of the abandoned checkout list, but it says not all automated activity is filtered out. With another payment provider, most detection happens on the provider's side, so ask them what they offer."
+            "text": "Partly. Stores using Shopify Payments get Shopify's built-in card testing protection. Since June 2026 Shopify also leaves checkout attempts it identifies as card testing or bot activity out of the abandoned checkout list, but it says not all automated activity is filtered out. With another payment provider, most detection and blocking happens on the provider's side, so ask them what they offer."
           }
         }
       ]
@@ -122,7 +122,7 @@
 </header>
 <main id="main">
   <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
-  <h1>Your Shopify store is being used for card testing. How to stop it and prevent the next one.</h1>
+  <h1>Your Shopify store is being used for card testing. How to stop it and make the next one harder.</h1>
   <p class="muted">Updated November 5, 2026</p>
 
   <div class="answer">
@@ -143,6 +143,7 @@
   <p>The abandoned checkout list understates an attack. Since June 2026 Shopify leaves out checkout attempts it identifies as card testing or bot activity, but it also says not all automated activity is filtered out. So a quiet list doesn't prove the attack has stopped, and a noisy one means some of it got through the filter.</p>
 
   <h2>How to stop card testing right now</h2>
+  <p>These steps limit the damage and cut how many attempts get through. They can't stop a script from trying.</p>
   <ol>
     <li><strong>Hold fulfillment.</strong> If you use automatic fulfillment or a 3PL, stop orders from the burst shipping while you look.</li>
     <li><strong>Cancel the high risk orders.</strong> Use the fraud analysis on each order. Shopify notes that canceling or voiding lowers your risk but doesn't stop the cardholder's bank from filing a chargeback.</li>
@@ -185,10 +186,11 @@
     <li><strong>Undo the authorization holds.</strong> A real cardholder may see a pending charge on their statement for up to 30 days after an authorization, even if you canceled the order. The timing depends on their bank.</li>
   </ul>
 
-  <h2>After the attack: prevent the next one</h2>
+  <h2>After the attack: make the next one harder</h2>
   <ul>
     <li><strong>Watch for chargebacks</strong> on any order from the burst that was captured. Check <strong>Orders</strong> in your admin for open chargebacks and inquiries.</li>
     <li><strong>Keep manual capture on</strong> until a few quiet days have passed.</li>
+    <li><strong>Leave the protections on.</strong> Keep the CVV and address checks, any Fraud Control blocks and marketing double opt-in in place; on Shopify Plus, keep bot protection for checkout on. They make the next run harder.</li>
     <li><strong>Note what the attack looked like:</strong> the product it targeted, the email pattern, the hours it ran. The next one usually looks the same.</li>
   </ul>
 
@@ -207,7 +209,7 @@
   <h3>Do I need Shopify Payments to protect my store from card testing?</h3>
   <p>Some protections need it and some don't. Shopify's built-in card testing protection, the AVS and CVV decline settings and Fraud Control checkout rules are for stores using Shopify Payments. Manual payment capture and Shopify Flow work with other providers too.</p>
   <h3>Does Shopify detect card testing automatically?</h3>
-  <p>Partly. Stores using Shopify Payments get Shopify's built-in card testing protection. Since June 2026 Shopify also leaves checkout attempts it identifies as card testing or bot activity out of the abandoned checkout list, but it says not all automated activity is filtered out. With another payment provider, most detection happens on the provider's side, so ask them what they offer.</p>
+  <p>Partly. Stores using Shopify Payments get Shopify's built-in card testing protection. Since June 2026 Shopify also leaves checkout attempts it identifies as card testing or bot activity out of the abandoned checkout list, but it says not all automated activity is filtered out. With another payment provider, most detection and blocking happens on the provider's side, so ask them what they offer.</p>
 
   <h2>Sources</h2>
   <ul class="muted">
