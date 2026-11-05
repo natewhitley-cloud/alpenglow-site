@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopify traffic from Singapore, China, Council Bluffs or Ashburn: bots or customers? · Alpenglow Software</title>
-  <meta name="description" content="Sessions from Singapore, China, Council Bluffs, Iowa or Ashburn, Virginia and no orders? Why these places show up in Shopify reports, how to tell bots from shoppers, and what to do.">
+  <title>Shopify traffic from Singapore, China, Ashburn, Council Bluffs: bots? · Alpenglow Software</title>
+  <meta name="description" content="Sessions from Singapore, China, Council Bluffs or Ashburn and no orders? Why these places show up in Shopify reports and how to tell bots from shoppers.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-bot-traffic-singapore-china/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
@@ -42,7 +42,7 @@
           {
             "@type": "Question",
             "name": "Does Shopify filter this traffic out of my reports?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Partly. Shopify filters the sessions it identifies as bots out of session-related reports by default, and you can apply a Human or bot session filter to check. Shopify says its classification is conservative and that some sophisticated automated traffic might not be classified right away, so some of it can still count as human." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Partly. Once Shopify's bot filtering has rolled out to your store, the sessions it identifies as bots are left out of session-related reports by default, and you can apply a Human or bot session filter to check. Shopify says its classification is conservative and that some sophisticated automated traffic might not be classified right away, so some of it can still count as human." }
           },
           {
             "@type": "Question",
@@ -52,7 +52,7 @@
           {
             "@type": "Question",
             "name": "Is Shopify protecting my store from these bots?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes, at the network level. Every request to a Shopify store passes through Cloudflare, and Shopify uses hCaptcha to analyze visitor behavior. Extra bot protection for checkout during sales is only on Shopify Plus. That protection keeps bots from harming your store; it doesn't stop every automated visit from being counted in your sessions." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, mostly at the network level. Every request to a Shopify store passes through Cloudflare, and hCaptcha protects contact, newsletter and blog comment forms and legacy customer account pages. Extra bot protection for checkout during sales is only on Shopify Plus. That protection keeps bots from harming your store; it doesn't stop every automated visit from being counted in your sessions." }
           }
         ]
       }
@@ -97,19 +97,19 @@
   <p class="muted">Updated November 10, 2026</p>
 
   <div class="answer">
-    <p><strong>Short answer:</strong> a sudden block of sessions from Singapore, China, Council Bluffs, Iowa or Ashburn, Virginia that never adds to cart is almost always automated traffic. All four are home to large cloud data centers, so bots running in the cloud show up as visitors from there. Check the sessions against orders and add to carts from the same place over 30 to 90 days. If they don't buy, read your numbers with Shopify's human traffic view, and don't block a whole country before you know what it costs you.</p>
+    <p><strong>Short answer:</strong> a sudden block of sessions from Singapore, China, Council Bluffs, Iowa or Ashburn, Virginia that never adds to cart is usually automated traffic. Singapore, Council Bluffs and Ashburn are home to large cloud data centers, so bots running in the cloud show up as visitors from there, and China is a frequent source of bot waves. Check the sessions against orders and add to carts from the same place over 30 to 90 days. If they don't buy, read your numbers with Shopify's human traffic view, and don't block a whole country before you know what it costs you.</p>
   </div>
 
   <h2>Why these four places keep showing up</h2>
-  <p>Shopify's sessions reports show where a visitor's connection comes from, not where a person lives. Automated traffic usually runs on cloud servers, so it shows up at the cloud's address. Shopify's own list of bot signs includes "a high volume of sessions from known Google Cloud Platform or Amazon Web Services data center locations, such as Ashburn, Virginia or Los Angeles, California."</p>
+  <p>In practice, the location in Shopify's sessions reports reflects where a visitor's connection comes from, not where a person lives. Automated traffic usually runs on cloud servers, so it shows up at the cloud's address. Shopify's own list of bot signs includes "a high volume of sessions from known Google Cloud Platform or Amazon Web Services data center locations, such as Ashburn, Virginia or Los Angeles, California."</p>
   <div class="wrap">
   <table>
     <thead><tr><th>Location in your report</th><th>Why bots show up there</th><th>When it's more likely real</th></tr></thead>
     <tbody>
       <tr><td>Ashburn, Virginia</td><td>Shopify names it as a data center location to watch. Amazon Web Services lists Ashburn as an edge location, and its US East (N. Virginia) region is in the same state.</td><td>You see a few sessions a day that behave like shoppers and some of them buy.</td></tr>
-      <tr><td>Council Bluffs, Iowa</td><td>Google lists Council Bluffs among its data center locations.</td><td>Same as Ashburn: small, steady volume with real add to carts and orders.</td></tr>
+      <tr><td>Council Bluffs, Iowa</td><td>Google lists Council Bluffs among its data center locations. Some Google data center traffic is Google's own crawlers, which help shoppers find you, so don't block Google wholesale.</td><td>Same as Ashburn: small, steady volume with real add to carts and orders.</td></tr>
       <tr><td>Singapore</td><td>Google has a data center there, and Amazon Web Services runs its Asia Pacific (Singapore) region there.</td><td>You ship to Singapore or Southeast Asia and those sessions add to cart and check out.</td></tr>
-      <tr><td>China</td><td>Merchants often report bot waves from China at the same time as Singapore. Treat it like any other country: judge the sessions by what they do.</td><td>You sell to China or run campaigns there, and sessions reach product pages from search or ads.</td></tr>
+      <tr><td>China</td><td>Shopify's sources don't single out China, but merchants on the Shopify Community often report bot waves from China at the same time as Singapore. Judge the sessions by what they do.</td><td>You sell to China or run campaigns there, and sessions reach product pages from search or ads.</td></tr>
     </tbody>
   </table>
   </div>
@@ -119,8 +119,8 @@
   <ol>
     <li><strong>Pick a 30 to 90 day window.</strong> Shopify recommends reviewing your store analytics in periods of 30 to 90 days, compared with periods that had similar marketing.</li>
     <li><strong>Open Sessions by location.</strong> Find the country or city, and note the day the volume started. A jump from a few sessions a day to hundreds or thousands is the pattern to look for.</li>
-    <li><strong>Apply the Human or bot session filter.</strong> It shows how much of that traffic Shopify already classified as bots. Shopify filters identified bot sessions out of session-related reports by default, and says its classification is conservative, so some bot traffic can still be counted as human.</li>
-    <li><strong>Check where the sessions land and where they came from.</strong> Open Sessions by referrer and Sessions by landing page for the same days. Shopify lists a high volume of landing page URLs from marketing and search integrations, or from third-party testing, as a bot sign, and so is a spike in sessions from one device type. A spike that's all direct traffic, or all on a handful of pages, deserves a closer look.</li>
+    <li><strong>Apply the Human or bot session filter.</strong> It shows how much of that traffic Shopify already classified as bots. Once Shopify's bot filtering has rolled out to your store, identified bot sessions are left out of session-related reports by default. Shopify says its classification is conservative, so some bot traffic can still be counted as human.</li>
+    <li><strong>Check where the sessions land and where they came from.</strong> Open Sessions by referrer and Sessions by landing page for the same days. Shopify's bot signs include a high volume of landing page URLs from marketing and search integrations or from third-party testing, and a spike in sessions from one device type. A spike that's all direct traffic, or all on a handful of pages, deserves a closer look.</li>
     <li><strong>Line it up against add to carts and orders from the same place.</strong> If sessions from Singapore jumped and add to carts and orders from Singapore stayed at zero, the extra sessions weren't shoppers.</li>
     <li><strong>Check your paid and email traffic on the same days.</strong> If the spike lines up with a campaign or an email send, compare it with the ad platform's or email tool's own click reports. Bot clicks on paid ads cost you money, so that's the part worth acting on first.</li>
   </ol>
@@ -128,13 +128,13 @@
   <h2>What to do about it</h2>
   <ul>
     <li><strong>Read your conversion rate with bots out.</strong> Use Shopify's human traffic view for decisions, and don't rework your store because a bot wave lowered the rate. The orders didn't change.</li>
-    <li><strong>Know what Shopify already does.</strong> Every request to a Shopify store passes through Cloudflare, and Shopify uses hCaptcha to analyze visitor behavior. Extra bot protection for checkout during sales is only on Shopify Plus.</li>
+    <li><strong>Know what Shopify already does.</strong> Every request to a Shopify store passes through Cloudflare, and hCaptcha protects contact, newsletter and blog comment forms and legacy customer account pages. Extra bot protection for checkout during sales is only on Shopify Plus.</li>
     <li><strong>Be careful with country blocking.</strong> Shopify warns that "entirely blocking bots from your site prevents beneficial search engine indexing, breaks social media sharing features, and makes it impossible for you to measure and track bot activity patterns." Blocking a whole country also turns away real shoppers there, and the next wave may come from somewhere else.</li>
-    <li><strong>Exclude bot IPs from ad platforms that support it.</strong> If bots are clicking your ads, Google Ads lets you exclude IP addresses from campaigns, which stops paying for repeat clicks from the same addresses.</li>
+    <li><strong>Exclude bot IPs from ad platforms that support it.</strong> If bots are clicking your ads, Google Ads lets you exclude IP addresses from campaigns, which stops paying for repeat clicks from the same addresses. Bots change IP addresses, so this helps most with repeat offenders.</li>
   </ul>
 
   <h2>Where ClearSignal fits</h2>
-  <p>We make ClearSignal: Bot &amp; AI Traffic, a Shopify app that measures bot and AI agent traffic with its own detection, as a second opinion next to Shopify's. It breaks bot traffic down by country and by data center provider, such as AWS or Azure, so you can see how much of a Singapore or Ashburn spike is coming from cloud servers, and it estimates how much of your ad spend goes to bot traffic, based on the spend you enter. ClearSignal shows countries, not cities. It doesn't block visitors, doesn't change Shopify's own reports, and only counts traffic from the day you turn on its app embed. Read <a href="/shopify/clearsignal/">how ClearSignal works</a>. Free and paid plans available. See the <a href="https://apps.shopify.com/bot-analytics-cleanup?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-bot-traffic-singapore-china">ClearSignal listing on the Shopify App Store</a> for features and plans.</p>
+  <p>We make ClearSignal: Bot &amp; AI Traffic, a Shopify app that measures bot and AI agent traffic with its own detection, as a second opinion next to Shopify's. It breaks bot traffic down by country and by data center provider, such as AWS or Azure, so you can see which countries your bot traffic comes from and how much of it runs on cloud servers. It also estimates what bot traffic costs you by applying your bot share to the ad spend and app costs you enter. ClearSignal shows countries, not cities. It doesn't block visitors, doesn't change Shopify's own reports, and only counts traffic from the day you turn on its app embed. Read <a href="/shopify/clearsignal/">how ClearSignal works</a>. Free and paid plans available. See the <a href="https://apps.shopify.com/bot-analytics-cleanup?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-bot-traffic-singapore-china">ClearSignal listing on the Shopify App Store</a> for features and plans.</p>
   <p>For the bigger picture on bot traffic and conversion rate, see <a href="/guides/shopify-bot-traffic/">Shopify bot traffic: why sessions spiked and conversion rate dropped</a>.</p>
 
   <h2>Common questions</h2>
@@ -143,11 +143,11 @@
   <h3>Why do I see visitors from Council Bluffs, Iowa or Ashburn, Virginia?</h3>
   <p>Both are major data center locations. Google lists Council Bluffs, Iowa among its data centers, and Shopify names Ashburn, Virginia as an example of a Google Cloud or Amazon Web Services data center location that can signal bot activity. A large volume of sessions from either city, with no matching orders, is usually automated traffic rather than shoppers who live there.</p>
   <h3>Does Shopify filter this traffic out of my reports?</h3>
-  <p>Partly. Shopify filters the sessions it identifies as bots out of session-related reports by default, and you can apply a Human or bot session filter to check. Shopify says its classification is conservative and that some sophisticated automated traffic might not be classified right away, so some of it can still count as human.</p>
+  <p>Partly. Once Shopify's bot filtering has rolled out to your store, the sessions it identifies as bots are left out of session-related reports by default, and you can apply a Human or bot session filter to check. Shopify says its classification is conservative and that some sophisticated automated traffic might not be classified right away, so some of it can still count as human.</p>
   <h3>Should I block traffic from Singapore or China?</h3>
   <p>Think it through first. Shopify warns that entirely blocking bots prevents beneficial search engine indexing, breaks social media sharing and makes it impossible to measure bot activity patterns. Blocking a whole country also blocks real shoppers there, and bot waves often move to other countries. Measure first, then act on the traffic that costs you money, such as bot clicks on paid ads.</p>
   <h3>Is Shopify protecting my store from these bots?</h3>
-  <p>Yes, at the network level. Every request to a Shopify store passes through Cloudflare, and Shopify uses hCaptcha to analyze visitor behavior. Extra bot protection for checkout during sales is only on Shopify Plus. That protection keeps bots from harming your store; it doesn't stop every automated visit from being counted in your sessions.</p>
+  <p>Yes, mostly at the network level. Every request to a Shopify store passes through Cloudflare, and hCaptcha protects contact, newsletter and blog comment forms and legacy customer account pages. Extra bot protection for checkout during sales is only on Shopify Plus. That protection keeps bots from harming your store; it doesn't stop every automated visit from being counted in your sessions.</p>
 
   <h2>Sources</h2>
   <ul class="muted">
@@ -158,6 +158,7 @@
     <li><a href="https://datacenters.google/locations/">Google: Data center locations</a></li>
     <li><a href="https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html">AWS: Regions</a></li>
     <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/regions_az/">AWS: Global infrastructure (edge locations)</a></li>
+    <li><a href="https://shopify.dev/docs/storefronts/themes/trust-security/captcha">Shopify.dev: hCaptcha</a></li>
     <li><a href="https://support.google.com/google-ads/answer/2456098">Google Ads Help: Exclude IP addresses</a></li>
   </ul>
   <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
