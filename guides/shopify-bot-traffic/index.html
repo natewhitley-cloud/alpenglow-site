@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopify bot traffic: why sessions spiked and conversion rate dropped · Alpenglow Software</title>
-  <meta name="description" content="Sessions jumped, orders didn't, and your Shopify conversion rate dropped. How to tell if bots are the cause and what Shopify and GA4 already filter.">
+  <meta name="description" content="Sessions jumped, orders didn't, and your Shopify conversion rate dropped. How to tell if bot traffic is the cause, what Shopify and GA4 filter, and what to do.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-bot-traffic/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
@@ -21,7 +21,7 @@
         "@type": "Article",
         "headline": "Shopify bot traffic: why sessions spiked and conversion rate dropped",
         "datePublished": "2026-10-19",
-        "dateModified": "2026-10-19",
+        "dateModified": "2026-11-05",
         "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
         "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
         "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-bot-traffic/"
@@ -53,6 +53,14 @@
             "@type": "Question",
             "name": "Should I block AI bots like ChatGPT from my Shopify store?",
             "acceptedAnswer": { "@type": "Answer", "text": "Think before you do. AI assistants such as ChatGPT can send real shoppers and real orders, and Shopify shows orders from AI channels with channel or referrer attribution. OpenAI also runs different crawlers for search, model training and user-initiated actions, and robots.txt rules may not apply to the user-initiated ones. Decide crawler by crawler rather than blocking all AI traffic." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my Shopify store under a bot attack?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on where the bots show up. If sessions spiked and orders didn't, bots are inflating your traffic reports; the steps above cover that. If you see many small payment attempts close together, a surge of declined transactions or a jump in abandoned checkouts with odd customer details, bots are testing stolen cards on your checkout, which needs different steps: see what to do about a card testing attack."
+            }
           }
         ]
       }
@@ -94,7 +102,7 @@
 <main id="main">
   <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
   <h1>Shopify bot traffic: why sessions spiked and conversion rate dropped</h1>
-  <p class="muted">Updated October 19, 2026</p>
+  <p class="muted">Updated November 5, 2026</p>
 
   <div class="answer">
     <p><strong>Short answer:</strong> if sessions jumped and orders didn't, bots are a likely cause. Shopify already filters the bot sessions it identifies out of its session reports, but not all of them, and not data from before October 7, 2025. Open the Sessions by location, Sessions by referrer and Sessions by device reports over 30 to 90 days, filter to human and bot traffic, and look for a spike from one place, one device type or a city that hosts cloud data centers. Then judge your conversion rate against orders, not sessions alone.</p>
@@ -132,7 +140,7 @@
     <li><strong>Check paid traffic separately.</strong> If you run ads, compare the spike dates with your campaign reports. Bot clicks on ads cost money, not just analytics accuracy, so that's the part worth acting on first.</li>
   </ol>
 
-  <h2>What you can do about it</h2>
+  <h2>What to do about bot traffic</h2>
   <ul>
     <li><strong>Read your numbers with the filter on.</strong> Use Shopify's human traffic view for conversion rate decisions, and treat older periods with care.</li>
     <li><strong>Don't chase every bot.</strong> Shopify already shields your store from the majority of automated traffic, and blocking good bots can hurt you. Search engine crawlers and AI assistants find your products for shoppers.</li>
@@ -157,6 +165,8 @@
   <p>No. Shopify's bot classification applies only to sessions from October 7, 2025 onward, and GA4's data filters only apply going forward. For older periods, compare sessions against orders to judge how much of a spike was real.</p>
   <h3>Should I block AI bots like ChatGPT from my Shopify store?</h3>
   <p>Think before you do. AI assistants such as ChatGPT can send real shoppers and real orders, and Shopify shows orders from AI channels with channel or referrer attribution. OpenAI also runs different crawlers for search, model training and user-initiated actions, and robots.txt rules may not apply to the user-initiated ones. Decide crawler by crawler rather than blocking all AI traffic.</p>
+  <h3>Is my Shopify store under a bot attack?</h3>
+  <p>It depends on where the bots show up. If sessions spiked and orders didn't, bots are inflating your traffic reports; the steps above cover that. If you see many small payment attempts close together, a surge of declined transactions or a jump in abandoned checkouts with odd customer details, bots are testing stolen cards on your checkout, which needs different steps: see <a href="/guides/shopify-card-testing-attack/">what to do about a card testing attack</a>.</p>
 
   <h2>Sources</h2>
   <ul class="muted">

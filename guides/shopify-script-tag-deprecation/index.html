@@ -21,7 +21,7 @@
         "@type": "Article",
         "headline": "Shopify script tags stop working March 1, 2027: which apps on your store will break",
         "datePublished": "2026-10-26",
-        "dateModified": "2026-10-26",
+        "dateModified": "2026-11-05",
         "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
         "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
         "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/"
@@ -53,6 +53,14 @@
             "@type": "Question",
             "name": "Do I need to clean up leftover script tags after March 1, 2027?",
             "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify's documentation says leftover script tag records have no effect after storefronts stop loading them, so there is nothing to delete. The work is making sure the apps you still use have moved to an app embed or a web pixel before then." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this the same as Shopify Scripts ending?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Shopify Scripts were checkout customizations for discounts, shipping and payment methods, managed in the Script Editor app. Shopify stopped running them on June 30, 2026 and points merchants to Shopify Functions instead. Script tags are a different, older way for apps to load JavaScript on your storefront, and they stop loading on March 1, 2027."
+            }
           }
         ]
       }
@@ -95,7 +103,7 @@
 <main id="main">
   <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
   <h1>Shopify script tags stop working March 1, 2027: which apps on your store will break</h1>
-  <p class="muted">Updated October 26, 2026</p>
+  <p class="muted">Updated November 5, 2026</p>
 
   <div class="answer">
     <p><strong>Short answer:</strong> on March 1, 2027 Shopify stops loading script tags on storefront pages. Script tags are an older way for apps to add JavaScript to your store without touching your theme. Whatever an app on your store still loads that way stops working on your storefront that day, unless its developer has moved it to an app embed or a web pixel. You can't see or remove script tags in your admin, so the fix is up to each app's developer. Your job is to find out which apps are affected and ask.</p>
@@ -158,6 +166,8 @@
 
   <div class="answer">
     <p><strong>See which apps are affected:</strong> <a href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=script-tag-deprecation&amp;utm_content=bottom">install GhostCode from the Shopify App Store</a>. It never edits your theme. Free and paid plans available.</p>
+  <h3>Is this the same as Shopify Scripts ending?</h3>
+  <p>No. Shopify Scripts were checkout customizations for discounts, shipping and payment methods, managed in the Script Editor app. Shopify stopped running them on June 30, 2026 and points merchants to Shopify Functions instead. Script tags are a different, older way for apps to load JavaScript on your storefront, and they stop loading on March 1, 2027.</p>
   </div>
 
   <h2>Related guides</h2>
@@ -170,6 +180,7 @@
   <h2>Sources</h2>
   <ul class="muted">
     <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation">Shopify developer docs: Script tag deprecation</a></li>
+    <li><a href="https://help.shopify.com/en/manual/checkout-settings/script-editor/migrating">Shopify Help Center: Migrating from Shopify Scripts to Shopify Functions</a></li>
     <li><a href="https://shopify.dev/docs/apps/build/online-store/script-tag-deprecation/storefront">Shopify developer docs: Storefront script tags</a></li>
     <li><a href="https://shopify.dev/changelog/online-store-script-tags-deprecation">Shopify developer changelog: Online store script tags deprecation</a></li>
     <li><a href="https://shopify.dev/docs/api/admin-rest/latest/resources/scripttag">Shopify developer docs: ScriptTag (removed when the app that created it is uninstalled)</a></li>

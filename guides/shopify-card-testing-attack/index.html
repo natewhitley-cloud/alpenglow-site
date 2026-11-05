@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card testing attack on a Shopify store: what to do · Alpenglow Software</title>
-  <meta name="description" content="Bots are testing stolen cards on your Shopify checkout. How to recognize a card-testing attack, the settings to change right now, what depends on Shopify Payments, and what you can&#x27;t undo.">
+  <title>Card testing attack on a Shopify store: how to stop and prevent it · Alpenglow Software</title>
+  <meta name="description" content="Bots are testing stolen cards on your Shopify checkout. How to spot card testing, stop an attack now, prevent the next one, and what needs Shopify Payments.">
   <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-card-testing-attack/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Alpenglow Software">
-  <meta property="og:title" content="Card testing attack on a Shopify store: what to do">
+  <meta property="og:title" content="Card testing attack on a Shopify store: how to stop and prevent it">
   <meta property="og:description" content="How to recognize a card-testing attack on a Shopify store, the settings to change right now, and what depends on your plan.">
   <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-card-testing-attack/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
@@ -19,9 +19,9 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "Card testing attack on a Shopify store: what to do",
+      "headline": "Card testing attack on a Shopify store: how to stop and prevent it",
       "datePublished": "2026-10-14",
-      "dateModified": "2026-10-14",
+      "dateModified": "2026-11-05",
       "author": {
         "@type": "Organization",
         "name": "Alpenglow Software LLC",
@@ -74,6 +74,14 @@
             "@type": "Answer",
             "text": "Some protections need it and some don't. Shopify's built-in card testing protection, the AVS and CVV decline settings and Fraud Control checkout rules are for stores using Shopify Payments. Manual payment capture and Shopify Flow work with other providers too."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Shopify detect card testing automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly. Stores using Shopify Payments get Shopify's built-in card testing protection. Since June 2026 Shopify also leaves checkout attempts it identifies as card testing or bot activity out of the abandoned checkout list, but it says not all automated activity is filtered out. With another payment provider, most detection happens on the provider's side, so ask them what they offer."
+          }
         }
       ]
     }
@@ -114,8 +122,8 @@
 </header>
 <main id="main">
   <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
-  <h1>Your Shopify store is being used for card testing. What to do.</h1>
-  <p class="muted">Updated October 14, 2026</p>
+  <h1>Your Shopify store is being used for card testing. How to stop it and prevent the next one.</h1>
+  <p class="muted">Updated November 5, 2026</p>
 
   <div class="answer">
     <p><strong>Short answer:</strong> don't ship anything from the burst, and stop taking money automatically. Cancel the high risk orders, switch payment capture to manual, and tighten the card checks your payment provider offers. Then keep the fake sign-ups out of your marketing emails. You can't delete the fake abandoned checkouts; Shopify removes them after three months.</p>
@@ -134,7 +142,7 @@
   </ul>
   <p>The abandoned checkout list understates an attack. Since June 2026 Shopify leaves out checkout attempts it identifies as card testing or bot activity, but it also says not all automated activity is filtered out. So a quiet list doesn't prove the attack has stopped, and a noisy one means some of it got through the filter.</p>
 
-  <h2>What to do right now</h2>
+  <h2>How to stop card testing right now</h2>
   <ol>
     <li><strong>Hold fulfillment.</strong> If you use automatic fulfillment or a 3PL, stop orders from the burst shipping while you look.</li>
     <li><strong>Cancel the high risk orders.</strong> Use the fraud analysis on each order. Shopify notes that canceling or voiding lowers your risk but doesn't stop the cardholder's bank from filing a chargeback.</li>
@@ -177,7 +185,7 @@
     <li><strong>Undo the authorization holds.</strong> A real cardholder may see a pending charge on their statement for up to 30 days after an authorization, even if you canceled the order. The timing depends on their bank.</li>
   </ul>
 
-  <h2>After the attack</h2>
+  <h2>After the attack: prevent the next one</h2>
   <ul>
     <li><strong>Watch for chargebacks</strong> on any order from the burst that was captured. Check <strong>Orders</strong> in your admin for open chargebacks and inquiries.</li>
     <li><strong>Keep manual capture on</strong> until a few quiet days have passed.</li>
@@ -198,6 +206,8 @@
   <p>Shopify's hCaptcha setting covers contact, newsletter and comment forms and the legacy customer account pages. Checkout isn't listed among the forms it covers. Bot protection for checkout is a separate feature, available on Shopify Plus.</p>
   <h3>Do I need Shopify Payments to protect my store from card testing?</h3>
   <p>Some protections need it and some don't. Shopify's built-in card testing protection, the AVS and CVV decline settings and Fraud Control checkout rules are for stores using Shopify Payments. Manual payment capture and Shopify Flow work with other providers too.</p>
+  <h3>Does Shopify detect card testing automatically?</h3>
+  <p>Partly. Stores using Shopify Payments get Shopify's built-in card testing protection. Since June 2026 Shopify also leaves checkout attempts it identifies as card testing or bot activity out of the abandoned checkout list, but it says not all automated activity is filtered out. With another payment provider, most detection happens on the provider's side, so ask them what they offer.</p>
 
   <h2>Sources</h2>
   <ul class="muted">
