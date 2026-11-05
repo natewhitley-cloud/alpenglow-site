@@ -7,7 +7,6 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 ## Save time (monday.com apps)
 
 - [PostroomIQ](https://alpenglowsoftware.com/monday/postroomiq/): turns orders, invoices and leads forwarded to an email address, and their attachments, into monday.com board items with AI, and sends anything uncertain to review.
-- [DedupeIQ](https://alpenglowsoftware.com/monday/dedupeiq/): finds duplicate items on monday.com boards by name, email, phone and company, and merges them only after you review each match; the duplicate is archived, not deleted.
 
 ## Filter the noise (Shopify apps)
 
@@ -39,6 +38,5 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 
 - [Shopify apps](https://alpenglowsoftware.com/shopify/)
 - [monday.com apps](https://alpenglowsoftware.com/monday/)
-- [DedupeIQ pricing](https://alpenglowsoftware.com/dedupeiq/pricing.html)
 - [PostroomIQ pricing](https://alpenglowsoftware.com/postroomiq/pricing.html)
 - [Support](https://alpenglowsoftware.com/support/)
