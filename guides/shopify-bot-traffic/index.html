@@ -32,7 +32,7 @@
           {
             "@type": "Question",
             "name": "Does Shopify filter bot traffic out of analytics?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Partly. Since October 7, 2025, Shopify filters the bot sessions it identifies out of session-related reports by default. The filter applies only to sessions metrics, can't reclassify older sessions, and Shopify says some sophisticated automated traffic might not be classified right away." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Partly. Since Shopify's session measurement update rolled out on September 21 to 23, 2026, the bot sessions it identifies are left out of session-related reports by default. Shopify only classifies sessions from October 7, 2025 onward, the filter applies only to sessions metrics, and Shopify says some sophisticated automated traffic might not be classified right away." }
           },
           {
             "@type": "Question",
@@ -105,7 +105,7 @@
   <p class="muted">Updated November 5, 2026</p>
 
   <div class="answer">
-    <p><strong>Short answer:</strong> if sessions jumped and orders didn't, bots are a likely cause. Shopify already filters the bot sessions it identifies out of its session reports, but not all of them, and not data from before October 7, 2025. Open the Sessions by location, Sessions by referrer and Sessions by device reports over 30 to 90 days, filter to human and bot traffic, and look for a spike from one place, one device type or a city that hosts cloud data centers. Then judge your conversion rate against orders, not sessions alone.</p>
+    <p><strong>Short answer:</strong> if sessions jumped and orders didn't, bots are a likely cause. Since its September 2026 analytics update, Shopify leaves the bot sessions it identifies out of its session reports by default, but not all of them, and it can't classify sessions from before October 7, 2025. Open the Sessions by location, Sessions by referrer and Sessions by device reports over 30 to 90 days, filter to human and bot traffic, and look for a spike from one place, one device type or a city that hosts cloud data centers. Then judge your conversion rate against orders, not sessions alone.</p>
   </div>
 
   <h2>Why bots lower your conversion rate</h2>
@@ -124,7 +124,7 @@
   <h2>What Shopify and GA4 already filter</h2>
   <ul>
     <li><strong>Shopify shields stores from the majority of automated traffic.</strong> Every request to a Shopify store passes through Cloudflare, with a web application firewall and DDoS protection. Extra checkout bot protection during sales is only on Shopify Plus. hCaptcha protects contact, newsletter and blog comment forms and legacy customer account pages, not page views.</li>
-    <li><strong>Shopify filters identified bots out of session reports.</strong> Once the update reaches your store, sessions Shopify classifies as bots are left out of session-related reports by default, for sessions from October 7, 2025 onward. It applies only to sessions metrics, can't reclassify older sessions, and Shopify notes that some sophisticated automated traffic might not be classified right away.</li>
+    <li><strong>Shopify filters identified bots out of session reports.</strong> Since Shopify's session measurement update (rolled out September 21 to 23, 2026), sessions Shopify classifies as bots are left out of session-related reports by default. Before that, excluding them was a filter you applied yourself. Shopify only classifies sessions from October 7, 2025 onward. It applies only to sessions metrics, can't reclassify older sessions, and Shopify notes that some sophisticated automated traffic might not be classified right away.</li>
     <li><strong>GA4 excludes known bots.</strong> Traffic from bots on Google's list and the IAB's International Spiders and Bots List is excluded automatically. You can't see how much was excluded, and newer bots that aren't on those lists aren't covered by it. GA4's internal traffic filter is for your own IP addresses, not bots, and data filters don't change data that's already processed.</li>
   </ul>
   <p>So some bot traffic still reaches your reports, especially newer or better-disguised bots, and older periods were never filtered at all.</p>
@@ -156,7 +156,7 @@
 
   <h2>Common questions</h2>
   <h3>Does Shopify filter bot traffic out of analytics?</h3>
-  <p>Partly. Since October 7, 2025, Shopify filters the bot sessions it identifies out of session-related reports by default. The filter applies only to sessions metrics, can't reclassify older sessions, and Shopify says some sophisticated automated traffic might not be classified right away.</p>
+  <p>Partly. Since Shopify's session measurement update rolled out on September 21 to 23, 2026, the bot sessions it identifies are left out of session-related reports by default. Shopify only classifies sessions from October 7, 2025 onward, the filter applies only to sessions metrics, and Shopify says some sophisticated automated traffic might not be classified right away.</p>
   <h3>Why did my Shopify conversion rate drop when sales didn't?</h3>
   <p>Shopify calculates conversion rate as the percentage of sessions that resulted in a sale. If extra sessions arrive that never buy, such as bots, the rate falls even though your orders and sales stay the same.</p>
   <h3>Does GA4 remove bot traffic?</h3>
@@ -174,6 +174,8 @@
     <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/identifying-bot-activity">Shopify Help Center: Identifying bot activity</a></li>
     <li><a href="https://help.shopify.com/en/manual/intro-to-shopify/bots/dealing-with-bots">Shopify Help Center: Dealing with bots</a></li>
     <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/discrepancies/session-measurement-update">Shopify Help Center: Session measurement update</a></li>
+    <li><a href="https://changelog.shopify.com/posts/shopify-analytics-session-measurement-improvements">Shopify Changelog: Shopify Analytics session measurement improvements (September 21, 2026)</a></li>
+    <li><a href="https://changelog.shopify.com/posts/filter-out-bot-traffic-in-your-sessions-related-reports">Shopify Changelog: Filter out bot traffic in your sessions-related reports (October 27, 2025)</a></li>
     <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/analytics-fields">Shopify Help Center: Analytics fields</a></li>
     <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/default-reports/acquisition-reports">Shopify Help Center: Acquisition reports</a></li>
     <li><a href="https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/default-reports/behaviour-reports">Shopify Help Center: Behaviour reports</a></li>
