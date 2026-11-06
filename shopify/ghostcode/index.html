@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GhostCode: find what's slowing your Shopify theme · Alpenglow Software</title>
-  <meta name="description" content="GhostCode audits your Shopify theme: app speed costs, known malicious scripts, wrong schema prices, script tag apps and leftover app code. Read-only.">
+  <title>GhostCode: Shopify theme audit for script tags and app code · Alpenglow Software</title>
+  <meta name="description" content="GhostCode audits your Shopify theme for leftover code from uninstalled apps, script tag apps, app speed cost and known malicious scripts. Read-only.">
   <link rel="canonical" href="https://alpenglowsoftware.com/shopify/ghostcode/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Alpenglow Software">
-  <meta property="og:title" content="GhostCode: Find the apps and leftover code slowing your Shopify theme">
-  <meta property="og:description" content="GhostCode audits your Shopify theme: app speed costs, known malicious scripts, wrong schema prices, script tag apps and leftover app code. Read-only.">
+  <meta property="og:title" content="GhostCode: Shopify theme audit for leftover code, script tags and slow apps">
+  <meta property="og:description" content="GhostCode audits your Shopify theme for leftover code from uninstalled apps, script tag apps, app speed cost and known malicious scripts. Read-only.">
   <meta property="og:url" content="https://alpenglowsoftware.com/shopify/ghostcode/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
   <meta name="twitter:card" content="summary">
@@ -24,7 +24,7 @@
         "@type": "WebPage",
         "@id": "https://alpenglowsoftware.com/shopify/ghostcode/",
         "url": "https://alpenglowsoftware.com/shopify/ghostcode/",
-        "name": "Find the apps and leftover code slowing your Shopify theme",
+        "name": "Audit your Shopify theme for leftover app code, script tags and slow apps",
         "isPartOf": {
           "@id": "https://alpenglowsoftware.com/#website"
         },
@@ -36,7 +36,7 @@
         "@type": "SoftwareApplication",
         "@id": "https://alpenglowsoftware.com/shopify/ghostcode/#app",
         "name": "GhostCode",
-        "description": "Audits a Shopify theme for the apps that slow it down, known malicious scripts, schema prices that disagree with live prices, apps that rely on script tags, and leftover app code. It only reads the theme.",
+        "description": "Audits a Shopify theme for leftover code from uninstalled apps, apps that still load through script tags, what each app it can identify costs in page speed, known malicious scripts and schema prices that disagree with live prices. It only reads the theme and never edits it or removes code.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/ghostcode.png",
@@ -52,18 +52,50 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Does GhostCode change my theme?",
+            "name": "What happens to Shopify script tags on March 1, 2027?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. It asks only for read access to your theme and never edits it. Every change stays in your hands."
+              "text": "Shopify stops loading script tags on storefront pages on that date, so an app that still relies on one may stop working on your store. GhostCode lists the script tags your store still loads, naming the app when it recognizes it, so you can ask each developer about an update or line up a replacement before then."
             }
           },
           {
             "@type": "Question",
-            "name": "Does it remove leftover code for me?",
+            "name": "Does uninstalling a Shopify app remove its code from my theme?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. It shows the app the code matches, the file, the line and the code itself, so you or your developer can remove it safely."
+              "text": "Not always. App blocks, app embeds and script tags stop loading, but code an app wrote into your theme files stays until someone removes it. GhostCode finds code left behind by apps that may no longer be installed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I find leftover code from uninstalled Shopify apps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GhostCode scans your theme files for scripts, styles, snippets and sections from apps that may no longer be installed. Each finding shows the app it matches, the file, the line and the code itself. It doesn't remove anything, so you or your developer take the code out."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which apps are slowing down my Shopify store?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GhostCode runs a lab speed test of your store and shows which apps it can identify cost the most page speed. It names only apps it recognizes, and apps are only one reason a store is slow."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can GhostCode scan my Shopify store for malware?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Partly. It flags scripts from a list of known malicious domains in your theme files and on your live homepage. It isn't a full malware scanner: it reads your theme and homepage, not everything an app loads while shoppers browse, so a clean result doesn't prove nothing is wrong."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does GhostCode change my theme or remove code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It asks only for read access to your theme and never edits it or removes code. Every change stays in your hands."
             }
           },
           {
@@ -72,22 +104,6 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "No. It has no storefront script or theme app embed. Scans run from GhostCode's servers, each scan loads your public homepage once, and speed tests load your homepage and a product page in a lab test."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can it find malicious scripts?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "It flags scripts from a list of known malicious domains in your theme files and on your live homepage. It reads your theme and homepage, not everything an app loads while shoppers browse, so a clean result doesn't prove nothing is wrong."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What happens to script tags on March 1, 2027?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Shopify stops running script tags on that date. GhostCode lists the apps on your store that still load through script tags, so you can ask each developer about an update or plan a replacement before then."
             }
           },
           {
@@ -152,8 +168,8 @@
   </nav>
   <div class="ag-intro ag-app-intro">
     <p class="ag-app-name"><img src="/assets/icons/ghostcode.png" alt="" width="40" height="40">GhostCode</p>
-    <h1>Find the apps and leftover code slowing your Shopify theme</h1>
-    <div class="ag-answer"><p>GhostCode is a Shopify app that audits your theme. It shows what the apps it can identify cost in page speed, flags scripts from known malicious domains, catches schema prices that disagree with your live prices, lists apps that depend on script tags before they stop running on March 1, 2027, and traces leftover code to the app it matches. It only reads your theme and never edits it, so you decide what to change.</p></div>
+    <h1>Audit your Shopify theme for leftover app code, script tags and slow apps</h1>
+    <div class="ag-answer"><p>GhostCode is a Shopify app that audits your theme, for merchants and the agencies who look after their stores. It finds leftover code from uninstalled apps, traced to the app it matches, and lists the apps that may stop working when Shopify ends script tags on March 1, 2027. It also shows what each app it can identify costs in page speed, flags scripts from known malicious domains and catches schema prices that disagree with your live prices. It only reads your theme and never edits it or removes code, so you or your developer decide what to change.</p></div>
     <div class="ag-cta">
       <a class="ag-btn" href="https://apps.shopify.com/ghost-code?utm_source=alpenglowsoftware&amp;utm_medium=page&amp;utm_campaign=ghostcode&amp;utm_content=top">Install from the Shopify App Store</a>
       <p class="ag-card-plan">Free and paid plans available.</p>
@@ -168,7 +184,7 @@
         <li><strong>Apps in security reports.</strong> Code in your theme from apps named in a public security incident report, with a link to the report.</li>
         <li><strong>Schema prices.</strong> Product prices in your structured data that disagree with the live price, which AI shopping tools could quote wrong. This check needs read access to products, which you can grant in the app.</li>
         <li><strong>Script tag apps.</strong> Apps on your store that still load through script tags, which Shopify stops running on March 1, 2027.</li>
-        <li><strong>Leftover app code.</strong> Scripts, styles and snippets from apps that may no longer be installed, each traced to the app it matches, with the file, line and code.</li>
+        <li><strong>Leftover code from uninstalled apps.</strong> Scripts, styles, snippets and sections from apps that may no longer be installed, each traced to the app it matches, with the file, line and code. GhostCode finds this code; it doesn't remove it.</li>
         <li><strong>Broken links and old checkout code.</strong> Links to deleted products or pages, once you grant products or pages access, and leftover checkout.liquid code.</li>
     </ul>
   </section>
@@ -190,24 +206,32 @@
     <div class="ag-section-head"><h2 id="faq-h">Common questions</h2></div>
     <div class="ag-faq">
       <div>
-        <h3>Does GhostCode change my theme?</h3>
-        <p>No. It asks only for read access to your theme and never edits it. Every change stays in your hands.</p>
+        <h3>What happens to Shopify script tags on March 1, 2027?</h3>
+        <p>Shopify stops loading script tags on storefront pages on that date, so an app that still relies on one may stop working on your store. GhostCode lists the script tags your store still loads, naming the app when it recognizes it, so you can ask each developer about an update or line up a replacement before then.</p>
       </div>
       <div>
-        <h3>Does it remove leftover code for me?</h3>
-        <p>No. It shows the app the code matches, the file, the line and the code itself, so you or your developer can remove it safely.</p>
+        <h3>Does uninstalling a Shopify app remove its code from my theme?</h3>
+        <p>Not always. App blocks, app embeds and script tags stop loading, but code an app wrote into your theme files stays until someone removes it. GhostCode finds code left behind by apps that may no longer be installed.</p>
+      </div>
+      <div>
+        <h3>How do I find leftover code from uninstalled Shopify apps?</h3>
+        <p>GhostCode scans your theme files for scripts, styles, snippets and sections from apps that may no longer be installed. Each finding shows the app it matches, the file, the line and the code itself. It doesn't remove anything, so you or your developer take the code out.</p>
+      </div>
+      <div>
+        <h3>Which apps are slowing down my Shopify store?</h3>
+        <p>GhostCode runs a lab speed test of your store and shows which apps it can identify cost the most page speed. It names only apps it recognizes, and apps are only one reason a store is slow.</p>
+      </div>
+      <div>
+        <h3>Can GhostCode scan my Shopify store for malware?</h3>
+        <p>Partly. It flags scripts from a list of known malicious domains in your theme files and on your live homepage. It isn't a full malware scanner: it reads your theme and homepage, not everything an app loads while shoppers browse, so a clean result doesn't prove nothing is wrong.</p>
+      </div>
+      <div>
+        <h3>Does GhostCode change my theme or remove code?</h3>
+        <p>No. It asks only for read access to your theme and never edits it or removes code. Every change stays in your hands.</p>
       </div>
       <div>
         <h3>Does GhostCode add scripts to my store?</h3>
         <p>No. It has no storefront script or theme app embed. Scans run from GhostCode's servers, each scan loads your public homepage once, and speed tests load your homepage and a product page in a lab test.</p>
-      </div>
-      <div>
-        <h3>Can it find malicious scripts?</h3>
-        <p>It flags scripts from a list of known malicious domains in your theme files and on your live homepage. It reads your theme and homepage, not everything an app loads while shoppers browse, so a clean result doesn't prove nothing is wrong.</p>
-      </div>
-      <div>
-        <h3>What happens to script tags on March 1, 2027?</h3>
-        <p>Shopify stops running script tags on that date. GhostCode lists the apps on your store that still load through script tags, so you can ask each developer about an update or plan a replacement before then.</p>
       </div>
       <div>
         <h3>Is there a free plan?</h3>

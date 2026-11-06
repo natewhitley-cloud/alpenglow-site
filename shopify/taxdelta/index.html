@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaxDelta: find sales tax errors in Shopify refunds · Alpenglow Software</title>
-  <meta name="description" content="TaxDelta reads your Shopify orders and flags sales tax to check before you file: over-refunded tax, unregistered states and exempt orders charged tax.">
+  <title>TaxDelta: Shopify sales tax audit before you file · Alpenglow Software</title>
+  <meta name="description" content="TaxDelta audits the sales tax on your Shopify orders: over-refunded tax, exempt orders charged tax and unregistered states. It never files returns.">
   <link rel="canonical" href="https://alpenglowsoftware.com/shopify/taxdelta/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Alpenglow Software">
-  <meta property="og:title" content="TaxDelta: Find sales tax errors in Shopify refunds before you file">
-  <meta property="og:description" content="TaxDelta reads your Shopify orders and flags sales tax to check before you file: over-refunded tax, unregistered states and exempt orders charged tax.">
+  <meta property="og:title" content="Shopify sales tax audit: find tax errors in refunds and exempt orders">
+  <meta property="og:description" content="TaxDelta audits the sales tax on your Shopify orders: over-refunded tax, exempt orders charged tax and unregistered states. It never files returns.">
   <meta property="og:url" content="https://alpenglowsoftware.com/shopify/taxdelta/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
   <meta name="twitter:card" content="summary">
@@ -24,7 +24,7 @@
         "@type": "WebPage",
         "@id": "https://alpenglowsoftware.com/shopify/taxdelta/",
         "url": "https://alpenglowsoftware.com/shopify/taxdelta/",
-        "name": "Find sales tax errors in Shopify refunds before you file",
+        "name": "Shopify sales tax audit: find tax errors in refunds and exempt orders",
         "isPartOf": {
           "@id": "https://alpenglowsoftware.com/#website"
         },
@@ -36,7 +36,7 @@
         "@type": "SoftwareApplication",
         "@id": "https://alpenglowsoftware.com/shopify/taxdelta/#app",
         "name": "TaxDelta",
-        "description": "Reads Shopify orders and flags sales tax to check before filing: tax over-refunded on partial refunds, refunds entered without line items, tax collected in unregistered states, and exempt orders charged tax. It only reads orders.",
+        "description": "Audits the sales tax already collected on Shopify orders and flags tax to check before filing: tax over-refunded on partial refunds, refunds entered without line items, exempt orders charged tax, and tax collected in unregistered states. It only reads orders and doesn't file returns.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/taxdelta.png",
@@ -50,6 +50,22 @@
         "@type": "FAQPage",
         "@id": "https://alpenglowsoftware.com/shopify/taxdelta/#faq",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I audit my Shopify sales tax before I file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Run a TaxDelta scan on your orders. It checks partial refunds, refunds without line items, exempt orders and states you aren't registered in, and flags what to review. It's an audit of what you collected, not a sales tax report or a return."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I find overcollected sales tax on Shopify orders?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TaxDelta flags exempt orders that were still charged tax, so you can review each one before you file. That is the overcollection it checks; it doesn't check rates."
+            }
+          },
           {
             "@type": "Question",
             "name": "Does TaxDelta file my sales tax?",
@@ -92,10 +108,10 @@
           },
           {
             "@type": "Question",
-            "name": "Is there a free plan?",
+            "name": "Is TaxDelta free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Free and paid plans available. See the TaxDelta listing on the Shopify App Store for features and plans."
+              "text": "Free and paid plans available. See the TaxDelta listing on the Shopify App Store for what's included."
             }
           }
         ]
@@ -152,8 +168,8 @@
   </nav>
   <div class="ag-intro ag-app-intro">
     <p class="ag-app-name"><img src="/assets/icons/taxdelta.png" alt="" width="40" height="40">TaxDelta</p>
-    <h1>Find sales tax errors in Shopify refunds before you file</h1>
-    <div class="ag-answer"><p>TaxDelta is a Shopify app that reads your orders and flags where the sales tax looks wrong: tax over-refunded on partial refunds, refunds entered without line items, tax collected in states you aren't registered in, and exempt orders that were still charged tax. Each finding shows the order and the amount, so you can check it before you file. TaxDelta only reads your orders. It doesn't change anything or file returns.</p></div>
+    <h1>Shopify sales tax audit: find tax errors in refunds and exempt orders</h1>
+    <div class="ag-answer"><p>TaxDelta is a Shopify app that audits the sales tax you already collected. It reads your orders and flags over-refunded tax on partial refunds, refunds entered without line items, exempt orders that were still charged tax, and tax collected in states outside the ones you list as registered. Each finding is flagged so you can check it before you file. TaxDelta only reads your orders. It doesn't change anything, file returns or see what your tax filing software reports.</p></div>
     <div class="ag-cta">
       <a class="ag-btn" href="https://apps.shopify.com/tax-integrity-monitor?utm_source=alpenglowsoftware&amp;utm_medium=page&amp;utm_campaign=taxdelta&amp;utm_content=top">Install from the Shopify App Store</a>
       <p class="ag-card-plan">Free and paid plans available.</p>
@@ -177,7 +193,7 @@
     <ol class="ag-steps">
         <li><h3>Install</h3><p>TaxDelta asks for read access to your orders. It has no permission to change orders, refunds or tax settings.</p></li>
         <li><h3>Scan your orders</h3><p>Optionally tell TaxDelta which states you're registered in, then run a scan. It reads your orders through a Shopify bulk export.</p></li>
-        <li><h3>Review and decide</h3><p>Each finding shows the order, the amount and how serious it is. You decide what to fix in Shopify or in your tax filing software, and what to take to your accountant.</p></li>
+        <li><h3>Review and decide</h3><p>Each finding shows how serious it is. You decide what to fix in Shopify or in your tax filing software, and what to take to your accountant.</p></li>
     </ol>
   </section>
 
@@ -188,6 +204,14 @@
   <section class="ag-section" aria-labelledby="faq-h">
     <div class="ag-section-head"><h2 id="faq-h">Common questions</h2></div>
     <div class="ag-faq">
+      <div>
+        <h3>How do I audit my Shopify sales tax before I file?</h3>
+        <p>Run a TaxDelta scan on your orders. It checks partial refunds, refunds without line items, exempt orders and states you aren't registered in, and flags what to review. It's an audit of what you collected, not a sales tax report or a return.</p>
+      </div>
+      <div>
+        <h3>How do I find overcollected sales tax on Shopify orders?</h3>
+        <p>TaxDelta flags exempt orders that were still charged tax, so you can review each one before you file. That is the overcollection it checks; it doesn't check rates.</p>
+      </div>
       <div>
         <h3>Does TaxDelta file my sales tax?</h3>
         <p>No. It doesn't file returns or prepare one for you. It reads your orders and shows what to check before you or your accountant file.</p>
@@ -209,8 +233,8 @@
         <p>US sales tax, by state. Orders in other currencies are listed for you to review.</p>
       </div>
       <div>
-        <h3>Is there a free plan?</h3>
-        <p>Free and paid plans available. See <a href="https://apps.shopify.com/tax-integrity-monitor?utm_source=alpenglowsoftware&amp;utm_medium=page&amp;utm_campaign=taxdelta&amp;utm_content=middle">the TaxDelta listing on the Shopify App Store</a> for features and plans.</p>
+        <h3>Is TaxDelta free?</h3>
+        <p>Free and paid plans available. See <a href="https://apps.shopify.com/tax-integrity-monitor?utm_source=alpenglowsoftware&amp;utm_medium=page&amp;utm_campaign=taxdelta&amp;utm_content=middle">the TaxDelta listing on the Shopify App Store</a> for what's included.</p>
       </div>
     </div>
   </section>

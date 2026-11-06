@@ -10,13 +10,13 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 
 ## Filter the noise (Shopify apps)
 
-- [ClearSignal](https://alpenglowsoftware.com/shopify/clearsignal/): sorts Shopify store sessions into real shoppers, good AI agents, bad bots and unclassified, and shows the conversion rate with bad bot and AI agent sessions taken out. It measures; it doesn't block visitors.
+- [ClearSignal](https://alpenglowsoftware.com/shopify/clearsignal/): sorts Shopify store sessions into real shoppers, good AI agents, bad bots and unclassified, shows the conversion rate with bad bot and AI agent sessions taken out, and shows where bot traffic comes from by country and data center. It measures; it doesn't block visitors.
 - [FraudPilot](https://alpenglowsoftware.com/shopify/fraudpilot/): puts the orders Shopify flags as medium or high risk in one review queue with the reasons, can hold new risky orders until you approve them (optional, paid plan), and keeps a log of your decisions. It never cancels orders or blocks checkouts.
 
 ## Catch costly mistakes (Shopify apps)
 
 - [TaxDelta](https://alpenglowsoftware.com/shopify/taxdelta/): reads Shopify orders and flags sales tax to check before you file, such as tax over-refunded on partial refunds and tax collected in states you aren't registered in. It only reads orders and doesn't file returns.
-- [GhostCode](https://alpenglowsoftware.com/shopify/ghostcode/): audits a Shopify theme for the apps that slow it, known malicious scripts, wrong schema prices, script tag apps and leftover app code from apps that may no longer be installed. It only reads the theme and never edits it.
+- [GhostCode](https://alpenglowsoftware.com/shopify/ghostcode/): audits a Shopify theme for leftover code from uninstalled apps, apps that still load through script tags (which Shopify ends on March 1, 2027), app speed cost and known malicious scripts. It only reads the theme and never edits it.
 
 ## Guides for Shopify merchants
 

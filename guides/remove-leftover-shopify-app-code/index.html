@@ -22,8 +22,14 @@
         "headline": "How to remove leftover code from uninstalled Shopify apps",
         "datePublished": "2026-10-12",
         "dateModified": "2026-10-12",
-        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
-        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "author": {
+          "@type": "Organization",
+          "name": "Alpenglow Software LLC",
+          "url": "https://alpenglowsoftware.com/"
+        },
+        "publisher": {
+          "@id": "https://alpenglowsoftware.com/#org"
+        },
         "mainEntityOfPage": "https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/"
       },
       {
@@ -31,23 +37,35 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Can leftover app code slow down my Shopify store?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. A leftover script or stylesheet tag still makes the browser request that file on every page view, even though the app is gone. If the app's server no longer answers, the request can fail slowly or throw errors in the browser console. Leftover CSS and snippets add weight even when nothing breaks." }
+            "name": "Can leftover app code slow down my store?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. A leftover script or stylesheet tag still makes the browser request that file on every page view, even though the app is gone. If the app's server no longer answers, the request can fail slowly or throw errors in the browser console. Leftover CSS and snippets add weight even when nothing breaks."
+            }
           },
           {
             "@type": "Question",
-            "name": "Is it safe to delete an app's snippet file from my theme?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Only after you remove every line that loads it. If a render or include tag still points to a snippet you deleted, the theme shows a Liquid error where that snippet used to be. Search the whole theme for the snippet's name, remove those lines first, then delete the file, and do it on a duplicate theme." }
+            "name": "Is it safe to delete an app's snippet file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only after you remove every line that loads it. If a render or include tag still points to a snippet you deleted, the theme shows a Liquid error where that snippet used to be. Search the whole theme for the snippet's name, remove those lines first, then delete the file, and do it on a duplicate theme."
+            }
           },
           {
             "@type": "Question",
-            "name": "What happens to Shopify script tags on March 1, 2027?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Shopify stops adding script tags to online store pages on March 1, 2027. Since October 1, 2026, apps can't create or update them. Any app that still loads its storefront code through a script tag stops working on your store on that date unless its developer moves it to an app embed or a web pixel." }
+            "name": "What happens to script tags on March 1, 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shopify stops adding script tags to online store pages. Since October 1, 2026, apps can't create or update them. Any app that still loads its storefront code through a script tag stops working on your store on that date unless its developer moves it to an app embed or a web pixel."
+            }
           },
           {
             "@type": "Question",
             "name": "Do I need to remove an uninstalled app's script tags myself?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Usually not. Script tags belong to the app that created them, and Shopify removes them when you uninstall that app. The leftovers you remove yourself are the code that was written into your theme files." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Usually not. Script tags belong to the app that created them, and Shopify removes them when you uninstall that app. The leftovers you remove yourself are the code that was written into your theme files."
+            }
           }
         ]
       }

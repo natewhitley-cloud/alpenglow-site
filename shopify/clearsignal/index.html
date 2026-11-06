@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClearSignal: your real Shopify conversion rate without bots · Alpenglow Software</title>
-  <meta name="description" content="ClearSignal sorts Shopify sessions into shoppers, AI agents and bad bots, and shows your conversion rate without bots or agents. It measures, never blocks.">
+  <title>ClearSignal: Shopify bot traffic and true conversion rate · Alpenglow Software</title>
+  <meta name="description" content="ClearSignal sorts Shopify sessions into shoppers, AI agents and bad bots, so you see bot traffic and your conversion rate without it. It never blocks.">
   <link rel="canonical" href="https://alpenglowsoftware.com/shopify/clearsignal/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Alpenglow Software">
   <meta property="og:title" content="ClearSignal: See your real Shopify conversion rate without bot traffic">
-  <meta property="og:description" content="ClearSignal sorts Shopify sessions into shoppers, AI agents and bad bots, and shows your conversion rate without bots or agents. It measures, never blocks.">
+  <meta property="og:description" content="ClearSignal sorts Shopify sessions into shoppers, AI agents and bad bots, so you see bot traffic and your conversion rate without it. It never blocks.">
   <meta property="og:url" content="https://alpenglowsoftware.com/shopify/clearsignal/">
   <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
   <meta name="twitter:card" content="summary">
@@ -36,7 +36,7 @@
         "@type": "SoftwareApplication",
         "@id": "https://alpenglowsoftware.com/shopify/clearsignal/#app",
         "name": "ClearSignal",
-        "description": "Shows a Shopify store's conversion rate with bad bot and AI agent sessions taken out by sorting traffic into real shoppers, good AI agents, bad bots and unclassified. It measures and reports; it doesn't block visitors.",
+        "description": "Shows a Shopify store's conversion rate with bad bot and AI agent sessions taken out, by sorting traffic into real shoppers, good AI agents, bad bots and unclassified, and shows where bot traffic comes from by country and data center. It measures and reports; it doesn't block visitors.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Shopify",
         "image": "https://alpenglowsoftware.com/assets/icons/clearsignal.png",
@@ -60,18 +60,34 @@
           },
           {
             "@type": "Question",
-            "name": "Does it change my Shopify analytics?",
+            "name": "Why is my Shopify store getting traffic from Singapore or China?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Shopify's own reports stay as they are. ClearSignal shows its own view next to them, as a second opinion."
+              "text": "Often it's bots running on cloud servers in data centers, which show up as visitors from that country. ClearSignal breaks bot traffic down by country and data center provider so you can see how much is automated. It doesn't block any of it."
             }
           },
           {
             "@type": "Question",
-            "name": "Can it show bot traffic from before I installed it?",
+            "name": "Does Shopify already filter bot traffic out of analytics?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. It only counts traffic from the day you turn on its app embed, so your numbers build from that day."
+              "text": "Partly. Shopify filters the bot sessions it identifies out of its session reports by default, but some automated traffic gets through and older sessions aren't reclassified. ClearSignal shows its own view next to Shopify's as a second opinion and doesn't change Shopify's reports."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does my Shopify conversion rate look wrong?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bots add sessions that never buy, which lowers your conversion rate even when orders stay the same. ClearSignal shows your conversion rate with bad bot and AI agent sessions taken out. It counts from the day you turn on its app embed, so it can't correct earlier weeks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ClearSignal track AI agent traffic?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It sorts identified AI assistants and crawlers into their own good agent group, separate from bad bots, and leaves them out of your true conversion rate."
             }
           },
           {
@@ -153,7 +169,7 @@
   <div class="ag-intro ag-app-intro">
     <p class="ag-app-name"><img src="/assets/icons/clearsignal.png" alt="" width="40" height="40">ClearSignal</p>
     <h1>See your real Shopify conversion rate without bot traffic</h1>
-    <div class="ag-answer"><p>ClearSignal is a Shopify app that sorts your store's sessions into real shoppers, good AI agents, bad bots and unclassified traffic, using its own detection as a second opinion next to Shopify's. It shows your conversion rate with bad bot and AI agent sessions taken out, estimates the ad spend going to bots, and shows the sales AI agents drive. It measures rather than blocks, and it doesn't change Shopify's own reports.</p></div>
+    <div class="ag-answer"><p>ClearSignal is a Shopify app for merchants whose sessions look inflated by bots and whose conversion rate looks too low. It sorts your store's sessions into real shoppers, good AI agents, bad bots and unclassified traffic, using its own detection as a second opinion next to Shopify's. It shows your conversion rate with bad bot and AI agent sessions taken out, estimates the ad spend that goes to bots, and shows where bot traffic comes from by country and data center. It measures rather than blocks, and it doesn't change Shopify's own reports.</p></div>
     <div class="ag-cta">
       <a class="ag-btn" href="https://apps.shopify.com/bot-analytics-cleanup?utm_source=alpenglowsoftware&amp;utm_medium=page&amp;utm_campaign=clearsignal&amp;utm_content=top">Install from the Shopify App Store</a>
       <p class="ag-card-plan">Free and paid plans available.</p>
@@ -166,8 +182,8 @@
         <li><strong>Who is visiting.</strong> Every session sorted into human, good agent, bad bot or unclassified.</li>
         <li><strong>Your true conversion rate.</strong> Your conversion rate with bad bot and AI agent sessions taken out of the count.</li>
         <li><strong>What bots cost you.</strong> An estimate of the ad spend that went to bot visits, once you enter your monthly ad spend.</li>
-        <li><strong>AI agent sales.</strong> The AI shopping agents visiting your store and the sales they drive, kept counted as real visitors instead of bots.</li>
-        <li><strong>Where bots come from.</strong> Bot traffic by channel and by country, so you can see which traffic sources it hits.</li>
+        <li><strong>AI agent traffic.</strong> The AI assistants and crawlers visiting your store, kept in their own group instead of being counted as bad bots.</li>
+        <li><strong>Where bots come from.</strong> Bot traffic by country, data center provider and traffic channel, so you can see which sources it hits.</li>
         <li><strong>Answers in your admin.</strong> Ask Sidekick for your bot rate without opening the app.</li>
         <li><strong>Report views that fit your store.</strong> Leave countries you don't sell to out of your report views.</li>
     </ul>
@@ -194,12 +210,20 @@
         <p>No. It measures and reports; it doesn't block visitors. Leaving a country out of your reports only changes what your reports show.</p>
       </div>
       <div>
-        <h3>Does it change my Shopify analytics?</h3>
-        <p>No. Shopify's own reports stay as they are. ClearSignal shows its own view next to them, as a second opinion.</p>
+        <h3>Why is my Shopify store getting traffic from Singapore or China?</h3>
+        <p>Often it's bots running on cloud servers in data centers, which show up as visitors from that country. ClearSignal breaks bot traffic down by country and data center provider so you can see how much is automated. It doesn't block any of it.</p>
       </div>
       <div>
-        <h3>Can it show bot traffic from before I installed it?</h3>
-        <p>No. It only counts traffic from the day you turn on its app embed, so your numbers build from that day.</p>
+        <h3>Does Shopify already filter bot traffic out of analytics?</h3>
+        <p>Partly. Shopify filters the bot sessions it identifies out of its session reports by default, but some automated traffic gets through and older sessions aren't reclassified. ClearSignal shows its own view next to Shopify's as a second opinion and doesn't change Shopify's reports.</p>
+      </div>
+      <div>
+        <h3>Why does my Shopify conversion rate look wrong?</h3>
+        <p>Bots add sessions that never buy, which lowers your conversion rate even when orders stay the same. ClearSignal shows your conversion rate with bad bot and AI agent sessions taken out. It counts from the day you turn on its app embed, so it can't correct earlier weeks.</p>
+      </div>
+      <div>
+        <h3>Does ClearSignal track AI agent traffic?</h3>
+        <p>Yes. It sorts identified AI assistants and crawlers into their own good agent group, separate from bad bots, and leaves them out of your true conversion rate.</p>
       </div>
       <div>
         <h3>What data does ClearSignal collect?</h3>
@@ -219,6 +243,7 @@
   <section class="ag-section" aria-labelledby="guides-h">
     <div class="ag-section-head"><h2 id="guides-h">Related guides</h2></div>
     <ul class="ag-guide-list">
+        <li><a href="/guides/shopify-bot-traffic-singapore-china/">Shopify traffic from Singapore, China, Council Bluffs or Ashburn: bots or customers?</a></li>
         <li><a href="/guides/shopify-bot-traffic/">Shopify bot traffic: why sessions spiked and conversion rate dropped</a></li>
     </ul>
   </section>
