@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatically hold, block or cancel high risk Shopify orders · Alpenglow Software</title>
+  <meta name="description" content="High risk Shopify orders: block before the order, hold before it ships, or cancel. What each option needs and why holding is the safest default.">
+  <link rel="canonical" href="https://alpenglowsoftware.com/guides/shopify-hold-block-cancel-high-risk-orders/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alpenglow Software">
+  <meta property="og:title" content="How to automatically hold, block or cancel high risk orders on Shopify">
+  <meta property="og:description" content="Block before the order, hold before it ships, or cancel: what each option needs and why holding is the safest default.">
+  <meta property="og:url" content="https://alpenglowsoftware.com/guides/shopify-hold-block-cancel-high-risk-orders/">
+  <meta property="og:image" content="https://alpenglowsoftware.com/assets/alpenglow-share.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to automatically hold, block or cancel high risk orders on Shopify",
+        "datePublished": "2026-11-05",
+        "dateModified": "2026-11-05",
+        "author": { "@type": "Organization", "name": "Alpenglow Software LLC", "url": "https://alpenglowsoftware.com/" },
+        "publisher": { "@id": "https://alpenglowsoftware.com/#org" },
+        "mainEntityOfPage": "https://alpenglowsoftware.com/guides/shopify-hold-block-cancel-high-risk-orders/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Shopify cancel high risk orders automatically?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Shopify's fraud analysis flags the order and recommends an action, but a flagged order stays open until you act. To act automatically you need a rule: a Shopify Flow workflow, a fraud app, or a hold that waits for your review." }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I automatically cancel high risk orders?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Usually not as a first step. A high risk rating is a prediction, and real customers get flagged too. A hold stops the order from shipping while you check it, and you can still cancel after. If you do cancel automatically, limit it to High risk and watch what gets cancelled for the first weeks." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I block a customer from ordering on Shopify?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Shopify has no block button on the customer record. Blocking happens at checkout: Shopify Payments blocks some high risk attempts on its own, and the free Fraud Control app can block checkouts by email, address or IP address if you use Shopify Payments. Other payment providers need an app with checkout rules." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does a fulfillment hold stop my 3PL from shipping?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A hold on the fulfillment order stops it from being fulfilled until the hold is released. If a fulfillment service already accepted the order before the hold, check with them, because they may have started picking it." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    :root { color-scheme: light dark; --bg:#ffffff; --ink:#1a1a2e; --muted:#6b7280; --rule:#e5e7eb; --tint:#f3f9f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#111318; --ink:#e8e9ee; --muted:#9aa0ab; --rule:#2a2e37; --tint:#171b1f; } }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:56px 16px; }
+    h1 { font-size:28px; line-height:1.25; margin:0 0 8px; } h2 { font-size:20px; margin:36px 0 8px; } h3 { font-size:16px; margin:20px 0 4px; }
+    p { margin:8px 0; } .muted { color:var(--muted); } a { color:inherit; }
+    .answer { background:var(--tint); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; margin:20px 0; }
+    .wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:15px; margin-top:8px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:13px; color:var(--muted); font-weight:600; }
+    ul, ol { padding-left:22px; margin:8px 0; } li { margin:4px 0; }
+    footer { max-width:760px; margin:0 auto; padding:24px 16px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<a class="ag-skip" href="#main">Skip to content</a>
+<header class="ag-header">
+  <div class="ag-header-inner">
+    <a class="ag-logo" href="/"><img src="/assets/icons/alpenglow.png" alt="" width="28" height="28"><span>Alpenglow Software</span></a>
+    <nav class="ag-nav" aria-label="Main">
+      <ul>
+        <li><a href="/shopify/">Shopify apps</a></li>
+        <li><a href="/monday/">monday.com apps</a></li>
+        <li><a href="/guides/" aria-current="true">Guides</a></li>
+        <li><a href="/support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <p class="muted"><a href="/">Alpenglow Software</a> · <a href="/guides/">Guides</a></p>
+  <h1>How to automatically hold, block or cancel high risk orders on Shopify</h1>
+  <p class="muted">Updated November 5, 2026</p>
+
+  <div class="answer">
+    <p><strong>Short answer:</strong> Shopify flags risky orders but doesn't hold or cancel them for you (Shopify Payments does block some high risk checkouts before they become orders). You can act at three points: <strong>block</strong> the checkout before it becomes an order, <strong>hold</strong> the order so it can't ship until someone checks it, or <strong>cancel</strong> it. Holding is the safest automatic step, because a wrongly flagged customer only waits, and you can still cancel after you look.</p>
+  </div>
+
+  <h2>Your options at a glance</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Option</th><th>When it acts</th><th>What it needs</th><th>If it's wrong</th></tr></thead>
+    <tbody>
+      <tr><td>Shopify Payments automatic blocking</td><td>At checkout, before an order exists</td><td>Shopify Payments; nothing to set up</td><td>A real buyer can't check out</td></tr>
+      <tr><td>Fraud Control checkout rules (free Shopify app)</td><td>At checkout</td><td>Shopify Payments; you write the rules (email, address, IP)</td><td>A real buyer can't check out</td></tr>
+      <tr><td>Shopify Protect: Rule Builder (Shopify app)</td><td>Depends on the action you pick: block, ask for 3D Secure, or hold for review</td><td>Your own rules; $0.07 per screened transaction</td><td>A block loses the buyer; a hold waits</td></tr>
+      <tr><td>Shopify Flow workflow</td><td>After the order is created</td><td>Basic, Grow, Advanced or Plus plan (Flow is free); start from a template</td><td>Depends on the action: a hold waits, a cancel loses the sale</td></tr>
+      <tr><td>Manual payment capture</td><td>After the order, before you take the money</td><td>A setting; you capture each order yourself</td><td>Nothing is lost if you capture before the authorization expires; Fraud Control has a template that limits this to High risk orders</td></tr>
+      <tr><td>A review app with automatic holds, such as FraudPilot</td><td>After the order, before it ships</td><td>The app; you choose which risk levels to hold</td><td>The order waits until you approve it</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Block before the order</h2>
+  <p>Blocking stops the checkout, so there's no order, no shipment and no chargeback. It's also the bluntest tool: a real customer who trips a rule just can't buy, and you rarely find out who they were.</p>
+  <ul>
+    <li><strong>Shopify Payments</strong> blocks some high risk checkout attempts on its own before an order is created. You can see them under Orders &gt; Abandoned checkouts, in the Blocked view.</li>
+    <li><strong>Fraud Control</strong>, Shopify's free app, adds checkout rules you write yourself, with filters for emails, address details and IP addresses. Its checkout rules only work with Shopify Payments.</li>
+    <li><strong>Shopify Protect: Rule Builder</strong>, a newer Shopify app, lets you pick the signals and choose to block, ask for 3D Secure, or hold the order for review. It's free to install and then charges per screened transaction. Shopify hasn't published its plan or payment requirements yet.</li>
+  </ul>
+  <p>If you use another payment provider, ask them what they block, and look for an app with checkout validation rules.</p>
+
+  <h2>Hold before it ships</h2>
+  <p>A hold is the middle ground. The order is created and paid, but its fulfillment is paused, so it can't ship until someone releases the hold. If the order was fine, you release it and it goes back into your normal fulfillment. If it wasn't, you cancel and refund before you lose the goods.</p>
+  <p>Ways to hold risky orders automatically:</p>
+  <ul>
+    <li><strong>Shopify Flow:</strong> Shopify's "Hold fulfillments based on risk level" template holds the fulfillment order if the risk level is High. If you build your own workflow on the "Order risk analyzed" trigger, note that it runs once Shopify's fraud analysis is complete, not immediately when the order is created.</li>
+    <li><strong>Rule Builder:</strong> its "hold for review" action.</li>
+    <li><strong>A review app</strong> that places the hold for you and releases it when you approve the order.</li>
+    <li><strong>Manual payment capture</strong> is a related option: it doesn't stop shipping, but it gives you time to check an order before you take the payment.</li>
+  </ul>
+  <p>Two things to plan for:</p>
+  <ul>
+    <li><strong>Someone has to review held orders.</strong> A hold stays until someone releases it. Check held orders every day, and before any shipping time you promised buyers runs out.</li>
+    <li><strong>Releasing a hold.</strong> Open the order and click Release hold in its On hold section; Flow also has a release action. Shopify blocks fulfillment until the hold is released. If your 3PL accepted an order before the hold, check with them.</li>
+  </ul>
+
+  <h2>Cancel automatically</h2>
+  <p>Shopify Flow has a "Cancel high-risk orders" template. It cancels orders flagged as high risk, refunds and restocks the items, tags the order and customer, and sends a notification email. Shopify itself recommends checking orders manually after they're cancelled.</p>
+  <p>Before you turn it on, consider what an automatic cancel gets wrong:</p>
+  <ul>
+    <li><strong>Real customers get flagged.</strong> A high risk rating is a prediction. Gifts shipped to another address, travel, or a VPN can raise it. Cancelling those orders loses the sale and often the customer.</li>
+    <li><strong>Limit it to High risk.</strong> Shopify's own recommendation for medium risk is to confirm with the customer, not to cancel.</li>
+    <li><strong>Watch the first weeks.</strong> Look at every order the rule cancelled and ask whether you would have cancelled it yourself.</li>
+  </ul>
+  <p>A safer pattern is to hold automatically, then cancel by hand once you've looked.</p>
+
+  <h2>Which should you use?</h2>
+  <ul>
+    <li><strong>You use Shopify Payments and see repeated attempts from the same emails or IPs:</strong> add Fraud Control checkout rules for those, and keep a hold on what gets through.</li>
+    <li><strong>You ship physical goods and get a few flagged orders a week:</strong> hold High risk orders automatically and review them daily.</li>
+    <li><strong>You get a lot of clear fraud that you never want to review:</strong> consider an automatic cancel for High risk only, and check what it cancels.</li>
+    <li><strong>You're under a card testing attack:</strong> that's a checkout problem, not an order problem. See our <a href="/guides/shopify-card-testing-attack/">card testing guide</a>.</li>
+  </ul>
+
+  <h2>Where FraudPilot fits</h2>
+  <p>We make <a href="https://apps.shopify.com/fraud-triage-cockpit?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-hold-block-cancel-high-risk-orders">FraudPilot</a>, a review queue for the orders Shopify flags as risky. Its optional automatic holds put a fulfillment hold on new orders at the risk levels you choose (High only by default), and approving the order in FraudPilot releases the hold. Before you turn holds on, a preview shows which orders from the last 60 days would have been held, and a Notify only mode marks those orders in the queue without holding them. A hold can't stop an order that was already fulfilled, for example one fulfilled automatically within minutes; the preview shows how often that happened on your store. FraudPilot never cancels an order or blocks a checkout: a hold only pauses fulfillment, and a person on your team decides whether each order ships or is cancelled. Each decision goes into a log you can export for chargebacks. Holds and Notify only are on the paid plan; the preview is free. Read <a href="/shopify/fraudpilot/">how FraudPilot works</a>, or see the <a href="https://apps.shopify.com/fraud-triage-cockpit?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-hold-block-cancel-high-risk-orders&amp;utm_content=bottom">FraudPilot listing on the Shopify App Store</a> for features and plans.</p>
+
+  <h2>Common questions</h2>
+  <h3>Does Shopify cancel high risk orders automatically?</h3>
+  <p>No. Shopify's fraud analysis flags the order and recommends an action, but a flagged order stays open until you act. To act automatically you need a rule: a Shopify Flow workflow, a fraud app, or a hold that waits for your review.</p>
+  <h3>Should I automatically cancel high risk orders?</h3>
+  <p>Usually not as a first step. A high risk rating is a prediction, and real customers get flagged too. A hold stops the order from shipping while you check it, and you can still cancel after. If you do cancel automatically, limit it to High risk and watch what gets cancelled for the first weeks.</p>
+  <h3>Can I block a customer from ordering on Shopify?</h3>
+  <p>Shopify has no block button on the customer record. Blocking happens at checkout: Shopify Payments blocks some high risk attempts on its own, and the free Fraud Control app can block checkouts by email, address or IP address if you use Shopify Payments. Other payment providers need an app with checkout rules.</p>
+  <h3>Does a fulfillment hold stop my 3PL from shipping?</h3>
+  <p>A hold on the fulfillment order stops it from being fulfilled until the hold is released. If a fulfillment service already accepted the order before the hold, check with them, because they may have started picking it.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/shopify-high-risk-orders/">Shopify high risk order: what to do before you fulfill</a></li>
+    <li><a href="/guides/shopify-every-order-flagged-high-risk/">Why is every order on my Shopify store flagged medium or high risk?</a></li>
+    <li><a href="/guides/shopify-card-testing-attack/">Card testing attack on a Shopify store: how to stop and prevent it</a></li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="muted">
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/protecting-orders/fraud-analysis">Shopify Help Center: Reviewing orders with fraud analysis</a></li>
+    <li><a href="https://help.shopify.com/en/manual/payments/fraud-prevention/fraud-control-app">Shopify Help Center: Fraud Control app</a></li>
+    <li><a href="https://www.shopify.com/blog/introducing-shopify-protect">Shopify blog: Introducing Shopify Protect (October 28, 2026)</a></li>
+    <li><a href="https://apps.shopify.com/shopify-protect?utm_source=alpenglowsoftware&amp;utm_medium=guide&amp;utm_campaign=shopify-hold-block-cancel-high-risk-orders">Shopify App Store: Shopify Protect: Rule Builder</a></li>
+    <li><a href="https://help.shopify.com/en/manual/shopify-flow">Shopify Help Center: Shopify Flow</a></li>
+    <li><a href="https://help.shopify.com/en/manual/shopify-flow/reference/actions/hold-fulfillment">Shopify Help Center: Flow action, Hold fulfillment order</a></li>
+    <li><a href="https://help.shopify.com/en/manual/shopify-flow/reference/actions/cancel-order">Shopify Help Center: Flow action, Cancel order</a></li>
+    <li><a href="https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-risk-analyzed">Shopify Help Center: Flow trigger, Order risk analyzed</a></li>
+    <li><a href="https://help.shopify.com/en/manual/fulfillment/fulfilling-orders/holding-fulfillments">Shopify Help Center: Holding fulfillments</a></li>
+  </ul>
+  <p class="muted" style="margin-top:24px">Questions: <a href="mailto:support@alpenglowsoftware.com">support@alpenglowsoftware.com</a></p>
+</main>
+<footer>&copy; 2026 Alpenglow Software LLC · <a href="https://legal.alpenglowsoftware.com/">All legal documents</a> · <a href="/support/">Support</a></footer>
+</body>
+</html>

@@ -11,7 +11,7 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 ## Filter the noise (Shopify apps)
 
 - [ClearSignal](https://alpenglowsoftware.com/shopify/clearsignal/): sorts Shopify store sessions into real shoppers, good AI agents, bad bots and unclassified, and shows the conversion rate with bad bot and AI agent sessions taken out. It measures; it doesn't block visitors.
-- [FraudPilot](https://alpenglowsoftware.com/shopify/fraudpilot/): puts the orders Shopify flags as medium or high risk in one review queue with the reasons, and keeps a log of your decisions. It never cancels orders or blocks checkouts.
+- [FraudPilot](https://alpenglowsoftware.com/shopify/fraudpilot/): puts the orders Shopify flags as medium or high risk in one review queue with the reasons, can hold new risky orders until you approve them (optional, paid plan), and keeps a log of your decisions. It never cancels orders or blocks checkouts.
 
 ## Catch costly mistakes (Shopify apps)
 
@@ -26,6 +26,7 @@ Support: support@alpenglowsoftware.com. Privacy policies and terms for every app
 - [Shopify bot traffic: why sessions spiked and conversion rate dropped](https://alpenglowsoftware.com/guides/shopify-bot-traffic/)
 - [Card testing attack on a Shopify store: what to do](https://alpenglowsoftware.com/guides/shopify-card-testing-attack/)
 - [Why is every order on my Shopify store flagged medium or high risk?](https://alpenglowsoftware.com/guides/shopify-every-order-flagged-high-risk/)
+- [How to automatically hold, block or cancel high risk orders on Shopify](https://alpenglowsoftware.com/guides/shopify-hold-block-cancel-high-risk-orders/)
 - [Shopify high risk order: what to do before you fulfill](https://alpenglowsoftware.com/guides/shopify-high-risk-orders/)
 - [Shopify script tags stop working March 1, 2027: which apps on your store will break](https://alpenglowsoftware.com/guides/shopify-script-tag-deprecation/)
 - [How to remove leftover code from uninstalled Shopify apps](https://alpenglowsoftware.com/guides/remove-leftover-shopify-app-code/)
